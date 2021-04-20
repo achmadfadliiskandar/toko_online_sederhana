@@ -49,7 +49,7 @@
                 </textarea>
                 </div>   --}}
         <div class="form-group">
-        <label for="totalbelanja">Alamat Pengiriman</label>
+        <label for="totalbelanja">Total Belanja</label>
         <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" value="{{ number_format($basket = Auth::user()->barangs->sum('totalharga'))}}" readonly>
         </div>  
         <button type="submit" class="btn btn-primary">Bayar Sekarang</button>

@@ -53,7 +53,7 @@
         // echo number_format($basket);
         // // for transaksionline
         $saksi = Auth::user()->transaksionlines->count('id');
-        if ($saksi == 1) {
+        if ($saksi < 1) {
             echo "<div class='alert alert-danger'>silahkan melakukan transaksi terlebih dahulu</div>";
         
         }
