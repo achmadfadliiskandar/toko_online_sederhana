@@ -20,7 +20,6 @@
             <th scope="col">Jumlah Beli</th>
             <th scope="col">Total Harga</th>
             <th scope="col">Keterangan</th>
-            <th scope="col">Aksi</th>
         </tr>
         </thead>
         <tbody>
@@ -32,9 +31,11 @@
             <td>jumlah_beli : {{$barang->stok}}</td>
             <td>Total Harga : {{number_format($barang->totalharga)}}</td>
             <td>{{$barang->keteranganbrg}}</td>
-            <td>
+            <tfoot>
+            <td colspan=8>
             <a href="/barangs/hapus/{{ $barang->id }}" class="btn btn-danger d-block">Konfirmasi semua Barang yg anda pilih</a>
             </td>
+            </tfoot>
         </tr>
         @empty
         <div class="alert alert-danger">Nggak ada Barang yang di belanjakan</div>
