@@ -11,6 +11,7 @@
 @endif
 <h1 class="mt-5 pt-5 text-center">Barang</h1>
 <marquee behavior="" direction="">silahkan belanja sesuai kebutuhan</marquee>
+<marquee behavior="" direction="down"onMouseOver="this.stop()"onMouseOut="this.start()">totalharga dilarang 0 barang tidak akan dikirim terima kasih</marquee>
 <a href="/barangs/create" class="btn btn-primary my-3">Beli Sekarang</a>    
     <table class="table table-bordered">
         <thead>
