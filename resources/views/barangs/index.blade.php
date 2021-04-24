@@ -47,7 +47,7 @@
             </form>
             </td>
         </tr>
-        @if (($barang->totalharga) < 1)
+        {{-- @if (($barang->totalharga) < 1)
         <td colspan=8>
             {{"lengkapi dulu"}} yang di {{$barang->baskets->namabarang}}
         </td>
@@ -56,7 +56,7 @@
     <a href='/pembayaran' class='btn btn-success btn-block'>Lanjut Pembayaran</a>
     <td colspan="8">
     </td>
-    @endif
+    @endif --}}
         @empty
         <div class="alert alert-danger">Nggak ada Barang yang di belanjakan</div>
     @endforelse
@@ -65,7 +65,7 @@
     </tr>
         </tbody>
     </table>
-    {{-- @php
+    @php
     $barangs = Auth::user()->barangs->count('id');
     if($barangs < 1){
         echo "silahkan beli";
@@ -73,7 +73,7 @@
     else {
         echo "<a href='/pembayaran' class='btn btn-success'>Lanjut Pembayaran</a>";
     }
-    @endphp --}}
+    @endphp
 </div>
 </div>
 </div>
