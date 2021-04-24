@@ -11,17 +11,22 @@
 @method('put')
 @csrf
 <div class="form-group">
-    <label for="namabarang" class="d-inline">Nama barang</label>
-    <input type="text" id="namabarang" class="form-control @error('namabarang') is-invalid @enderror" name="namabarang" value="{{$barang->namabarang}}" readonly>
+    <label for="baskets_id" class="d-inline">Nama barang</label>
+    <select class="form-control" id="baskets_id"  name="baskets_id">
+        <option value="{{$barang->baskets_id}}">{{$barang->baskets->namabarang}}</option>
+        {{-- @foreach ($baskets as $basket)
+            <option value="{{$basket->id}}">{{$basket->namabarang}}</option>          
+        @endforeach --}}
+        </select>
     <div class="invalid-feedback">
-    @error('namabarang')
+    @error('baskets_id')
     {{$message}}
     @enderror
     </div>
 </div>
 <div class="form-group">
     <label for="hargabarang" class="d-inline">Harga barang</label>
-    <input type="text" id="hargabarang" class="form-control @error('hargabarang') is-invalid @enderror" name="hargabarang" value="{{$barang->hargabarang}}" min="1" readonly>
+    <input type="text" id="hargabarang" class="form-control @error('hargabarang') is-invalid @enderror" name="hargabarang" value="{{$barang->baskets->hargabarang}}" readonly>
     <div class="invalid-feedback">
     @error('hargabarang')
     {{$message}}
@@ -30,7 +35,8 @@
 </div>
 <div class="form-group">
     <label for="stok" class="d-inline">Jumlah Beli</label>
-    <input type="number" id="stok" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{$barang->stok}}">
+    <input type="number" id="stok" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" min="1" max="{{$barang->baskets->stok}}" value="{{$barang->stok}}">
+    <small>hapus jumlahnya isi sesuai keinginan</small>
     <div class="invalid-feedback">
     @error('stok')
     {{$message}}

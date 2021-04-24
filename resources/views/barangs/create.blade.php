@@ -9,14 +9,14 @@
     <form method="post" action="/barangs" name="format">
     @csrf
     <div class="form-group">
-        <label for="id_baskets" class="d-inline">Kode Barang</label>
-        <select class="form-control" id="id_baskets" onclick="munculkan()" name="id_baskets">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+        <label for="baskets_id" class="d-inline">Nama Barang</label>
+        <select class="form-control" id="baskets_id" onclick="munculkan()" name="baskets_id">
+            @foreach ($baskets as $basket)
+                <option value="{{$basket->id}}">{{$basket->namabarang}}</option>          
+            @endforeach
             </select>
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="namabarang" class="d-inline">nama barang</label>
         <input type="text" id="namabarang" class="form-control @error('namabarang') is-invalid @enderror" id="namabarang" name="namabarang" value="{{old('namabarang')}}" readonly>
         <div class="invalid-feedback">
@@ -33,7 +33,7 @@
         {{$message}}
         @enderror
         </div>
-    </div>
+    </div> --}}
     <div class="form-group">
         <label for="stok" class="d-inline">Jumlah Beli</label>
         <input type="number"  class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{old('stok')}}">
@@ -43,7 +43,7 @@
         @enderror
         </div>
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="keteranganbrg" class="d-inline">keterangan barang</label>
         <input type="text"  class="form-control @error('keteranganbrg') is-invalid @enderror" id="keteranganbrg" name="keteranganbrg" value="{{old('keteranganbrg')}}" readonly>
         <div class="invalid-feedback">
@@ -51,20 +51,20 @@
         {{$message}}
         @enderror
         </div>
-    </div>
-    <div class="form-group">
+    </div> --}}
+    {{-- <div class="form-group">
         <label for="totalharga" class="d-inline">totalharga</label>
-        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}" readonly>
+        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}">
         <div class="invalid-feedback">
         @error('totalharga')
         {{$message}}
         @enderror
         </div>
-    </div>
+    </div> --}}
     <button type="submit" class="btn btn-primary">Tambah</button>
     </form>
     </div>
-    <script>
+    {{-- <script>
     function munculkan(){
     var id_baskets = (document.format.id_baskets.value);
     var namabarang = ""
@@ -95,9 +95,9 @@
     document.format.hargabarang.value = hargabarang
     document.format.namabarang.value = namabarang
     document.format.keteranganbrg.value = keteranganbrg
-    }
-    </script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    } --}}
+    {{-- // </script> --}}
+    {{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
     $("#hargabarang, #stok").keyup(function(){
@@ -108,5 +108,5 @@
         $("#totalharga").val(totalharga);
     });
     });
-    </script>
+    </script> --}}
     @endsection

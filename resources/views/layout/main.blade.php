@@ -26,7 +26,6 @@
     <a class="nav-link {{request()->is('about')? 'active' : ''}}" href="/about">About</a>  
     <a class="nav-link {{request()->is('pelayanan')? 'active' : ''}}" href="/pelayanan">Service</a>  
     <a class="nav-link {{request()->is('baskets')? 'active' : ''}}" href="/baskets">Basket</a>  
-    <a class="nav-link {{request()->is('barangs')? 'active' : ''}}" href="/barangs">Barang</a> 
     @guest
     <li class="nav-item">
         <a class="nav-link btn btn-primary text-light" href="{{ route('login') }}">{{ __('Login') }}</a>

@@ -53,10 +53,6 @@
             <h5>Rp . 100.000</h5>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
           </div>
-            <div class="card-footer text-center my-3">
-              <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-              <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-          </div>
           </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -69,10 +65,6 @@
                 <h5>Rp . 200.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -84,10 +76,6 @@
                 </h4>
                 <h5>Rp . 150.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
               </div>
             </div>
           </div>
@@ -103,10 +91,6 @@
                 <h5>Rp . 50.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -119,10 +103,6 @@
                 <h5>Rp . 75.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -134,10 +114,6 @@
                 </h4>
                 <h5>Rp. 125.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
               </div>
             </div>
           </div>
@@ -184,10 +160,6 @@
                 <h5>Rp . 2000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -200,10 +172,6 @@
                 <h5>Rp . 5000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -215,10 +183,6 @@
                 </h4>
                 <h5>Rp . 7000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
               </div>
             </div>
           </div>
@@ -234,10 +198,6 @@
                 <h5>Rp . 12.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -250,10 +210,6 @@
                 <h5>Rp . 10.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -265,10 +221,6 @@
                 </h4>
                 <h5>Rp . 1000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
               </div>
             </div>
           </div>
@@ -315,10 +267,6 @@
                 <h5>Rp . 225.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -331,10 +279,6 @@
                 <h5>Rp . 500.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -346,10 +290,6 @@
                 </h4>
                 <h5>Rp . 700.00</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
               </div>
             </div>
           </div>
@@ -365,10 +305,6 @@
                 <h5>Rp . 850.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -381,10 +317,6 @@
                 <h5>Rp . 1000.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
-              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
@@ -396,10 +328,6 @@
                 </h4>
                 <h5>Rp . 30.000</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer text-center my-3">
-                <a href="/baskets/create" class="btn btn-primary">Add keranjang</a>
-                <a href="/register" class="btn btn-warning mt-3 mb-3">Register</a>
               </div>
             </div>
           </div>

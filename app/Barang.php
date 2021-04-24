@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Barang extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['id_baskets','namabarang','hargabarang','totalharga','stok','keteranganbrg','user_id'];
+    protected $fillable = ['baskets_id','stok','totalharga','user_id'];
+    // protected $guarded = ['totalharga'];
 
     public function user(){
     return $this->belongsTo('App\User');

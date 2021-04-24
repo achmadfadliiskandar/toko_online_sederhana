@@ -15,7 +15,7 @@ use SoftDeletes;
     return $this->belongsTo('App\User');
     }
     public function barangs(){
-        return $this->belongsTo('App\Barang');
+        return $this->hashMany('App\Barang');
         }
     // public function cod(){
     //     return $this->hashOne('App\Cod');

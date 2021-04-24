@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Barang;
 use App\User;
+use App\Basket;
 use Auth;
 class BarangsController extends Controller
 {
@@ -20,7 +21,7 @@ class BarangsController extends Controller
     // }
     public function index()
     {
-        // $barangs = Barang::all();
+        //$barangs = Barang::with('baskets')->paginate(2);
         $user = Auth::user();
         $barangs = $user->barangs;
         return view('barangs.index',compact('barangs'));
@@ -33,7 +34,8 @@ class BarangsController extends Controller
      */
     public function create()
     {
-        return view('barangs.create');
+        $baskets = Basket::all();
+        return view('barangs.create',compact('baskets'));
     }
 
     /**
@@ -45,12 +47,12 @@ class BarangsController extends Controller
     public function store(Request $request)
     {
         $barang = barang::create([
-            'id_baskets' => $request["id_baskets"],
-            'namabarang'=>$request['namabarang'],
-            'hargabarang'=>$request['hargabarang'],
+            'baskets_id' => $request["baskets_id"],
+            // 'namabarang'=>$request['namabarang'],
+            // 'hargabarang'=>$request['hargabarang'],
             'totalharga'=>$request['totalharga'],
             'stok'=>$request['stok'],
-            'keteranganbrg'=>$request['keteranganbrg'],
+            // 'keteranganbrg'=>$request['keteranganbrg'],
             'user_id'=>Auth::id()
         ]);
         return redirect('/barangs')->with('status','barang berhasil di beli');
@@ -73,9 +75,11 @@ class BarangsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barang $barang)
+    public function edit($id)
     {
-        return view('barangs.edit',compact('barang'));
+        $baskets = Basket::all();
+        $barang = Barang::with('baskets')->findorfail($id);
+        return view('barangs.edit',compact('barang','baskets'));
     }
 
     /**
@@ -89,8 +93,8 @@ class BarangsController extends Controller
     {
         Barang::where('id', $barang->id)
         ->update([
-            'namabarang' => $request->namabarang,
-            'hargabarang' => $request->hargabarang,
+            // 'namabarang' => $request->namabarang,
+            // 'hargabarang' => $request->hargabarang,
             'stok' => $request->stok,
             'totalharga' => $request->totalharga
         ]);
