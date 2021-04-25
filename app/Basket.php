@@ -23,4 +23,8 @@ use SoftDeletes;
     // public function transaksionline(){
     //     return $this->hashOne('App\Transaksionline');
     // }
+    public function khususadmins(){
+        return $this->hashMany('App\Khususadmin');
+        }
+    
 }

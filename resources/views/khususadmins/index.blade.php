@@ -9,7 +9,7 @@
     <tr>
     <th scope="col">No</th>
     <th scope="col">Kode Barang</th>
-    <th scope="col">Harga Barang</th>
+    {{-- <th scope="col">Harga Barang</th> --}}
     <th scope="col">Jumlah Beli</th>
     <th scope="col">Total Harga</th>
     <th scope="col">User Belanja(id)</th>
@@ -19,8 +19,8 @@
 @forelse ($khususadmins as $khususadmin)
 <tbody>
     <th>{{$loop->iteration}}</th>
-    <td>{{$khususadmin->id_baskets}}</td>
-    <td>{{number_format($khususadmin->hargabarang)}}</td>
+    <td>{{$khususadmin->baskets_id}}</td>
+    {{-- <td>{{number_format($khususadmin->hargabarang)}}</td> --}}
     <td>{{$khususadmin->stok}}</td>
     <td>{{number_format($khususadmin->totalharga)}}</td>
     <td>{{$khususadmin->user_id}}</td>

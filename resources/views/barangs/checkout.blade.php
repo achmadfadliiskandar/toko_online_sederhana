@@ -19,18 +19,16 @@
             <th scope="col">Harga Barang</th>
             <th scope="col">Jumlah Beli</th>
             <th scope="col">Total Harga</th>
-            <th scope="col">Keterangan</th>
         </tr>
         </thead>
         <tbody>
             @forelse ($barangs as $barang)
         <tr>
-            <th scope="col">{{$barang->id_baskets}}</th>
-            <td>{{$barang->namabarang}}</td>
-            <td>Harga : {{number_format($barang->hargabarang)}}</td>
+            <th scope="col">{{$barang->baskets_id}}</th>
+            <td>{{$barang->baskets->namabarang}}</td>
+            <td>Harga : {{number_format($barang->baskets->hargabarang)}}</td>
             <td>jumlah_beli : {{$barang->stok}}</td>
             <td>Total Harga : {{number_format($barang->totalharga)}}</td>
-            <td>{{$barang->keteranganbrg}}</td>
             <tfoot>
             <td colspan=8>
             <a href="/barangs/hapus/{{ $barang->id }}" class="btn btn-danger d-block">Konfirmasi semua Barang yg anda pilih</a>

@@ -15,8 +15,8 @@ class CreateKhususadminsTable extends Migration
     {
         Schema::create('khususadmins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_baskets');
-            $table->integer('hargabarang');
+            $table->Biginteger('baskets_id');
+            // $table->integer('hargabarang');
             $table->integer('totalharga');
             // $table->integer('jmlbeli');
             $table->integer('stok');

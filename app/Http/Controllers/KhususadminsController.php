@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Khususadmin;
 use App\User;
+use App\Basket;
 use Auth;
 class KhususadminsController extends Controller
 {
@@ -38,6 +38,9 @@ class KhususadminsController extends Controller
     public function store(Request $request)
     {
         //
+        $baskets = Basket::findorFail($request->baskets_id);
+        $baskets->stok -= $request->stok;
+        $baskets->save();
     }
 
     /**
