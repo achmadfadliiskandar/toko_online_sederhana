@@ -10,7 +10,7 @@
     </div>
 @endif
 <h1 class="mt-5 pt-5 text-center">Barang</h1>
-<a href="/barangs/create" class="btn btn-primary my-3">Beli Sekarang</a>    
+<a href="/barangs/create" class="btn btn-primary my-3">Beli</a>    
     <table class="table table-bordered">
         <thead>
         <tr>

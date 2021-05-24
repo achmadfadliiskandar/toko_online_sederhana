@@ -17,6 +17,6 @@
   </div>
 </div>
 <a href="/baskets" class="btn btn-warning my-3">Keluar/back</a>
-<a href="/barangs" class="btn btn-primary my-3">Belanja</a>
+<a href="/barangs/create" class="btn btn-primary my-3">Belanja</a>
 </div>
 @endsection

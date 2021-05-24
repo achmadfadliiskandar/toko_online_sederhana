@@ -38,7 +38,7 @@
 @else
 @php
 $barangs = Auth::user()->barangs->sum('stok');
-echo "<button class='btn btn-dark' style='text-decoration:none;'><i class='fa fa-shopping-cart'></i> $barangs</button>";
+echo "<a class='btn btn-dark' href='barangs/create'><i class='fa fa-shopping-cart'></i> $barangs</a>";
 @endphp
 <div class="dropdown">
   <a style="background-color: transparent;text-decoration:none;" class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
