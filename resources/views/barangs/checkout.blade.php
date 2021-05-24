@@ -45,8 +45,8 @@
     </table>
     @php
         $barang = Auth::user()->barangs->count('id');
-        if($barang == 1){
-            echo "konfirmasi barang dulu baru konfirmasi pengantaran barang";
+        if($barang > 1){
+            echo "Silahkan konfirmasi barang dulu baru konfirmasi pengantaran barang";
         }
         else{
             echo "<a href='/konfirmasi/create' class='btn btn-info'>Konfirmasi Pengantaran</a>";

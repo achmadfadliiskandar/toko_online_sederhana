@@ -10,7 +10,7 @@
     </div>
 @endif
 <h1 class="mt-5 pt-5 text-center">Barang</h1>
-<a href="/barangs/create" class="btn btn-primary my-3">Beli</a>    
+<a href="/barangs/create" class="btn btn-primary my-3">Tambah Barang</a>    
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -38,7 +38,7 @@
             @endif --}}
             {{-- <td>{{$barang->keteranganbrg}}</td> --}}
             <td>
-            <a href="/barangs/{{ $barang->id}}/edit" class="btn btn-success">Edit</a>
+            <a href="/barangs/{{ $barang->id}}/edit" class="btn btn-success">Update</a>
             <form action="/barangs/{{$barang->id}}" method="post" class="d-inline" onsubmit="return confirm('yakin ingin di hapus')">
             @method('delete')
             @csrf

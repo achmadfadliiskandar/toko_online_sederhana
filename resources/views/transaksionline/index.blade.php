@@ -3,7 +3,7 @@
     @section('title','Data Transaksi Online')
 
     @section('container')
-            <h1 class="text-center mt-5 pt-4">Data Transaksi Online</h1>
+            <h1 class="text-center mt-5 pt-4">History Data Transaksi Online</h1>
             <div class="container">
                 @if (session('status'))
         <div class="alert alert-success">
