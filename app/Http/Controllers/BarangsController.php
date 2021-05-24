@@ -47,9 +47,9 @@ class BarangsController extends Controller
     public function store(Request $request)
     {
         $barang = barang::create([
-            'baskets_id' => $request["baskets_id"],
+        'baskets_id' => $request["baskets_id"],
             // 'namabarang'=>$request['namabarang'],
-            // 'hargabarang'=>$request['hargabarang'],
+            'hargabarang'=>$request['hargabarang'],
             'totalharga'=>$request['totalharga'],
             'stok'=>$request['stok'],
             // 'keteranganbrg'=>$request['keteranganbrg'],
@@ -97,7 +97,7 @@ class BarangsController extends Controller
         Barang::where('id', $barang->id)
         ->update([
             // 'namabarang' => $request->namabarang,
-            // 'hargabarang' => $request->hargabarang,
+            //'hargabarang' => $request->hargabarang,
             'stok' => $request->stok,
             'totalharga' => $request->totalharga
         ]);

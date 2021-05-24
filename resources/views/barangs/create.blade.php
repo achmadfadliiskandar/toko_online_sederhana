@@ -35,8 +35,17 @@
         </div>
     </div> --}}
     <div class="form-group">
+        <label for="hargabarang" class="d-inline">Harga Barang</label>
+        <input type="number"  class="form-control @error('hargabarang') is-invalid @enderror" id="hargabarang" name="hargabarang" value="{{$basket->hargabarang}}" readonly>
+        <div class="invalid-feedback">
+        @error('hargabarang')
+        {{$message}}
+        @enderror
+        </div>
+    </div>
+    <div class="form-group">
         <label for="stok" class="d-inline">Jumlah Beli</label>
-        <input type="number"  class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{old('stok')}}">
+        <input type="number"  class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{old('stok')}}" min="1">
         <div class="invalid-feedback">
         @error('stok')
         {{$message}}
@@ -52,15 +61,15 @@
         @enderror
         </div>
     </div> --}}
-    {{-- <div class="form-group">
+     <div class="form-group">
         <label for="totalharga" class="d-inline">totalharga</label>
-        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}">
+        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}" readonly>
         <div class="invalid-feedback">
         @error('totalharga')
         {{$message}}
         @enderror
         </div>
-    </div> --}}
+    </div>
     <button type="submit" class="btn btn-primary">Tambah</button>
     </form>
     </div>
@@ -97,7 +106,7 @@
     document.format.keteranganbrg.value = keteranganbrg
     } --}}
     {{-- // </script> --}}
-    {{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
     $("#hargabarang, #stok").keyup(function(){
@@ -108,5 +117,5 @@
         $("#totalharga").val(totalharga);
     });
     });
-    </script> --}}
+    </script>
     @endsection
