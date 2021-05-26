@@ -10,7 +10,7 @@
     </div>
 @endif
 <h1 class="mt-5 pt-5 text-center">Barang</h1>
-<a href="/barangs/create" class="btn btn-primary my-3">Tambah Barang</a>    
+<a href="/baskets" class="btn btn-primary my-3">Tambah Barang</a>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -38,7 +38,7 @@
             @endif --}}
             {{-- <td>{{$barang->keteranganbrg}}</td> --}}
             <td>
-            <a href="/barangs/{{ $barang->id}}/edit" class="btn btn-success">Update</a>
+            <a href="/barangs/{{ $barang->id}}/edit" class="btn btn-success my-3">Update</a>
             <form action="/barangs/{{$barang->id}}" method="post" class="d-inline" onsubmit="return confirm('yakin ingin di hapus')">
             @method('delete')
             @csrf
@@ -67,7 +67,7 @@
     @php
     $barangs = Auth::user()->barangs->count('id');
     if($barangs < 1){
-        echo "silahkan beli";
+        echo "silahkan beli barangnya telebih dahulu";
     }
     else {
         echo "<a href='/pembayaran' class='btn btn-success'>Lanjut Pembayaran</a>";

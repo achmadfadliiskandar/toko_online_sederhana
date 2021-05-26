@@ -46,6 +46,10 @@ class BarangsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'stok' => 'required',
+            'totalharga' => 'required',
+        ]);
         $barang = barang::create([
         'baskets_id' => $request["baskets_id"],
             // 'namabarang'=>$request['namabarang'],
