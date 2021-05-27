@@ -47,10 +47,10 @@ class BarangsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'stok' => 'required',
+            'stok' => 'required|numeric',
             'totalharga' => 'required',
         ]);
-        $barang = barang::create([
+        $barang = Barang::create([
         'baskets_id' => $request["baskets_id"],
             // 'namabarang'=>$request['namabarang'],
             'hargabarang'=>$request['hargabarang'],
@@ -105,7 +105,7 @@ class BarangsController extends Controller
             'stok' => $request->stok,
             'totalharga' => $request->totalharga
         ]);
-        return redirect('/barangs')->with('status','Barang berhasil di ubah');
+        return redirect('barangs')->with('status','Barang berhasil di ubah');
     }
 
     /**
