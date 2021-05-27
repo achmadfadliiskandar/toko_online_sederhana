@@ -45,7 +45,7 @@
     </table>
     @php
         $barang = Auth::user()->barangs->count('id');
-        if($barang > 1){
+        if($barang > 0){
             echo "Silahkan konfirmasi barang dulu baru konfirmasi pengantaran barang";
         }
         else{
