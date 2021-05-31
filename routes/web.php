@@ -59,7 +59,7 @@ Route::get('/barangs/{barang}/edit','BarangsController@edit');
 Route::put('/barangs/{barang}','BarangsController@update');
 Route::delete('/barangs/{basket}','BarangsController@destroy');
 Route::get('/barangs/hapus/{id}','BarangsController@hapus');
-Route::get('checkout','BarangsController@checkout');
+// Route::get('checkout','BarangsController@checkout');
 Route::get('/trash','BarangsController@trash')->middleware('auth');
 
 //pembayaran

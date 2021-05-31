@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Barang extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
     protected $fillable = ['baskets_id','stok','totalharga','user_id'];
     // protected $guarded = ['totalharga'];
 

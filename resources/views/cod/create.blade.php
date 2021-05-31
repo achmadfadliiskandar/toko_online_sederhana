@@ -20,7 +20,7 @@
         <div class="form-group">
         <label for="telpon" class="d-inline">No Telpon</label>
         <input type="number" class="form-control" id="telpon"  name="telpon">
-        <small>untuk mengetahui alamat jika Pengantaran terlambat</small>
+        <small>untuk mengetahui alamat jika Pengantaran terhambat</small>
         </div>
         <div class="form-group">
         <label for="alamat" class="d-inline">Alamat Pengantaran</label>

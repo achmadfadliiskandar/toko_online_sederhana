@@ -16,7 +16,7 @@
         <div class="form-group">
           <label for="baskets_id" class="d-inline">Nama Barang</label>
           <select class="form-control" id="baskets_id" onclick="munculkan()" name="baskets_id">
-                  <option value="{{$basket->id}}">{{$basket->namabarang}}</option>          
+            <option value="{{$basket->id}}">{{$basket->namabarang}}</option>          
           </select>
       </div>
         <div class="form-group">
@@ -30,7 +30,7 @@
       </div>
       <div class="form-group">
           <label for="stok" class="d-inline">Jumlah Beli</label>
-          <input type="number" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{old('stok')}}" min="1">
+          <input type="number" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{old('stok')}}" min="1" max="{{$basket->stok}}">
           <div class="invalid-feedback">
           @error('stok')
           {{$message}}
@@ -65,5 +65,6 @@
         $("#totalharga").val(totalharga);
     });
     });
+    
     </script>
 @endsection

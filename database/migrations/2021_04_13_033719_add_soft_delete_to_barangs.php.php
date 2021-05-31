@@ -13,9 +13,9 @@ class AddSoftDeleteToBarangs extends Migration
      */
     public function up()
     {
-        Schema::table('barangs', function (Blueprint $table) {
-            $table->softDeletes();
-            });
+        // Schema::table('barangs', function (Blueprint $table) {
+        //     $table->softDeletes();
+        //     });
     }
 
     /**
@@ -25,8 +25,8 @@ class AddSoftDeleteToBarangs extends Migration
      */
     public function down()
     {
-        Schema::table('barangs', function (Blueprint $table) {
-            $table->softDeletes();
-            });
+        // Schema::table('barangs', function (Blueprint $table) {
+        //     $table->softDeletes();
+        //     });
     }
 }
