@@ -66,8 +66,10 @@ document.getElementById('logout-form').submit();">
 
 
 @yield('container')
+<div class="container">
 <div class="row">
   @yield('grid')
+</div>
 </div>
 <footer class="bg-dark text-white mt-5">
       <div class="container">
