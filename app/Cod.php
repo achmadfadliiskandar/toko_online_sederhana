@@ -8,7 +8,7 @@ class Cod extends Model
 {
     protected $table = 'cod';
 
-    protected $fillable = ["telpon","alamat","pengiriman","totalbelanja","barangs_id","user_id"];
+    protected $fillable = ["telpon","barangs_id","alamat","pengiriman","totalbelanja","barangs_id","user_id"];
 
     public function user()
     {
@@ -16,5 +16,8 @@ class Cod extends Model
     }
     public function barangs(){
         return $this->hashMany('App\Barang');
+    }
+    public function baskets(){
+        return $this->hashMany('App\Basket');
     }
 }

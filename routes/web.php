@@ -87,7 +87,7 @@ Route::get('datato','TransaksionlinesController@datato');
 // });
 Route::get('cod','CodController@index');
 Route::get('cod/create','CodController@create');
-Route::post('cod','CodController@store');
+Route::post('cod/store','CodController@store');
 Route::get('datacod','CodController@datacod');
 
 

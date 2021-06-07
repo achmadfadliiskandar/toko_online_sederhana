@@ -19,7 +19,7 @@
             <th scope="col">Alamat Pengantaran</th>
             <th scope="col">Waktu</th>
             <th scope="col">Pengiriman</th>
-            {{-- <th scope="col">Barang</th> --}}
+            <th scope="col">Kode Barang yang di beli</th>
             {{-- <th scope="col">Total Belanja Anda</th> --}}
             <th scope="col">Nama Pembeli</th>
             <th scope="col">Total Belanja</th>
@@ -34,7 +34,7 @@
             <td>{{$d->created_at}}</td>
             <td>{{$d->pengiriman}}</td>
             {{-- <td>{{$d->barang}}</td> --}}
-            {{-- <td>{{$d->baskets->namabarang}}</td> --}}
+            <td>{{$d->barangs_id}}</td>
             {{-- <td>{{ number_format($d->basket = Auth::user()->baskets->sum('totalharga')) }}</td> --}}
             <td>{{$d->user->name}}</td>
             <td>{{$d->totalbelanja}}</td>

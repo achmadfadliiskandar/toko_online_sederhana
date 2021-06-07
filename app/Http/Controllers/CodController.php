@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Cod;
 use Auth;
 use App\Basket;
+use App\Barang;
 use App\User;
 
 class CodController extends Controller
@@ -33,7 +34,8 @@ class CodController extends Controller
      */
     public function create()
     {
-        return view('cod.create');
+        $barangs = Barang::all();
+        return view('cod.create',compact('barangs'));
     }
 
     /**
@@ -46,12 +48,14 @@ class CodController extends Controller
     {
         $request->validate([
             'telpon'=>'required',
+            'barangs_id'=>'required',
             'alamat'=>'required',
             'pengiriman'=>'required',
             'totalbelanja'=>'required'
         ]);
         $cod = Cod::create([
             'telpon'=> $request["telpon"],
+            'barangs_id'=>$request["barangs_id"],
             'alamat'=> $request["alamat"],
             'pengiriman'=> $request["pengiriman"],
             'totalbelanja'=> $request["totalbelanja"],

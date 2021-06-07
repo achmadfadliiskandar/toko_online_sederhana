@@ -15,7 +15,7 @@
         </ul>
     </div>
 @endif
-    <form method="POST" action="/cod">
+    <form method="POST" action="/cod/store">
         @csrf
         <div class="form-group">
         <label for="telpon" class="d-inline">No Telpon</label>
@@ -26,11 +26,14 @@
         <label for="alamat" class="d-inline">Alamat Pengantaran</label>
         <input type="text" class="form-control" id="alamat" name="alamat">
         </div>
-        {{-- <div class="form-group">
-        <label for="barang" class="d-inline">Barang</label>
-        <input type="text" class="form-control" id="barang" name="barang">
-        <small>pastekan di sini ctrl+v</small>
-        </div> --}}
+        <div class="form-group">
+            <label for="barangs_id">Barang</label>
+            <select class="form-control" id="barangs_id" name="barangs_id">
+            @foreach ($barangs as $barang)
+            <option value="{{$barang->id}}">{{$barang->baskets->namabarang}}</option>
+            @endforeach
+            </select>
+        </div>
         <div class="form-group">
             <label for="pengiriman">Pengiriman</label>
             <select class="form-control" id="pengiriman" name="pengiriman">

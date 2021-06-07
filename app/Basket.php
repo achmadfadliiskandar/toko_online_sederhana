@@ -15,11 +15,11 @@ use SoftDeletes;
     return $this->belongsTo('App\User');
     }
     public function barangs(){
-        return $this->hashMany('App\Barang');
-        }
-    // public function cod(){
-    //     return $this->hashOne('App\Cod');
-    // }
+    return $this->hashMany('App\Barang');
+    }
+    public function cod(){
+    return $this->belongsTo('App\Cod');
+    }
     // public function transaksionline(){
     //     return $this->hashOne('App\Transaksionline');
     // }
