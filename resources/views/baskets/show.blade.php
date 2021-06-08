@@ -8,7 +8,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <img src="/images/{{$basket->gambar}}" class="card-img-top border" width="100%" alt="">
+      <img src="/images/{{$basket->gambar}}" class="shadow-lg p-3 mb-5 bg-white rounded" width="100%" alt="">
     </div>
     <div class="col-sm-6">
       <form method="post" action="/barangs" name="format">
@@ -50,7 +50,7 @@
       </form>
     </div>
   </div>
-  <a href="/baskets" class="btn btn-warning my-3">Keluar/back</a>
+  <a href="/baskets" class="btn btn-warning">Keluar/back</a>
 {{-- <a href="/barangs/create" class="btn btn-primary my-3">Belanja</a> --}}
 </div>
 </div>

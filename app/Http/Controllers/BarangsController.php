@@ -59,9 +59,9 @@ class BarangsController extends Controller
             // 'keteranganbrg'=>$request['keteranganbrg'],
             'user_id'=>Auth::id()
         ]);
-        // $baskets = Basket::findorFail($request->baskets_id);
-        // $baskets->stok -= $request->stok;
-        // $baskets->save();
+        $baskets = Basket::findorFail($request->baskets_id);
+        $baskets->stok -= $request->stok;
+        $baskets->save();
         return redirect('/barangs')->with('status','barang berhasil di beli');
     }
 
