@@ -77,7 +77,7 @@ class BasketsController extends Controller
 
     
         // Basket::create($request->all());
-        return redirect('admin')->with('status','Keranjang berhasil di tambah');
+        return redirect('admin')->with('status','Data berhasil di tambah');
     }
 
     /**

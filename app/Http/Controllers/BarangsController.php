@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 use App\Barang;
 use App\User;
 use App\Basket;
+use Alert;
 use Auth;
 class BarangsController extends Controller
 {
@@ -62,7 +63,8 @@ class BarangsController extends Controller
         $baskets = Basket::findorFail($request->baskets_id);
         $baskets->stok -= $request->stok;
         $baskets->save();
-        return redirect('/barangs')->with('status','barang berhasil di beli');
+        alert()->success('keranjang berhasil di tambah','sukses');
+        return redirect('/baskets');
     }
 
     /**
@@ -84,9 +86,9 @@ class BarangsController extends Controller
      */
     public function edit($id)
     {
-        $baskets = Basket::all();
-        $barang = Barang::with('baskets')->findorfail($id);
-        return view('barangs.edit',compact('barang','baskets'));
+        // $baskets = Basket::all();
+        // $barang = Barang::with('baskets')->findorfail($id);
+        // return view('barangs.edit',compact('barang','baskets'));
     }
 
     /**
@@ -98,14 +100,14 @@ class BarangsController extends Controller
      */
     public function update(Request $request,Barang $barang)
     {
-        Barang::where('id', $barang->id)
-        ->update([
-            // 'namabarang' => $request->namabarang,
-            //'hargabarang' => $request->hargabarang,
-            'stok' => $request->stok,
-            'totalharga' => $request->totalharga
-        ]);
-        return redirect('barangs')->with('status','Barang berhasil di ubah');
+        // Barang::where('id', $barang->id)
+        // ->update([
+        //     // 'namabarang' => $request->namabarang,
+        //     //'hargabarang' => $request->hargabarang,
+        //     'stok' => $request->stok,
+        //     'totalharga' => $request->totalharga
+        // ]);
+        // return redirect('baskets')->with('status','Barang berhasil di ubah');
     }
 
     /**
@@ -120,19 +122,19 @@ class BarangsController extends Controller
         $barang = Basket::where('id',$value->value('baskets_id'));
         $barang->update(["stok"=>(int) $barang->value('stok') + (int) $value->first()->stok]);
         Barang::destroy($id);
-        return redirect('/barangs')->with('status','data berhasil ke hapus');
+        return redirect('/baskets')->with('status','Keranjang berhasil ke hapus');
     }
-    public function hapus($id)
-    {
-	DB::table('barangs')->where('id',$id)->delete();
-	return redirect('/checkout')->with('status','berhasilguys');
-    }
-    public function checkout(){
-        // $barangs = Barang::all();
-        $user = Auth::user();
-        $barangs = $user->barangs;
-        return view('barangs.checkout',compact('barangs'));
-    }
+    // public function hapus($id)
+    // {
+	// DB::table('barangs')->where('id',$id)->delete();
+	// return redirect('/checkout')->with('status','berhasilguys');
+    // }
+    // public function checkout(){
+    //     // $barangs = Barang::all();
+    //     $user = Auth::user();
+    //     $barangs = $user->barangs;
+    //     return view('barangs.checkout',compact('barangs'));
+    // }
     public function trash(){
     $barangs = Barang::onlyTrashed()->get();
     return view('barangs.trash',compact('barangs'));

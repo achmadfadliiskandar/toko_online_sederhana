@@ -9,27 +9,39 @@
         {{ session('status') }}
     </div>
 @endif
-<h1 class="mt-5 pt-5 text-center">Cart</h1>
-<a href="/baskets" class="btn btn-primary my-3">Tambah Cart</a>
-@section('grid')
-@forelse ($barangs as $barang)   
-<div class="col-md-4">
-<div class="card" style="width: 100%;">
-    <div class="card-body">
-        <h5 class="card-title text-uppercase">{{$barang->baskets->namabarang}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{number_format($barang->baskets->hargabarang)}}</h6>
-        <p class="card-text">{{$barang->stok}}</p>
-        <p class="card-text">{{number_format($barang->totalharga)}}</p>
-        <a href="/barangs/{{ $barang->id}}/edit" class="btn btn-success btn btn-block">Update</a>
-        <form action="/barangs/{{$barang->id}}" method="post" class="my-2" onsubmit="return confirm('yakin ingin di hapus')">
-        @method('delete')
-        @csrf
-        <button type="submit" class="btn btn-block btn btn-danger">Hapus</button>
-        </form>
-    </div>
-    </div>
-</div>
+<h1 class="mt-5 pt-5 text-center">Cart</h1> 
+<table class="table table-hover table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama Barang</th>
+        <th scope="col">Harga Barang</th>
+        <th scope="col">Jumlah Beli</th>
+        <th scope="col">Total Harga</th>
+        <th scope="col">Hapus Keranjang</th>
+    </tr>
+    </thead>
+    <tbody>
+        @forelse ($barangs as $barang)   
+    <tr>
+        <th scope="row">{{$loop->iteration}}</th>
+        <td>{{$barang->baskets->namabarang}}</td>
+        <td>{{number_format($barang->baskets->hargabarang)}}</td>
+        <td>{{$barang->stok}}</td>
+        <td>{{number_format($barang->totalharga)}}</td>
+        <td>
+    <form action="/barangs/{{$barang->id}}" method="post" class="my-2" onsubmit="return confirm('yakin ingin di hapus')">
+    @method('delete')
+    @csrf
+    <button type="submit" class="btn btn-block btn btn-danger">Hapus</button>
+    </form>
+    </td>
+    </tr>
 @empty
-<div class="alert alert-danger w-100">Nggak Ada datanya</div>
+<div class="alert alert-danger w-100">Keranjang Kosong</div>
 @endforelse
-@endsection
+</tbody>
+</table>
+<div class="alert alert-primary text-center" role="alert">
+    Total Uang yang terkumpul di keranjang : {{number_format(Auth::user()->barangs->sum("totalharga"))}}
+</div>
