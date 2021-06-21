@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title','Barang')
+@section('title','Cart')
 
 @section('container')
 <div class="container">
@@ -9,8 +9,8 @@
         {{ session('status') }}
     </div>
 @endif
-<h1 class="mt-5 pt-5 text-center">Barang</h1>
-<a href="/baskets" class="btn btn-primary my-3">Tambah Barang</a>
+<h1 class="mt-5 pt-5 text-center">Cart</h1>
+<a href="/baskets" class="btn btn-primary my-3">Tambah Cart</a>
 @section('grid')
 @forelse ($barangs as $barang)   
 <div class="col-md-4">

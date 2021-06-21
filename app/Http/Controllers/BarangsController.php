@@ -116,6 +116,9 @@ class BarangsController extends Controller
      */
     public function destroy($id)
     {
+        $value = Barang::where('id',$id);
+        $barang = Basket::where('id',$value->value('baskets_id'));
+        $barang->update(["stok"=>(int) $barang->value('stok') + (int) $value->first()->stok]);
         Barang::destroy($id);
         return redirect('/barangs')->with('status','data berhasil ke hapus');
     }

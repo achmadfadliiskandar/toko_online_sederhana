@@ -5,7 +5,7 @@
 @section('container')
 
 <div class="container">
-<h1 class="mt-5 text-center pt-5">Tampilan Basket</h1>
+<h1 class="mt-5 text-center pt-5">Basket</h1>
 @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
