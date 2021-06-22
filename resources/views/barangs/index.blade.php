@@ -45,3 +45,11 @@
 <div class="alert alert-primary text-center" role="alert">
     Total Uang yang terkumpul di keranjang : {{number_format(Auth::user()->barangs->sum("totalharga"))}}
 </div>
+@php
+$barang = Auth::user()->barangs->count('id');
+if ($barang > 1) {
+}
+else {
+    echo "<a href='/pembayaran' class='btn btn-outline-success'>Pembayaran</a>";
+}
+@endphp
