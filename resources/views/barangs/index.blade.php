@@ -47,7 +47,7 @@
 </div>
 @php
 $barang = Auth::user()->barangs->count('id');
-if ($barang > 1) {
+if ($barang < 1) {
 }
 else {
     echo "<a href='/pembayaran' class='btn btn-outline-success'>Pembayaran</a>";
