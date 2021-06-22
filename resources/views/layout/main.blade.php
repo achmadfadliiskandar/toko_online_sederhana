@@ -37,7 +37,7 @@
     @endif
 @else
 @php
-$barangs = Auth::user()->barangs->sum('stok');
+$barangs = Auth::user()->barangs->count('stok');
 echo "<a class='btn btn-dark' href='/barangs'><i class='fa fa-shopping-cart'></i> $barangs</a>";
 @endphp
 <div class="dropdown">

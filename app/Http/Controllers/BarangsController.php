@@ -122,7 +122,8 @@ class BarangsController extends Controller
         $barang = Basket::where('id',$value->value('baskets_id'));
         $barang->update(["stok"=>(int) $barang->value('stok') + (int) $value->first()->stok]);
         Barang::destroy($id);
-        return redirect('/baskets')->with('status','Keranjang berhasil ke hapus');
+        alert()->success('keranjang berhasil di Hapus','sukses');
+        return redirect('/baskets');
     }
     // public function hapus($id)
     // {
