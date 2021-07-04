@@ -11,6 +11,9 @@
       <img src="/images/{{$basket->gambar}}" class="shadow-lg p-3 mb-5 bg-white rounded" width="100%" alt="">
     </div>
     <div class="col-sm-6">
+      @if ($basket->stok == 0)
+        <div class="alert alert-danger">Maaf Stok Barang Habis</div>
+      @else
       <form method="post" action="/barangs" name="format">
         @csrf
         <div class="form-group">
@@ -48,6 +51,7 @@
     </div>
     <button type="submit" class="btn btn-primary w-100">Tambah</button>
       </form>
+      @endif
     </div>
   </div>
   <a href="/baskets" class="btn btn-warning">Keluar/back</a>

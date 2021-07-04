@@ -136,8 +136,8 @@ class BarangsController extends Controller
     //     $barangs = $user->barangs;
     //     return view('barangs.checkout',compact('barangs'));
     // }
-    public function trash(){
-    $barangs = Barang::onlyTrashed()->get();
-    return view('barangs.trash',compact('barangs'));
-    }
+    // public function trash(){
+    // $barangs = Barang::onlyTrashed()->get();
+    // return view('barangs.trash',compact('barangs'));
+    // }
 }

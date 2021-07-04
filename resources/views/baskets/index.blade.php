@@ -23,7 +23,11 @@
         {{-- <p class="card-text">Jumlah Beli : {{$basket->jumlah_beli}}</p> --}}
         {{-- <p class="card-text">Total Harga Rp . {{ number_format($basket->totalharga) }}</p> --}}
         <p class="card-text">Stok : {{$basket->stok}}</p>
+        @if ($basket->stok == 0)
+        <a href="/baskets/{{ $basket->id }}" class="btn btn-info d-block disabled">Detail Barang</a>
+        @else
         <a href="/baskets/{{ $basket->id }}" class="btn btn-info d-block">Detail Barang</a>
+        @endif
       </div>
     </div>
   </div>

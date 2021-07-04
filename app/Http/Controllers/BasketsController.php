@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Basket;
 use App\User;
 use Auth;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BasketsController extends Controller
@@ -149,33 +149,5 @@ class BasketsController extends Controller
         Basket::destroy($basket->id);
         return redirect('admin')->with('status','data berhasil ke hapus');
     }
-    // public function truncate(Basket $basket){
-    // //$id = $request->id;
-    // $basket = DB::table('baskets')->truncate();
-    // return redirect('/baskets')->with('status','Keranjang Berhasil kosong');
-    // }
-    // public function hapus($user_id)
-    // {
-    //     DB::table('baskets')->where('user_id',$user_id)->delete();
-    //     return redirect('/baskets');
-    // }
-    // public function delete($id)
-    // {
-    //     DB::table('baskets')->where('id',$id)->delete();
-    //     return redirect('/baskets')->with('status','barang berhasil terhapus dari keranjang');
-    // }
-    // public function awal(){
-    //     // $baskets = Basket::all();
-    //     $user = Auth::user();
-    //     $baskets = $user->baskets;
-    //     return view('baskets.awal',compact('baskets'));
-    // }
-    // public function trash(){
-    //     $baskets = Basket::onlyTrashed()->get();
-    //     return view('baskets.trash',compact('baskets'));
-    // }
-    public function admin(){
-        $baskets = Basket::all();
-        return view('baskets.admin',compact('baskets'));
-    }
+
 }
