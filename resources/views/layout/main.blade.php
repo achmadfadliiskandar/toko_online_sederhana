@@ -43,7 +43,7 @@ echo "<a class='btn btn-dark' href='/barangs'><i class='fa fa-shopping-cart'></i
 <div class="dropdown">
   <a style="background-color: transparent;text-decoration:none;" class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <strong class="mt-2 text-light mr-3 ml-3 text-uppercase">{{ Auth::user()->name }}</strong>
-    <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" class="rounded-circle" alt="user" width="40" height="40">
+    <img src="/gambaruser/{{Auth::user()->gambar}}" class="rounded-circle" alt="user" width="40" height="40">
   </a>
   <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
         <a class="btn-link text-dark" style="text-decoration:none;" href="{{ route('logout') }}"

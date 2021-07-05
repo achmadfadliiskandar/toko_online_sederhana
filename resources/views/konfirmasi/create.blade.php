@@ -4,12 +4,17 @@
 
 @section('container')
 <div class="container">
+    @if (session('status'))
+    <div class="alert alert-primary">
+        {{ session('status') }}
+    </div>
+@endif
 <h2 class="mt-5 pt-5 text-center">Konfirmasi Pengantaran</h2>
 <form method="POST" action="/konfirmasi/">
     @csrf
 <div class="form-group">    
     <label for="status">Status</label>
-    <input type="text" class="form-control" id="status" name="status" value="Transaksi" readonly>
+    <input type="text" class="form-control" id="status" name="status" value="Tahap Pengantaran barang" readonly>
 </div> 
 <div class="form-group">
     <label for="pengantaran">Keterangan Pengantaran</label>

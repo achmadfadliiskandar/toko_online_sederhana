@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="icon" href="https://www.wallpaperup.com/uploads/wallpapers/2014/01/21/234209/518511aba878667dc76e37129d58b136.jpg">
     <!-- <title>{{ config('title', 'Login && Register')}}</title> -->
 
     <!-- Scripts -->
@@ -37,10 +37,20 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        @if (Auth::check())
+                        @if (Auth::user()->role == 'pembeli')
                         <a class="nav-link" href="{{url('/')}}">Home </a>
                         <a class="nav-link" href="{{url('/about')}}">About</a>
                         <a class="nav-link" href="{{url('/pelayanan')}}">Services</a>
                         <a class="nav-link" href="{{url('/baskets')}}">Basket</a>
+                        @endif
+                        @if (Auth::user()->role == 'admin')
+                        <a class="btn btn-primary" href="http://127.0.0.1:8000/admin">Ruang Admin</a>
+                        @endif
+                        @if (Auth::user()->role == 'penjual')
+                        <a class="nav-link" href="http://127.0.0.1:8000/penjual">Ruang Penjual</a>
+                        @endif
+                        @endif
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link btn btn-primary text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -54,8 +64,8 @@
                         <div class="dropdown">
                         <a style="background-color: transparent;text-decoration:none;" class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <strong class="mt-2 text-light mr-3 ml-3 text-uppercase">{{ Auth::user()->name }}</strong>
-                        <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" class="rounded-circle" alt="user" width="40" height="40">
-                    </a>
+                        <img src="/gambaruser/{{Auth::user()->gambar}}" class="rounded-circle" alt="user" width="40" height="40">
+                        </a>
                         <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                         <a class="btn-link text-dark" style="text-decoration:none;" href="{{ route('logout') }}"
                         onclick="event.preventDefault();

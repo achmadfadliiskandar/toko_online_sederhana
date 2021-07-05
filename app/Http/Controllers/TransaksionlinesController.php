@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Transaksionline;
 use Auth;
 use App\User;
+use App\Barang;
 
 class TransaksionlinesController extends Controller
 {
@@ -22,11 +23,13 @@ class TransaksionlinesController extends Controller
     {
         $user = Auth::user();
         $transaksionlines = $user->transaksionlines;
-        return view('transaksionline.index',compact('transaksionlines'));
+        $barangs = $user->barangs;
+        return view('transaksionline.index',compact('transaksionlines','barangs'));
     }
     public function datato(){
-        $transaksionlines = Transaksionline::all();
-        return view('transaksionline.datato',compact('transaksionlines'));
+        // khusus admin
+    $transaksionlines = Transaksionline::all();
+    return view('transaksionline.datato',compact('transaksionlines'));
     }
 
     /**
@@ -36,7 +39,8 @@ class TransaksionlinesController extends Controller
      */
     public function create()
     {
-        return view('transaksionline.create');
+        $barangs = Barang::all();
+        return view('transaksionline.create',compact('barangs'));
     }
 
     /**
@@ -62,6 +66,7 @@ class TransaksionlinesController extends Controller
 
         Transaksionline::create([
             'kartu'=> $request["kartu"],
+            'barangs_id'=> $request["barangs_id"],
             'alamatpengiriman'=> $request["alamatpengiriman"],
             'pengiriman'=> $request["pengiriman"],
             'bukti'=>$imgName,

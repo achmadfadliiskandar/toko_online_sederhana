@@ -27,7 +27,38 @@
                             </div>
                         </div>
 
-                        
+                        <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" id="role" name="role">
+                                <option>Pembeli</option>
+                                <option>Penjual</option>
+                                </select>
+                                {{-- <small>boleh di pilih jika ingin mempunyai akun penjual</small> --}}
+
+                                @error('role')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gambar" class="col-md-4 col-form-label text-md-right">{{ __('Gambar') }}</label>
+
+                            <div class="col-md-6">
+                                <label for="gambar">Pilih Gambar</label>
+                                <input type="file" class="form-control-file" id="gambar" name="gambar">
+                                @error('gambar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 

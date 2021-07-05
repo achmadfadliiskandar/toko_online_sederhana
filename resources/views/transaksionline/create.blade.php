@@ -24,6 +24,11 @@
     <form method="POST" action="/transaksionline" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
+        <label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
+        <input type="text" class="form-control" name="barangs_id" readonly  value="@foreach ($barangs as $barang){{$barang->baskets->namabarang}} : {{$barang->stok}} = {{number_format($barang->totalharga)}}
+        @endforeach">
+        </div>
+        <div class="form-group">
             <label for="kartu">Kartu</label>
             <input type="text" class="form-control" id="kartu" name="kartu">
         </div>

@@ -24,7 +24,8 @@ class CodController extends Controller
     {
         $user = Auth::user();
         $cod = $user->cod;
-        return view('cod.index',compact('cod'));
+        $barangs = $user->barangs;
+        return view('cod.index',compact('cod','barangs'));
     }
 
     /**
@@ -35,7 +36,8 @@ class CodController extends Controller
     public function create()
     {
         $barangs = Barang::all();
-        return view('cod.create',compact('barangs'));
+        $baskets = Basket::all();
+        return view('cod.create',compact('barangs','baskets'));
     }
 
     /**

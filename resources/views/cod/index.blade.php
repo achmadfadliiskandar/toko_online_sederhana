@@ -4,8 +4,8 @@
     
 @section('container')
 <div class="container">
-    <h1 class="text-center mt-5 pt-5">History Cash On Delivery (COD)</h1>
-    <p class="text-center">Belanja Online Bayar Dirumah</p>
+    <h1 class="text-center mt-5 pt-5">Cash On Delivery (COD)</h1>
+    {{-- <p class="text-center">Belanja Online Bayar Dirumah</p> --}}
     @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
@@ -19,7 +19,7 @@
             <th scope="col">Alamat Pengantaran</th>
             <th scope="col">Waktu</th>
             <th scope="col">Pengiriman</th>
-            <th scope="col">Kode Barang yang di beli</th>
+            <th scope="col">Barang yang di beli</th>
             {{-- <th scope="col">Total Belanja Anda</th> --}}
             <th scope="col">Nama Pembeli</th>
             <th scope="col">Total Belanja</th>
@@ -45,19 +45,41 @@
       @empty
       <td colspan="8" class="text-center text-danger">Anda Belum Pernah melakukan Pembayaran Cod</td>  
       @endforelse
-</table>
-@php
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Refresh</h5>
+            </div>
+            <div class="modal-body">
+              @forelse ($barangs as $barang)
+                <h3>{{$barang->baskets->namabarang}}</h3>
+                <a href="/barangs/hapus/{{$barang->user_id}}" class="btn btn-primary w-100"> <i class="fa fa-refresh fa-spin"></i> Refresh</a>
+                <strong>pilih yang mana saja</strong>
+                @empty
+                <div class="alert alert-danger">{{"barang kosong"}}</div>
+            @endforelse
+            </div>
+            <div class="modal-footer">
+              {{-- <a href="/barangs/hapus/{{$barang->user_id}}" class="btn btn-primary w-100"> <i class="fa fa-refresh fa-spin"></i> Refresh</a> --}}
+            </div>
+          </div>
+        </div>
+      </table>
+      @php
       /*for cod*/
       $cod = Auth::user()->cod->count('id');
       if ($cod < 1) {
-        echo "<div class='alert alert-danger' role='alert'>
+        echo "<div class='alert alert-danger mt-4' role='alert'>
           Silahkan bayar cod terlebih dahulu
               </div>";
       }
       else{
-        echo "<a href='/checkout' class='btn btn-outline-success my-3 w-100'>Checkout</a>";
+        echo "<button type='button' class='btn btn-primary w-100' data-toggle='modal' data-target='#staticBackdrop'>Refresh</button>";
       }
 @endphp
+      </div>
 {{-- <a href="/cod/create" class="btn btn-info d-block">Bayar dari rumah/cod sekarang</a> --}}
 </div>
 @endsection

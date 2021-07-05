@@ -22,6 +22,6 @@ class Barang extends Model
     return $this->belongsTo('App\Cod');
     }
     public function transaksionline(){
-        return $this->hashOne('App\Transaksionline');
+        return $this->hasMany('App\Transaksionline');
     }
 }

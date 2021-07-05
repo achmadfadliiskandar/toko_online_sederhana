@@ -8,7 +8,7 @@ class Cod extends Model
 {
     protected $table = 'cod';
 
-    protected $fillable = ["telpon","barangs_id","alamat","pengiriman","totalbelanja","barangs_id","user_id"];
+    protected $fillable = ["telpon","barangs_id","alamat","pengiriman","totalbelanja","user_id"];
 
     public function user()
     {

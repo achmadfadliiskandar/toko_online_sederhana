@@ -140,4 +140,11 @@ class BarangsController extends Controller
     // $barangs = Barang::onlyTrashed()->get();
     // return view('barangs.trash',compact('barangs'));
     // }
+    public function delete($id)
+{
+    // DB::table('barangs')->where('user_id',$id)->delete();
+    $barangs = Barang::where('user_id',$id);
+    $barangs->delete();
+    return redirect('konfirmasi/create')->with('status','selamat sampai tahap terakhir');
+}
 }

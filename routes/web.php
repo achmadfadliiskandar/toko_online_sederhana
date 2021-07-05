@@ -34,40 +34,32 @@ Route::get('/about','PagesController@about');
 Route::get('pelayanan','PelayananController@index');
 
 //Basket
-// Route::get('/baskets','BasketsController@index');
-// Route::get('/baskets/create','BasketsController@create');
-// Route::get('/baskets/{basket}','BasketsController@show');
-// Route::post('/baskets','BasketsController@store');
-// Route::delete('/baskets/{basket}','BasketsController@destroy');
-// Route::get('/baskets/{basket}/edit','BasketsController@edit');
-// Route::patch('/baskets/{basket}','BasketsController@update');
-Route::resource('baskets','BasketsController')->middleware('auth');
-// Route::get('/trash','BasketsController@trash');
-// // Route::get('/baskets/{basket}','BasketsController@truncate');
-// Route::get('/baskets/hapus/{user_id}','BasketsController@hapus');
-// Route::get('/baskets/delete/{id}','BasketsController@delete');
-// Route::get('/baskets/cari','BasketsController@cari');
-// Route::get('awal','BasketsController@awal');
-Route::get('admin','BasketsController@admin');
+Route::get('/baskets','BasketsController@index')->middleware('checkRole:admin,penjual,pembeli');
+Route::get('/baskets/create','BasketsController@create')->middleware('checkRole:penjual');
+Route::get('/baskets/{basket}','BasketsController@show')->middleware('checkRole:pembeli');
+Route::post('/baskets','BasketsController@store')->middleware('checkRole:penjual');
+Route::delete('/baskets/{basket}','BasketsController@destroy')->middleware('checkRole:penjual');
+Route::get('/baskets/{basket}/edit','BasketsController@edit')->middleware('checkRole:penjual');
+Route::patch('/baskets/{basket}','BasketsController@update')->middleware('checkRole:penjual');
+Route::get('admin','BasketsController@admin')->middleware('checkRole:admin');
+Route::get('penjual','BasketsController@penjual')->middleware('checkRole:penjual');
 
 
 // barang
-Route::get('/barangs','BarangsController@index')->middleware('auth');
-Route::get('/barangs/create','BarangsController@create')->middleware('auth');
-Route::post('/barangs','BarangsController@store');
-//Route::get('/barangs/{barang}/edit','BarangsController@edit');
-//Route::put('/barangs/{barang}','BarangsController@update');
-Route::delete('/barangs/{basket}','BarangsController@destroy');
-// Route::get('/barangs/hapus/{id}','BarangsController@hapus');
-// Route::get('checkout','BarangsController@checkout');
-Route::get('/trash','BarangsController@trash')->middleware('auth');
+Route::get('/barangs','BarangsController@index')->middleware('checkRole:pembeli');
+Route::get('/barangs/create','BarangsController@create')->middleware('checkRole:pembeli');
+Route::post('/barangs','BarangsController@store')->middleware('checkRole:pembeli');
+// untuk hapus satu data
+Route::delete('/barangs/{basket}','BarangsController@destroy')->middleware('checkRole:pembeli');
+// untuk hapus semua data alias refresh
+Route::get('/barangs/hapus/{user_id}', 'BarangsController@delete')->middleware('checkRole:pembeli');
+// Route::get('/trash','BarangsController@trash')->middleware('auth');
 
-//pembayaran
-// Route::get('/pembayaran', function () {
-//          return view('/pembayaran.index');
-//      });
 
-Route::get('pembayaran','PembayaranController@index')->middleware('auth');
+
+
+
+Route::get('pembayaran','PembayaranController@index')->middleware('auth')->middleware('checkRole:pembeli');
 Route::get('pembayaran/create','PembayaranController@create')->middleware('auth');
 Route::post('pembayaran','PembayaranController@store')->middleware('auth');
 
@@ -76,23 +68,23 @@ Route::post('pembayaran','PembayaranController@store')->middleware('auth');
 // return view('/transaksionline.index');
 // });
 
-Route::get('transaksionline','TransaksionlinesController@index');
-Route::get('transaksionline/create','TransaksionlinesController@create');
+Route::get('transaksionline','TransaksionlinesController@index')->middleware('checkRole:pembeli');
+Route::get('transaksionline/create','TransaksionlinesController@create')->middleware('checkRole:pembeli');
 Route::post('transaksionline','TransaksionlinesController@store');
-Route::get('datato','TransaksionlinesController@datato');
+Route::get('datato','TransaksionlinesController@datato')->middleware('checkRole:admin,penjual');
 
 //cod
 // Route::get('/cod', function () {
 // return view('/cod.index');
 // });
-Route::get('cod','CodController@index');
-Route::get('cod/create','CodController@create');
+Route::get('cod','CodController@index')->middleware('checkRole:pembeli');
+Route::get('cod/create','CodController@create')->middleware('checkRole:pembeli');
 Route::post('cod/store','CodController@store');
-Route::get('datacod','CodController@datacod');
+Route::get('datacod','CodController@datacod')->middleware('checkRole:admin,penjual');;
 
 
 // konfirmasi
-Route::get('/konfirmasi','KonfirmasiController@index');
+Route::get('/konfirmasi','KonfirmasiController@index')->middleware('checkRole:admin,penjual');;
 Route::get('/konfirmasi/create','KonfirmasiController@create')->middleware('auth');
 Route::post('/konfirmasi','KonfirmasiController@store');
 
@@ -104,14 +96,7 @@ return view('tableadmin.tableadmin');
 Route::get('/data-table', function(){
     return view('tableadmin.data-table');
 });
-
-Route::get('/loginadmin', function () {
-    return view('/loginadmin.loginadmin');
-});
-
-// cek siapa pembeli(khusus admin)
-Route::get('/khususadmins','KhususadminsController@index')->middleware('auth');
-
+// 
 //login
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

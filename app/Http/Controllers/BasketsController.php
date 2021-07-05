@@ -17,7 +17,7 @@ class BasketsController extends Controller
      */
     public function __construct()
     {
-    $this->middleware('auth')->only('show', 'delete');
+    $this->middleware('auth');
     }
     public function index()
     {
@@ -27,6 +27,18 @@ class BasketsController extends Controller
         // $baskets = $user->baskets;
         $baskets = Basket::all();
         return view('baskets.index',compact('baskets'));
+    }
+    public function admin()
+    {
+        // khusus admin
+        $baskets = Basket::all();
+        return view('baskets.admin',compact('baskets'));
+    }
+
+    public function penjual(){
+        $user = Auth::user();
+        $baskets = $user->baskets;
+        return view('baskets.penjual',compact('baskets'));
     }
 
     /**
