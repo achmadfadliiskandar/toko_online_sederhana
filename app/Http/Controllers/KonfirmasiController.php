@@ -50,7 +50,7 @@ class KonfirmasiController extends Controller
             'status'=> $request["status"],
             'pengantaran'=>$request["pengantaran"],
             'cod_id'=>$request["cod_id"],
-            'transaksi_onlines'=>$request["transaksi_onlines"],
+            'transaksionlines_id'=>$request["transaksionlines_id"],
             'user_id'=> Auth::id()
         ]);
         return redirect('/');

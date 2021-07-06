@@ -15,6 +15,7 @@
         <th scope="col">Kode unik Cod</th>
         <th scope="col">Kode unik Transaksi Online</th>
         <th scope="col">Pengantaran</th>
+        <th scope="col">Waktu</th>
     </tr>
     </thead>
     <tbody class="mt-5">
@@ -26,6 +27,7 @@
         <td>{{$konfirm->cod_id}}</td>
         <td>{{$konfirm->transaksionlines_id}}</td>
         <td>{{$konfirm->pengantaran}}</td>
+        <td>{{$konfirm->created_at}}</td>
     </tr>
     @empty
     <td colspan="7" class="text-center text-danger">tidak ada konfirmasi</td>

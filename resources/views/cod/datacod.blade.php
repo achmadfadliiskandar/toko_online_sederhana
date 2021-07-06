@@ -17,13 +17,14 @@
                 <th scope="col">NO</th>
                 <th scope="col">No Telpon</th>
                 <th scope="col">Alamat Pengantaran</th>
-                <th scope="col">Waktu</th>
+                {{-- <th scope="col">Waktu</th> --}}
                 <th scope="col">Pengiriman</th>
                 <th scope="col">Barang</th>
                 <th scope="col">Total Belanja</th>
                 <th scope="col">Nama Pembeli</th>
                 <th scope="col">Id Pembeli</th>
                 <th scope="col">Kode Unik Pembeli</th>
+                <th scope="col">Waktu</th>
             </tr>
             @foreach ($cod as $d)
             </thead>
@@ -32,7 +33,7 @@
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$d->telpon}}</td>
                 <td>{{$d->alamat}}</td>
-                <td>{{$d->created_at}}</td>
+                {{-- <td>{{$d->created_at}}</td> --}}
                 <td>{{$d->pengiriman}}</td>
                 <td>{{$d->barangs_id}}</td>
                 <td>{{$d->totalbelanja}}</td>
@@ -42,6 +43,7 @@
                 <td>{{$d->user->name}}</td>
                 <td>{{$d->user->id}}</td>
                 <td>{{$d->kode_unik}}</td>
+                <td>{{$d->created_at}}</td>
             </tr>
             @endforeach
             @forelse ($cod as $d)

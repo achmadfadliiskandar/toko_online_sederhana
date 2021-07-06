@@ -19,14 +19,14 @@
                 <th scope="col">No</th>
                 <th scope="col">Kartu</th>
                 <th scope="col">Bukti</th>
-                <th scope="col">Tanggal</th>
+                {{-- <th scope="col">Tanggal</th> --}}
                 <th scope="col">Nama</th>
                 <th scope="col">Barang yang di beli</th>
                 <th scope="col">Pengiriman</th>
                 <th scope="col">Alamat Pengiriman</th>
                 <th scope="col">Total Belanja</th>
-                <th scope="col">id Pembeli</th>
-                {{-- <th scope="col">Barang</th> --}}
+                <th scope="col">Kode Unik</th>
+                <th scope="col">Waktu</th>
             </tr>
             </thead>
             <tbody>
@@ -35,18 +35,19 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$saksi->kartu}}</td>
                     <td><img src="/image/{{$saksi->bukti}}" alt="gambar"></td>
-                    <td>{{$saksi->created_at}}</td> 
+                    {{-- <td>{{$saksi->created_at}}</td>  --}}
                     <td>{{$saksi->user->name}}</td> 
                     <td>{{$saksi->pengiriman}}</td>
-                    <td>{{$saksi->alamatpengiriman}}</td>
+                    <td>{{$saksi->alamatpengiriman}}</td>   
                     <td>{{$saksi->barangs_id}}</td> 
                     <td>{{$saksi->totalbelanja}}</td>
-                    <td>{{$saksi->user->id}}</td>
+                    <td>{{$saksi->kode_unik}}</td>
+                    <td>{{$saksi->created_at}}</td>
                     {{-- <td>{{ number_format($saksi->basket = Auth::user()->baskets->sum('totalharga')) }}</td> --}}
                     {{-- <td>{{$saksi->barang}}</td> --}}
                 </tr>
                 @empty
-                <td colspan="9" class="text-center">Anda belum pernah Pembayaran Online</td>
+                <td colspan="10" class="text-center">Anda belum pernah Pembayaran Online</td>
                 <tr>
                 @endforelse
             </tbody>
