@@ -52,6 +52,7 @@ class CodController extends Controller
             'telpon'=>'required',
             'barangs_id'=>'required',
             'alamat'=>'required',
+            // 'kode_unik'=>'required',
             'pengiriman'=>'required',
             'totalbelanja'=>'required'
         ]);
@@ -59,6 +60,7 @@ class CodController extends Controller
             'telpon'=> $request["telpon"],
             'barangs_id'=>$request["barangs_id"],
             'alamat'=> $request["alamat"],
+            'kode_unik'=> mt_rand(100,5000),
             'pengiriman'=> $request["pengiriman"],
             'totalbelanja'=> $request["totalbelanja"],
             'user_id'=> Auth::id()

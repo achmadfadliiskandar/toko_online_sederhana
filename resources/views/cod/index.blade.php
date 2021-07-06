@@ -23,6 +23,7 @@
             {{-- <th scope="col">Total Belanja Anda</th> --}}
             <th scope="col">Nama Pembeli</th>
             <th scope="col">Total Belanja</th>
+            <th scope="col">Kode Unik</th>
           </tr>
           @foreach ($cod as $d)
         </thead>
@@ -38,6 +39,7 @@
             {{-- <td>{{ number_format($d->basket = Auth::user()->baskets->sum('totalharga')) }}</td> --}}
             <td>{{$d->user->name}}</td>
             <td>{{$d->totalbelanja}}</td>
+            <td>{{$d->kode_unik}}</td>
           </tr>
           @endforeach
           @forelse ($cod as $d)

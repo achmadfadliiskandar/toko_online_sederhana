@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Konfirmasi;
 use App\User;
 use Auth;
+use App\Cod;
+use App\Transaksionline;
 use Illuminate\Http\Request;
 
 class KonfirmasiController extends Controller
@@ -26,7 +28,10 @@ class KonfirmasiController extends Controller
      */
     public function create()
     {
-        return view('konfirmasi.create');
+        $user = Auth::user();
+        $cod = $user->cod;
+        $transaksionlines = $user->transaksionlines;
+        return view('konfirmasi.create',compact('cod','transaksionlines'));
     }
 
     /**
@@ -44,6 +49,8 @@ class KonfirmasiController extends Controller
         $konfirmasi = Konfirmasi::Create([
             'status'=> $request["status"],
             'pengantaran'=>$request["pengantaran"],
+            'cod_id'=>$request["cod_id"],
+            'transaksi_onlines'=>$request["transaksi_onlines"],
             'user_id'=> Auth::id()
         ]);
         return redirect('/');

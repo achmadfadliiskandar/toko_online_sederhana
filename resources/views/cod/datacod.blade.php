@@ -19,10 +19,11 @@
                 <th scope="col">Alamat Pengantaran</th>
                 <th scope="col">Waktu</th>
                 <th scope="col">Pengiriman</th>
-                {{-- <th scope="col">Barang</th> --}}
+                <th scope="col">Barang</th>
                 <th scope="col">Total Belanja</th>
                 <th scope="col">Nama Pembeli</th>
                 <th scope="col">Id Pembeli</th>
+                <th scope="col">Kode Unik Pembeli</th>
             </tr>
             @foreach ($cod as $d)
             </thead>
@@ -33,12 +34,14 @@
                 <td>{{$d->alamat}}</td>
                 <td>{{$d->created_at}}</td>
                 <td>{{$d->pengiriman}}</td>
+                <td>{{$d->barangs_id}}</td>
                 <td>{{$d->totalbelanja}}</td>
                 {{-- <td>{{$d->barang}}</td> --}}
                 {{-- <td>{{$d->baskets->namabarang}}</td> --}}
                 {{-- <td>{{ number_format($d->basket = Auth::user()->baskets->sum('totalharga')) }}</td> --}}
                 <td>{{$d->user->name}}</td>
                 <td>{{$d->user->id}}</td>
+                <td>{{$d->kode_unik}}</td>
             </tr>
             @endforeach
             @forelse ($cod as $d)

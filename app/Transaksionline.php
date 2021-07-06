@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksionline extends Model
 {
-    protected $fillable = ["kartu","bukti","alamatpengiriman","pengiriman","totalbelanja","barangs_id","user_id"];
+    protected $fillable = ["kartu","bukti","alamatpengiriman","pengiriman","kode_unik","totalbelanja","barangs_id","user_id"];
 
     public function user(){
     	return $this->belongsTo('App\User');
@@ -16,5 +16,8 @@ class Transaksionline extends Model
     }
     public function barangs(){
     	return $this->belongsTo('App\Barang');
+    }
+    public function konfirmasi(){
+        return $this->hasOne('App\Konfirmasi');
     }
 }

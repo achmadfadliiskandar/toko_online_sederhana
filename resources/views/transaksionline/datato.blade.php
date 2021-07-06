@@ -21,6 +21,7 @@
                 <th scope="col">Bukti</th>
                 <th scope="col">Tanggal</th>
                 <th scope="col">Nama</th>
+                <th scope="col">Barang yang di beli</th>
                 <th scope="col">Pengiriman</th>
                 <th scope="col">Alamat Pengiriman</th>
                 <th scope="col">Total Belanja</th>
@@ -37,7 +38,8 @@
                     <td>{{$saksi->created_at}}</td> 
                     <td>{{$saksi->user->name}}</td> 
                     <td>{{$saksi->pengiriman}}</td>
-                    <td>{{$saksi->alamatpengiriman}}</td> 
+                    <td>{{$saksi->alamatpengiriman}}</td>
+                    <td>{{$saksi->barangs_id}}</td> 
                     <td>{{$saksi->totalbelanja}}</td>
                     <td>{{$saksi->user->id}}</td>
                     {{-- <td>{{ number_format($saksi->basket = Auth::user()->baskets->sum('totalharga')) }}</td> --}}

@@ -12,6 +12,8 @@
         <th scope="col">Nama</th>
         <th scope="col">Email</th>
         {{-- <th scope="col">Status</th> --}}
+        <th scope="col">Kode unik Cod</th>
+        <th scope="col">Kode unik Transaksi Online</th>
         <th scope="col">Pengantaran</th>
     </tr>
     </thead>
@@ -21,7 +23,8 @@
         <th scope="row">{{$loop->iteration}}</th>
         <td>{{$konfirm->user->name}}</td>
         <td>{{$konfirm->user->email}}</td>
-        {{-- <td>{{$konfirm->status}}</td> --}}
+        <td>{{$konfirm->cod->kode_unik}}</td>
+        <td>{{$konfirm->transaksionlines_id}}</td>
         <td>{{$konfirm->pengantaran}}</td>
     </tr>
     @empty

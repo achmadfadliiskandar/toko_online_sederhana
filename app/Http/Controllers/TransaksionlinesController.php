@@ -68,6 +68,7 @@ class TransaksionlinesController extends Controller
             'kartu'=> $request["kartu"],
             'barangs_id'=> $request["barangs_id"],
             'alamatpengiriman'=> $request["alamatpengiriman"],
+            'kode_unik'=> mt_rand(100,5000),
             'pengiriman'=> $request["pengiriman"],
             'bukti'=>$imgName,
             'totalbelanja'=> $request["totalbelanja"],

@@ -36,6 +36,7 @@ class BasketsController extends Controller
     }
 
     public function penjual(){
+        // khusus penjual
         $user = Auth::user();
         $baskets = $user->baskets;
         return view('baskets.penjual',compact('baskets'));
@@ -89,7 +90,7 @@ class BasketsController extends Controller
 
     
         // Basket::create($request->all());
-        return redirect('admin')->with('status','Data berhasil di tambah');
+        return redirect('penjual')->with('status','Data berhasil di tambah');
     }
 
     /**

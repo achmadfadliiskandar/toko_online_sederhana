@@ -17,6 +17,8 @@ class CreateKonfirmasiTable extends Migration
             $table->bigIncrements('id');
             $table->string("status");
             $table->longtext("pengantaran");
+            $table->text("cod_id")->nullable();
+            $table->text("transaksionlines_id")->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

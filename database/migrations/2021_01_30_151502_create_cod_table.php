@@ -18,6 +18,7 @@ class CreateCodTable extends Migration
             $table->text('barangs_id');
             $table->longtext('telpon');
             $table->string('alamat');
+            $table->integer('kode_unik');
             $table->string('pengiriman');
             $table->string('totalbelanja');
             $table->unsignedBigInteger('user_id');
