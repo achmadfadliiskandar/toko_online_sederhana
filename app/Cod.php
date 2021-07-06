@@ -20,7 +20,7 @@ class Cod extends Model
     public function baskets(){
         return $this->hashMany('App\Basket');
     }
-    public function konfirmasi(){
-        return $this->hasOne('App\Konfirmasi');
-    }
+    // public function konfirmasi(){
+    //     return $this->hasOne('App\Konfirmasi');
+    // }
 }

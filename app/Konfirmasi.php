@@ -12,10 +12,10 @@ class Konfirmasi extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
-    public function cod(){
-        return $this->belongsTo('App\Cod');
-    }
-    public function transaksionlines(){
-        return $this->belongsTo('App\TransaksiOnlines');
-    }
+    // public function cod(){
+    //     return $this->belongsTo('App\Cod');
+    // }
+    // public function transaksionlines(){
+    //     return $this->belongsTo('App\TransaksiOnlines');
+    // }
 }

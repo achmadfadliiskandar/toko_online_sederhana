@@ -23,12 +23,12 @@
         <th scope="row">{{$loop->iteration}}</th>
         <td>{{$konfirm->user->name}}</td>
         <td>{{$konfirm->user->email}}</td>
-        <td>{{$konfirm->cod->kode_unik}}</td>
+        <td>{{$konfirm->cod_id}}</td>
         <td>{{$konfirm->transaksionlines_id}}</td>
         <td>{{$konfirm->pengantaran}}</td>
     </tr>
     @empty
-    <td colspan="5" class="text-center text-danger">tidak ada konfirmasi</td>
+    <td colspan="7" class="text-center text-danger">tidak ada konfirmasi</td>
 @endforelse
     </tbody>
 </table>

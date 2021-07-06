@@ -17,7 +17,7 @@ class Transaksionline extends Model
     public function barangs(){
     	return $this->belongsTo('App\Barang');
     }
-    public function konfirmasi(){
-        return $this->hasOne('App\Konfirmasi');
-    }
+    // public function konfirmasi(){
+    //     return $this->hasOne('App\Konfirmasi');
+    // }
 }

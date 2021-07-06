@@ -20,9 +20,9 @@
     <label for="cod_id">Kode Barang yang di belanjakan di cod</label>
     <select class="custom-select" id="cod_id" name="cod_id">
     @forelse ($cod as $cod)
-    <option value="{{$cod->id}}">{{$cod->kode_unik}}</option>
+    <option>{{$cod->kode_unik}}</option>
     @empty
-    <option>{{"tidak ada"}}</option>
+    <option>0</option>
     @endforelse
     </select>
 </div>
@@ -30,9 +30,9 @@
     <label for="transaksionlines_id">Kode Barang yang di transaksi Online</label>
     <select class="custom-select" id="transaksionlines_id" name="transaksionlines_id">
     @forelse ($transaksionlines as $transaksionline)
-    <option value="{{$transaksionline->id}}">{{$transaksionline->kode_unik}}</option>
+    <option>{{$transaksionline->kode_unik}}</option>
     @empty
-    <option>{{"0"}}</option>
+    <option>0</option>
     @endforelse
     </select>
 </div>
