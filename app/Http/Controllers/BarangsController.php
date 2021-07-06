@@ -145,6 +145,7 @@ class BarangsController extends Controller
     // DB::table('barangs')->where('user_id',$id)->delete();
     $barangs = Barang::where('user_id',$id);
     $barangs->delete();
-    return redirect('konfirmasi/create')->with('status','selamat sampai tahap terakhir');
+    alert()->success('keranjang berhasil di Refresh','sukses');
+    return redirect('baskets');
 }
 }

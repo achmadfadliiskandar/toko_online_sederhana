@@ -13,6 +13,9 @@
         <p class="text-center">
             data yang bertujuan untuk mengetahui user sudah pernah mengirim pembayaran melalui transaksi 
         </p>
+        <button type="button" class="btn btn-primary my-3">
+            Jumlah Data Cod : <span class="badge badge-primary">{{$transaksionlines->count('id')}}</span>
+        </button>
         <table class="table table-bordered">
             <thead>
             <tr>

@@ -160,7 +160,7 @@ class BasketsController extends Controller
     public function destroy(Basket $basket)
     {
         Basket::destroy($basket->id);
-        return redirect('admin')->with('status','data berhasil ke hapus');
+        return redirect('penjual')->with('status','data berhasil ke hapus');
     }
 
 }

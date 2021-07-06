@@ -25,7 +25,7 @@
         <div class="form-group">
         <label for="telpon" class="d-inline">No Telpon</label>
         <input type="number" class="form-control" id="telpon" name="telpon">
-        <small>untuk mengetahui alamat jika Pengantaran terhambat</small>
+        {{-- <small>untuk mengetahui alamat jika Pengantaran terhambat</small> --}}
         </div>
         <div class="form-group">
         <label for="alamat" class="d-inline">Alamat Pengantaran</label>
@@ -42,8 +42,8 @@
         <div class="form-group">
             <label for="pengiriman">Pengiriman</label>
             <select class="form-control" id="pengiriman" name="pengiriman">
-            <option>Gojek</option>
-            <option>Grab</option>
+            {{-- <option>Gojek</option> --}}
+            <option>LOREM IPSUM EXPRESS</option>
             </select>
             </div>
             <div class="form-group">

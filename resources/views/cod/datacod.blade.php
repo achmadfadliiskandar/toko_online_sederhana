@@ -11,6 +11,9 @@
             {{ session('status') }}
         </div>
     @endif
+    <button type="button" class="btn btn-primary my-3">
+        Jumlah Data Cod : <span class="badge badge-primary">{{$cod->count('id')}}</span>
+    </button>
         <table class="table table-bordered">
             <thead>
             <tr>

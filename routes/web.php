@@ -55,13 +55,10 @@ Route::delete('/barangs/{basket}','BarangsController@destroy')->middleware('chec
 Route::get('/barangs/hapus/{user_id}', 'BarangsController@delete')->middleware('checkRole:pembeli');
 // Route::get('/trash','BarangsController@trash')->middleware('auth');
 
-
-
-
-
+// untuk pembayaran
 Route::get('pembayaran','PembayaranController@index')->middleware('auth')->middleware('checkRole:pembeli');
-Route::get('pembayaran/create','PembayaranController@create')->middleware('auth');
-Route::post('pembayaran','PembayaranController@store')->middleware('auth');
+// Route::get('pembayaran/create','PembayaranController@create')->middleware('auth');
+// Route::post('pembayaran','PembayaranController@store')->middleware('auth');
 
 /*transaksi online*/
 // Route::get('/transaksionline', function () {
@@ -84,9 +81,9 @@ Route::get('datacod','CodController@datacod')->middleware('checkRole:admin,penju
 
 
 // konfirmasi
-Route::get('/konfirmasi','KonfirmasiController@index')->middleware('checkRole:admin,penjual');;
-Route::get('/konfirmasi/create','KonfirmasiController@create')->middleware('auth');
-Route::post('/konfirmasi','KonfirmasiController@store');
+// Route::get('/konfirmasi','KonfirmasiController@index')->middleware('checkRole:admin,penjual');;
+// Route::get('/konfirmasi/create','KonfirmasiController@create')->middleware('auth');
+// Route::post('/konfirmasi','KonfirmasiController@store');
 
 // template admin
 Route::get('/tableadmin', function () {

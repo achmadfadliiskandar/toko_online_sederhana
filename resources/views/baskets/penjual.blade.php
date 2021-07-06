@@ -5,7 +5,7 @@
 @section('container')
 
 <div class="container">
-<h1 class="mt-5 text-center pt-5">Admin Baskets</h1>
+<h1 class="mt-5 text-center pt-5">Penjual Baskets</h1>
 <a href="/baskets/create" class="btn btn-primary my-3">Tambah Basket</a>
 {{-- <a href="/trash" class="btn btn-white">Tong sampah</a>  --}}
 @if (session('status'))

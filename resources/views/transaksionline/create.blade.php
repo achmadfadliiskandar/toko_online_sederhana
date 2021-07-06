@@ -5,7 +5,7 @@
 @section('container')
 <div class="container">
     <h1 class="text-center mt-5 pt-3">Form Transaksi</h1>
-    <p class="text-center">Silahkan Melakukan Transaksi di sini</p>
+    <p class="text-center">Silahkan Melakukan Transaksi di sini transaksi ke no rekening : 12345678</p>
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -29,8 +29,8 @@
         @endforeach">
         </div>
         <div class="form-group">
-            <label for="kartu">Kartu</label>
-            <input type="text" class="form-control" id="kartu" name="kartu">
+        <label for="kartu">Kartu</label>
+        <input type="text" class="form-control" id="kartu" name="kartu">
         </div>
         <div class="form-group">
         <label for="bukti">Bukti Pembayaran</label>
@@ -39,8 +39,9 @@
         <div class="form-group">
             <label for="pengiriman">Pengiriman</label>
             <select class="form-control" id="pengiriman" name="pengiriman">
-            <option>Gojek</option>
-            <option>Grab</option>
+            {{-- <option>Gojek</option>
+            <option>Grab</option> --}}
+            <option>LOREM IPSUM EXPRESS</option>
             </select>
             </div>
         <div class="form-group">

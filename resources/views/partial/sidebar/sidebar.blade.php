@@ -82,7 +82,7 @@
                     </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
+                {{-- <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                     <i class="nav-icon 	fa fa-credit-card"></i>
                     <p>
@@ -96,7 +96,7 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>Konfirmasi</p>
                         </a>
-                    </li>
+                    </li> --}}
                     </ul>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="/tableadmin" class="nav-link">Table Admin</a>
@@ -143,7 +143,7 @@
                     <li class="nav-item">
                         <a href="http://127.0.0.1:8000/datacod" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Data Cod</p>
+                        <p>Data Cod </p>
                         </a>
                     </li>
                     </ul>
@@ -165,7 +165,7 @@
                     </li>
                     </ul>
                 </li>
-                <li class="nav-item has-treeview">
+                {{-- <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                     <i class="nav-icon 	fa fa-credit-card"></i>
                     <p>
@@ -179,7 +179,7 @@
                         <i class="far fa-circle nav-icon"></i>
                         <p>Konfirmasi</p>
                         </a>
-                    </li>
+                    </li> --}}
                     </ul>  
             @endif
             @endif
