@@ -23,6 +23,7 @@
                     <th scope="col">Tanggal</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Pengiriman</th>
+                    <th scope="col">Kode Unik</th>
                     <th scope="col">Alamat Pengiriman</th>
                     <th scope="col">Total bayar</th>
                     {{-- <th scope="col">Barang</th> --}}
@@ -38,6 +39,7 @@
                         <td>{{$saksi->created_at}}</td> 
                         <td>{{$saksi->user->name}}</td> 
                         <td>{{$saksi->pengiriman}}</td>
+                        <td>{{$saksi->kode_unik}}</td>
                         <td>{{$saksi->alamatpengiriman}}</td> 
                         <td>{{$saksi->totalbelanja}}</td>
                         {{-- <td>{{$saksi->barang}}</td> --}}

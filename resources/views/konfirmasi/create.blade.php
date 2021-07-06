@@ -17,28 +17,33 @@
     <input type="text" class="form-control" id="status" name="status" value="Tahap Pengantaran barang" readonly>
 </div> 
 <div class="form-group">
-    <label for="cod_id">Kode Barang yang di belanjakan di cod</label>
+    <label for="cod_id">Kode Unik yang di belanjakan di cod</label>
     <select class="custom-select" id="cod_id" name="cod_id">
     @forelse ($cod as $cod)
     <option>{{$cod->kode_unik}}</option>
+    <option>-</option>
     @empty
     <option>0</option>
     @endforelse
     </select>
+    <small>kalau tidak di pilih silahkan pilih yang -</small>
 </div>
 <div class="form-group">
-    <label for="transaksionlines_id">Kode Barang yang di transaksi Online</label>
+    <label for="transaksionlines_id">Kode Unik yang di transaksi Online</label>
     <select class="custom-select" id="transaksionlines_id" name="transaksionlines_id">
     @forelse ($transaksionlines as $transaksionline)
     <option>{{$transaksionline->kode_unik}}</option>
+    <option>-</option>
     @empty
     <option>0</option>
     @endforelse
     </select>
+    <small>kalau tidak di pilih silahkan pilih yang -</small>
 </div>
 <div class="form-group">
     <label for="pengantaran">Keterangan Pengantaran</label>
     <textarea class="form-control @error('pengantaran') is-invalid @enderror" id="pengantaran" name="pengantaran" rows="7" value="{{old('pengantaran')}}" placeholder="Cth : pengiriman barang nya 3 hari kedepan ya terima kasih"></textarea>
+    <small>keterangan pengantaranya maksudnya untuk menjelaskan alamat rumah atau titik pengantaranya</small>
 </div>
 <button class="btn btn-primary">Konfirmasi Pengantaran sekarang!</button>
 </div>
