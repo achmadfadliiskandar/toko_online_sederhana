@@ -24,7 +24,13 @@ class CodController extends Controller
     {
         $user = Auth::user();
         $cod = $user->cod;
-        $barangs = $user->barangs;
+        if ($barangs = $user->barangs) {
+        // return redirect('barangs');
+        error_reporting(0);
+        }
+        // else {
+        //     error_reporting(0);
+        // }
         return view('cod.index',compact('cod','barangs'));
     }
 

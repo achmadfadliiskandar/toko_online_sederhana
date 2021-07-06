@@ -23,7 +23,7 @@
             {{-- <th scope="col">Total Belanja Anda</th> --}}
             <th scope="col">Nama Pembeli</th>
             <th scope="col">Total Belanja</th>
-            <th scope="col">Kode Unik</th>
+            <th scope="col">Kode Unik(tolong diingat baik2)</th>
           </tr>
           @foreach ($cod as $d)
         </thead>
@@ -57,14 +57,17 @@
             <div class="modal-body">
               @forelse ($barangs as $barang)
                 <h3>{{$barang->baskets->namabarang}}</h3>
-                <a href="/barangs/hapus/{{$barang->user_id}}" class="btn btn-primary w-100"> <i class="fa fa-refresh fa-spin"></i> Refresh</a>
-                <strong>pilih yang mana saja</strong>
+                {{-- <strong>pilih yang mana saja</strong> --}}
                 @empty
                 <div class="alert alert-danger">{{"barang kosong"}}</div>
             @endforelse
             </div>
             <div class="modal-footer">
-              {{-- <a href="/barangs/hapus/{{$barang->user_id}}" class="btn btn-primary w-100"> <i class="fa fa-refresh fa-spin"></i> Refresh</a> --}}
+              @if ($barang >= 1)
+              <a href="/barangs/hapus/{{$barang->user_id}}" class="btn btn-primary w-100"> <i class="fa fa-refresh fa-spin"></i> Refresh</a>
+              @else
+              <a href="/barangs" class="btn btn-primary w-100">Kembali</a>
+              @endif
             </div>
           </div>
         </div>

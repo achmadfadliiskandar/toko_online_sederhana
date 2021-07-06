@@ -23,7 +23,13 @@ class TransaksionlinesController extends Controller
     {
         $user = Auth::user();
         $transaksionlines = $user->transaksionlines;
-        $barangs = $user->barangs;
+        if ($barangs = $user->barangs) {
+            // return redirect('barangs');
+            error_reporting(0);
+            }
+            // else {
+            //     error_reporting(0);
+            // }
         return view('transaksionline.index',compact('transaksionlines','barangs'));
     }
     public function datato(){

@@ -10,6 +10,12 @@
     </div>
 @endif
 <h2 class="mt-5 pt-5 text-center">Konfirmasi Pengantaran</h2>
+<button class="btn btn-info my-2" onclick="info()">Info</button>
+<script>
+    function info(){
+        alert("barang di antar paling cepat : 1 hari paling standar/tengah2 : 7 hari paling lama : 14 hari")
+    }
+</script>
 <form method="POST" action="/konfirmasi/">
     @csrf
 <div class="form-group">    
