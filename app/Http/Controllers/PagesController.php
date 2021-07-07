@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Basket;
 
 class PagesController extends Controller
 {
     public function home(){
-        $baskets = Basket::all();
-        return view('index',compact('baskets'));
+        return view('index');
     }
     public function about(){
         return view('about');
