@@ -7,6 +7,7 @@ use App\Transaksionline;
 use Auth;
 use App\User;
 use App\Barang;
+use App\Basket;
 
 class TransaksionlinesController extends Controller
 {
@@ -34,8 +35,9 @@ class TransaksionlinesController extends Controller
     }
     public function datato(){
         // khusus admin
+    $baskets = Basket::all();
     $transaksionlines = Transaksionline::all();
-    return view('transaksionline.datato',compact('transaksionlines'));
+    return view('transaksionline.datato',compact('transaksionlines','baskets'));
     }
 
     /**

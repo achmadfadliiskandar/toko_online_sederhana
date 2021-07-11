@@ -78,7 +78,8 @@ class CodController extends Controller
         // $user = Auth::user();
         // $cod = $user->cod;
         $cod = Cod::all();
-        return view('cod.datacod',compact('cod'));
+        $baskets = Basket::all();
+        return view('cod.datacod',compact('cod','baskets'));
     }
 
     /**

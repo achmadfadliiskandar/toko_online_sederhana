@@ -1,72 +1,59 @@
-    @extends('partial.master')
-
-    @section('title','Data Admin Cod')
-        
-    @section('container')
-    <div class="container">
-        <h1 class="text-center mt-5 pt-5">History Cash On Delivery (COD)</h1>
-        <p class="text-center">Belanja Online Bayar Dirumah</p>
-        @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
+@extends('partial.master') 
+@push('style') 
+<link rel="stylesheet" href="{{asset('AdminLTE-3.0.5/plugins/datatables-bs4/css/datatables.bootstrap4.min.css')}}"
+> @endpush 
+@section('title','data cod penjual') 
+@section('container')
+<div class="card"> 
+<div class="card-header"> 
+<h3 class="card-title">DataTable with default features</h3> 
+</div> <!-- /.card-header --> <div class="card-body"> 
+<button type="button" class="btn btn-primary my-3">
+    Jumlah Data Cod : <span class="badge badge-primary">{{$cod->count('id')}}</span>
+</button>
+<table id="example1" class="table table-bordered table-striped"> <thead> 
+    <tr> 
+        <th scope="col">NO</th> <th scope="col">No Telpon</th> <th scope="col">Alamat Pengantaran</th> 
+        <th scope="col">Waktu</th> 
+        <th scope="col">Pengiriman</th> 
+        <th scope="col">Barang yang di beli</th>
+        <th scope="col">Nama Pembeli</th> 
+        <th scope="col">Total Belanja</th>
+        <th scope="col">Kode Unik</th> 
+        </tr> 
+    </thead> 
+    <tbody> 
+        @forelse($cod as $key => $d) <tr> 
+            <td>{{$key+1}}</td> 
+            <td>{{$d->telpon}}</td> 
+            <td>{{$d->alamat}}</td> 
+            <td>{{$d->created_at}}</td> 
+            <td>{{$d->pengiriman}}</td> 
+            <td>{{$d->barangs_id}}</td> <td>{{$d->user->name}}</td> 
+            <td>{{$d->totalbelanja}}</td> <td>{{$d->kode_unik}}</td>
+            @empty <td colspan="5">{{"no data"}}</td> 
+            @endforelse 
+            </tbody> 
+        </table> 
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Info Nama Pedagang
+        </button>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                @foreach ($baskets as $basket)
+                    <p>{{$basket->user->name}} : {{$basket->namabarang}}</p>
+                @endforeach
+                @if (Auth::user()->name === "id")
+                <p>{{$basket->user->name}}</p>
+                @else
+                <p class="text-danger"> Pedagang Aktif : {{$basket->user->name}}</p>
+                @endif
+            </div>
         </div>
-    @endif
-    <button type="button" class="btn btn-primary my-3">
-        Jumlah Data Cod : <span class="badge badge-primary">{{$cod->count('id')}}</span>
-    </button>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th scope="col">NO</th>
-                <th scope="col">No Telpon</th>
-                <th scope="col">Alamat Pengantaran</th>
-                {{-- <th scope="col">Waktu</th> --}}
-                <th scope="col">Pengiriman</th>
-                <th scope="col">Barang</th>
-                <th scope="col">Total Belanja</th>
-                <th scope="col">Nama Pembeli</th>
-                <th scope="col">Id Pembeli</th>
-                <th scope="col">Kode Unik Pembeli</th>
-                <th scope="col">Waktu</th>
-            </tr>
-            @foreach ($cod as $d)
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">{{$loop->iteration}}</th>
-                <td>{{$d->telpon}}</td>
-                <td>{{$d->alamat}}</td>
-                {{-- <td>{{$d->created_at}}</td> --}}
-                <td>{{$d->pengiriman}}</td>
-                <td>{{$d->barangs_id}}</td>
-                <td>{{$d->totalbelanja}}</td>
-                {{-- <td>{{$d->barang}}</td> --}}
-                {{-- <td>{{$d->baskets->namabarang}}</td> --}}
-                {{-- <td>{{ number_format($d->basket = Auth::user()->baskets->sum('totalharga')) }}</td> --}}
-                <td>{{$d->user->name}}</td>
-                <td>{{$d->user->id}}</td>
-                <td>{{$d->kode_unik}}</td>
-                <td>{{$d->created_at}}</td>
-            </tr>
-            @endforeach
-            @forelse ($cod as $d)
-            </tbody>
-        @empty
-        <td colspan="8" class="text-center text-danger">Anda Belum Pernah melakukan Pembayaran Cod</td>  
-        @endforelse
-    </table>
-    {{-- @php
-        /*for cod*/
-        $cod = Auth::user()->cod->count('id');
-        if ($cod < 1) {
-            echo "<div class='alert alert-danger' role='alert'>
-            Silahkan bayar cod terlebih dahulu
-                </div>";
-        }
-        else{
-            echo "<a href='/awal' class='btn btn-outline-success my-3'>Checkout</a>";
-        }
-    @endphp
-    <a href="/cod/create" class="btn btn-info d-block">Bayar dari rumah/cod sekarang</a> --}}
     </div>
-    @endsection
+</div> 
+@push('script') 
+<script src="{{asset('AdminLTE-3.0.5/plugins/datatables/jquery.dataTables.js')}}"></script> <script src="{{asset('AdminLTE-3.0.5/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script> 
+<script> 
+$(function () { $("#example1").DataTable(); }); </script> @endpush 
+@endsection

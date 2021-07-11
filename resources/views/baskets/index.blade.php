@@ -23,6 +23,13 @@
         {{-- <p class="card-text">Jumlah Beli : {{$basket->jumlah_beli}}</p> --}}
         {{-- <p class="card-text">Total Harga Rp . {{ number_format($basket->totalharga) }}</p> --}}
         <p class="card-text">Stok : {{$basket->stok}}</p>
+      @if(Auth::user()->role === "penjual")
+      @if ($basket->user->name === Auth::user()->name)
+      <p class="text-danger">Ini barang anda</p>
+      @else
+      <p class="text-primary">Bukan Barang anda</p>
+      @endif
+      @endif
         @if ($basket->stok == 0)
         <a href="/baskets/{{ $basket->id }}" class="btn btn-info d-block disabled">Detail Barang</a>
         @else
