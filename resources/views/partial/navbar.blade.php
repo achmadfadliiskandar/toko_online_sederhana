@@ -11,14 +11,16 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+      <a class="text-dark" href="user/edit/{{Auth::user()->id}}">Edit</a>
+      <hr>
       <a class="btn-link text-dark" style="text-decoration:none;" href="{{ route('logout') }}"
       onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      @csrf
-                  </form>
+      {{ __('Logout') }}
+      </a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+      </form>
       </div>
       {{-- <li class="nav-item d-none d-sm-inline-block">
         <a href="/tableadmin" class="nav-link">Table Admin</a>

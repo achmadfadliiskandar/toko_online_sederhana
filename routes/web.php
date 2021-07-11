@@ -97,3 +97,10 @@ Route::get('/data-table', function(){
 //login
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// data user
+Route::get('user','UserController@index')->middleware('checkRole:admin');
+Route::get('user/edit/{id}','UserController@edit');
+Route::put('user/update/{id}','UserController@update');
+// end data user

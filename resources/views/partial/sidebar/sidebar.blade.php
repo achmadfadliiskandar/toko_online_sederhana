@@ -97,13 +97,23 @@
                         <p>Konfirmasi</p>
                         </a>
                     </li> --}}
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-alt"></i>
+                        <p>
+                            User
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="http://127.0.0.1:8000/user" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Data User</p>
+                            </a>
+                        </li>
                     </ul>
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="/tableadmin" class="nav-link">Table Admin</a>
-                    </li>
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="/data-table" class="nav-link">Search Admin</a>
-                    </li>
+                    
             @endif
             @if (Auth::user()->role == 'penjual')
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

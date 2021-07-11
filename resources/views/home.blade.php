@@ -4,6 +4,11 @@
 
 @section('content')
 <div class="container">
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="alert alert-success text-uppercase text-marquee"><marquee>selamat datang {{ Auth::user()->name }}</marquee></div>
