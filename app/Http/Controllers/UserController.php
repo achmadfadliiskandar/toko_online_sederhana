@@ -23,13 +23,17 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'address' => 'required',
-            'gambar'=>'required',
+            // 'gambar'=>'required',
             'password' => 'required|min:8',
         ]);
         $user = User::find($id);
         $user->name = $request->name;
         $user->address = $request->address;
-        $user->gambar = $request->gambar;
+        if ($request->gambar == NULL) {
+        // echo "null";
+        }else {
+            $user->gambar = $request->gambar;
+        }
         $user->password = Hash::make($request->password);
         $user->save();
         return redirect('home')->with('status','berhasil di edit');

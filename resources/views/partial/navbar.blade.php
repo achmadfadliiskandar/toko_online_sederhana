@@ -11,7 +11,7 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-      <a class="text-dark" href="user/edit/{{Auth::user()->id}}">Edit</a>
+      <a class="text-dark" href="user/edit/{{Auth::user()->id}}">Edit Akun</a>
       <hr>
       <a class="btn-link text-dark" style="text-decoration:none;" href="{{ route('logout') }}"
       onclick="event.preventDefault();

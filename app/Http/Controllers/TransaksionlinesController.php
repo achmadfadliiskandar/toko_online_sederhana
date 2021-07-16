@@ -63,6 +63,7 @@ class TransaksionlinesController extends Controller
 
         $request->validate([
             'bukti'=>'mimes:png,jpg,jpeg,gif,svg',
+            'barangs_id'=>'required',
             'kartu'=>'required',
             'pengiriman'=>'required',
             'alamatpengiriman' => 'required',

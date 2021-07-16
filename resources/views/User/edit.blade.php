@@ -16,11 +16,13 @@
         <label for="password">Password</label>
         <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{$user->password}}">
         </div>
-        <div class="form-group">
-        <label for="gambar">Gambar</label>
-        <img src="/gambaruser/{{$user->gambar}}" class="my-2" alt="" width="100">
+        @if ($user->gambar)
+        <img src="/gambaruser/{{$user->gambar}}" width="100" alt="">
+        <input type="file" class="form-control-file mt-2" id="gambar" name="gambar">
+        @else
         <input type="file" class="form-control-file" id="gambar" name="gambar">
-        </div>
+        <strong>nggak ada gambar</strong>
+        @endif
         <div class="form-group">
         <label for="address">Alamat</label>
         <input type="address" class="form-control @error('address') is-invalid @enderror" id="address" name="address" value="{{$user->address}}">

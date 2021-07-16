@@ -64,7 +64,7 @@
             </div>
             <div class="modal-footer">
               @if ($barang >= 1)
-              <a href="/barangs/hapus/{{$barang->user_id}}" class="btn btn-primary w-100"> <i class="fa fa-refresh fa-spin"></i> Refresh</a>
+              <a href="/barangs/hapus/{{$barang->user_id}}" class="btn btn-primary w-100"> <i class="fa fa-refresh fa-spin"></i>Konfirmasi</a>
               @else
               <a href="/barangs" class="btn btn-primary w-100">Kembali</a>
               @endif
@@ -81,7 +81,7 @@
               </div>";
       }
       else{
-        echo "<button type='button' class='btn btn-primary w-100' data-toggle='modal' data-target='#staticBackdrop'>Refresh</button>";
+        echo "<button type='button' class='btn btn-primary w-100' data-toggle='modal' data-target='#staticBackdrop'>Konfirmasi</button>";
       }
 @endphp
       </div>

@@ -46,7 +46,7 @@ echo "<a class='btn btn-dark' href='/barangs'><i class='fa fa-shopping-cart'></i
     <img src="/gambaruser/{{Auth::user()->gambar}}" class="rounded-circle" alt="user" width="40" height="40">
   </a>
   <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-    <a class="text-dark" href="user/edit/{{Auth::user()->id}}">Edit</a>
+    <a class="text-dark" href="user/edit/{{Auth::user()->id}}">Edit Akun</a>
     <hr>
         <a class="btn-link text-dark" href="{{ route('logout') }}"
 onclick="event.preventDefault();
