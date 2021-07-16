@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="icon" href="https://www.wallpaperup.com/uploads/wallpapers/2014/01/21/234209/518511aba878667dc76e37129d58b136.jpg">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -61,10 +62,18 @@
                                 </li>
                             @endif
                         @else
+                        @php
+                        $barangs = Auth::user()->barangs->count('stok');
+                        echo "<a class='btn btn-dark' href='/barangs'><i class='fa fa-shopping-cart'></i> $barangs</a>";
+                        @endphp
                         <div class="dropdown">
                         <a style="background-color: transparent;text-decoration:none;" class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <strong class="mt-2 text-light mr-3 ml-3 text-uppercase">{{ Auth::user()->name }}</strong>
+                        @if (Auth::user()->gambar === NULL)
+                        <img src="https://images.pexels.com/photos/376718/pexels-photo-376718.jpeg?cs=srgb&dl=pexels-daniel-pixelflow-376718.jpg&fm=jpg" class="rounded-circle" alt="user" width="40" height="40">
+                        @else
                         <img src="/gambaruser/{{Auth::user()->gambar}}" class="rounded-circle" alt="user" width="40" height="40">
+                        @endif
                         </a>
                         <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                             <a class="text-dark" href="user/edit/{{Auth::user()->id}}">Edit</a>

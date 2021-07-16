@@ -12,7 +12,11 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-            <img src="/gambaruser/{{Auth::user()->gambar}}" class="img-circle elevation-2" alt="User Image">
+                @if (Auth::user()->gambar === NULL)
+                <img src="https://images.pexels.com/photos/376718/pexels-photo-376718.jpeg?cs=srgb&dl=pexels-daniel-pixelflow-376718.jpg&fm=jpg" class="rounded-circle" alt="user" width="40" height="40">
+                @else
+                <img src="/gambaruser/{{Auth::user()->gambar}}" class="rounded-circle" alt="user" width="40" height="40">
+                @endif
             </div>
             <div class="info">
             <a href="#" class="d-block">{{Auth::user()->name}}</a>

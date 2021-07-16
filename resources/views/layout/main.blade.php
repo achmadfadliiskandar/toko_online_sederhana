@@ -43,7 +43,11 @@ echo "<a class='btn btn-dark' href='/barangs'><i class='fa fa-shopping-cart'></i
 <div class="dropdown">
   <a style="background-color: transparent;text-decoration:none;" class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <strong class="mt-2 text-light mr-3 ml-3 text-uppercase">{{ Auth::user()->name }}</strong>
+    @if (Auth::user()->gambar === NULL)
+    <img src="https://images.pexels.com/photos/376718/pexels-photo-376718.jpeg?cs=srgb&dl=pexels-daniel-pixelflow-376718.jpg&fm=jpg" class="rounded-circle" alt="user" width="40" height="40">
+    @else
     <img src="/gambaruser/{{Auth::user()->gambar}}" class="rounded-circle" alt="user" width="40" height="40">
+    @endif
   </a>
   <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
     <a class="text-dark" href="user/edit/{{Auth::user()->id}}">Edit Akun</a>
