@@ -13,6 +13,7 @@ class CreateTransaksionlineTriggersTable extends Migration
      */
     public function up()
     {
+        // untuk membuat trigger transaksionlines ketika di tambah semua yang di barangs terhapus
         DB::unprepared('
         CREATE TRIGGER `aftercreatetransaksionlines` 
         AFTER INSERT ON `transaksionlines` 

@@ -13,6 +13,7 @@ class CreateCodTriggersTable extends Migration
      */
     public function up()
     {
+        // untuk membuat trigger cod ketika di tambah semua yang di barangs terhapus
         DB::unprepared('
         CREATE TRIGGER `aftercreatecod` 
         AFTER INSERT ON `cod` 
