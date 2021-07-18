@@ -23,6 +23,7 @@
             {{-- <th scope="col">Total Belanja Anda</th> --}}
             <th scope="col">Nama Pembeli</th>
             <th scope="col">Total Belanja</th>
+            <th scope="col">Status Pembayaran</th>
             {{-- <th scope="col">Kode Unik</th> --}}
           </tr>
           @foreach ($cod as $d)
@@ -40,6 +41,9 @@
             <td>{{$d->user->name}}</td>
             <td>{{$d->totalbelanja}}</td>
             {{-- <td>{{$d->kode_unik}}</td> --}}
+            <td>
+              <button class="btn btn-primary">{{$d->status}}</button>
+            </td>
           </tr>
           @endforeach
           @forelse ($cod as $d)
@@ -81,7 +85,7 @@
               </div>";
       }
       else{
-        echo "<button type='button' class='btn btn-primary w-100' data-toggle='modal' data-target='#staticBackdrop'>Konfirmasi</button>";
+        // echo "<button type='button' class='btn btn-primary w-100' data-toggle='modal' data-target='#staticBackdrop'>Konfirmasi</button>";
       }
 @endphp
       </div>

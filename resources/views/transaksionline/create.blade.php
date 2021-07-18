@@ -25,7 +25,7 @@
         @csrf
         <div class="form-group">
         <label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
-        <input type="text" class="form-control" name="barangs_id" readonly  value="@foreach ($barangs as $barang){{$barang->baskets->namabarang}} : {{$barang->stok}} = {{number_format($barang->totalharga)}}
+        <input type="text" class="form-control" name="barangs_id" readonly  value="@foreach ($barangs as $barang){{$barang->baskets->namabarang}} {{number_format($barang->baskets->hargabarang)}} : {{$barang->stok}} = {{number_format($barang->totalharga)}}
         @endforeach">
         </div>
         <div class="form-group">

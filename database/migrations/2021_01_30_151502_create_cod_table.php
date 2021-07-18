@@ -21,10 +21,18 @@ class CreateCodTable extends Migration
             $table->integer('kode_unik');
             $table->string('pengiriman');
             $table->string('totalbelanja');
+            $table->string('status');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('baskets_id')->nullable();
             $table->timestamps();
         });
+// CREATE TRIGGER `aftercreatecod` 
+// AFTER INSERT ON `cod` 
+// FOR EACH ROW 
+// BEGIN 
+// DELETE FROM barangs 
+// WHERE barangs.user_id = user_id; 
+// END
     }
 
     /** 

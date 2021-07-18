@@ -22,6 +22,7 @@ class CreateTransaksionlinesTable extends Migration
             $table->integer('kode_unik');
             $table->string('pengiriman');
             $table->string('totalbelanja');
+            $table->string('status');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('basket_id')->nullable();
             $table->timestamps();

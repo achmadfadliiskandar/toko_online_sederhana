@@ -62,10 +62,15 @@
                                 </li>
                             @endif
                         @else
+                        @if (Auth::check())
+                        @if(Auth::user()->role == "pembeli")
                         @php
                         $barangs = Auth::user()->barangs->count('stok');
                         echo "<a class='btn btn-dark' href='/barangs'><i class='fa fa-shopping-cart'></i> $barangs</a>";
                         @endphp
+                        @else  
+                        @endif
+                        @endif
                         <div class="dropdown">
                         <a style="background-color: transparent;text-decoration:none;" class="dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <strong class="mt-2 text-light mr-3 ml-3 text-uppercase">{{ Auth::user()->name }}</strong>

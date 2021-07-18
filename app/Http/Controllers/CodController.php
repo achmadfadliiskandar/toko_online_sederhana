@@ -41,7 +41,8 @@ class CodController extends Controller
      */
     public function create()
     {
-        $barangs = Barang::all();
+        $user = Auth::user();
+        $barangs = $user->barangs;
         $baskets = Basket::all();
         return view('cod.create',compact('barangs','baskets'));
     }
@@ -68,6 +69,7 @@ class CodController extends Controller
             'alamat'=> $request["alamat"],
             'kode_unik'=> mt_rand(100,5000),
             'pengiriman'=> $request["pengiriman"],
+            'status'=> "Lunas",
             'totalbelanja'=> $request["totalbelanja"],
             'user_id'=> Auth::id()
         ]);

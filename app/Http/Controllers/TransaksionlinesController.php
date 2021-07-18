@@ -47,7 +47,8 @@ class TransaksionlinesController extends Controller
      */
     public function create()
     {
-        $barangs = Barang::all();
+        $user = Auth::user();
+        $barangs = $user->barangs;
         return view('transaksionline.create',compact('barangs'));
     }
 
@@ -81,6 +82,7 @@ class TransaksionlinesController extends Controller
             'pengiriman'=> $request["pengiriman"],
             'bukti'=>$imgName,
             'totalbelanja'=> $request["totalbelanja"],
+            'status'=> "",
             'user_id'=> Auth::id(),
         ]);
         return redirect('/transaksionline')->with('status','data anda berhasil tersimpan di server dan akan segera di kirim');
@@ -105,7 +107,8 @@ class TransaksionlinesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $transaksionline = Transaksionline::find($id);
+        return view('transaksionline.edit',compact('transaksionline'));
     }
 
     /**
@@ -117,7 +120,13 @@ class TransaksionlinesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'status'=>'numeric|required|min:12345678,max:12345678'
+        ]);
+        $transaksionline = Transaksionline::find($id);
+        $transaksionline->status = $request->status;
+        $transaksionline->save();
+        return redirect('/transaksionline')->with('status','data anda berhasil tersimpan di server dan akan segera di kirim');
     }
 
     /**
