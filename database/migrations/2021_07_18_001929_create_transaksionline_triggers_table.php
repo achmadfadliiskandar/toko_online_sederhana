@@ -31,6 +31,6 @@ class CreateTransaksionlineTriggersTable extends Migration
      */
     public function down()
     {
-    DB::unprepared('DROP TRIGGER "aftercreatetransaksionlines"');
+    // DB::unprepared('DROP TRIGGER "aftercreatetransaksionlines"');
     }
 }

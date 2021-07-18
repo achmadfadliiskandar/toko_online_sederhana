@@ -31,6 +31,6 @@ class CreateCodTriggersTable extends Migration
      */
     public function down()
     {
-        DB:unprepared('DROP TRIGGER "aftercreatecod"');
+        // DB:unprepared('DROP TRIGGER "aftercreatecod"');
     }
 }
