@@ -71,11 +71,13 @@ Route::get('transaksionline/create','TransaksionlinesController@create')->middle
 Route::post('transaksionline','TransaksionlinesController@store');
 Route::put('transaksionline/update/{id}','TransaksionlinesController@update');
 Route::get('datato','TransaksionlinesController@datato')->middleware('checkRole:admin,penjual');
+Route::get('historytransaksionline','TransaksionlinesController@historytransaksionline')->middleware('checkRole:admin,penjual');
 // batas cod dan transaksionlines
 Route::get('cod','CodController@index')->middleware('checkRole:pembeli');
 Route::get('cod/create','CodController@create')->middleware('checkRole:pembeli');
 Route::post('cod/store','CodController@store');
-Route::get('datacod','CodController@datacod')->middleware('checkRole:admin,penjual');;
+Route::get('datacod','CodController@datacod')->middleware('checkRole:admin,penjual');
+Route::get('historycod','CodController@historycod')->middleware('checkRole:admin,penjual');
 
 
 // konfirmasi

@@ -6,9 +6,17 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- JUMBOTRON -->
-<div class="jumbotron jumbotron-fluid mt-4">
+<div class="jumbotron jumbotron-fluid mt-4 bg-dark text-white">
       <div class="container">
-        <h1 class="display-4 text-center">LOREM IPSUM</h1>
+        <div class="row">
+          <div class="col-sm-6">
+            <h1>LOREM IPSUM</h1>
+            <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, minima nulla! Quidem rerum possimus corporis nostrum eveniet omnis reprehenderit. Odio nulla est nihil repudiandae deserunt veniam distinctio aperiam ducimus adipisci quisquam expedita voluptates nemo vitae officia omnis, aut soluta odit molestiae non cupiditate. Sed ipsa, quasi, dignissimos facilis cum impedit necessitatibus aliquam dolores consequatur mollitia quidem velit eveniet magnam debitis, soluta excepturi libero optio. Beatae architecto illo soluta ratione ut tempore veritatis! Aperiam, veritatis quia.</p>
+          </div>
+          <div class="col-sm-6">
+            <img src="{{asset('undraw_web_shopping_re_owap.svg')}}" class="w-100" alt="">
+          </div>
+        </div>
       </div>
     </div>
     <!-- AKHIR JUMBOTRON -->

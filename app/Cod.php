@@ -15,7 +15,7 @@ class Cod extends Model
         return $this->belongsTo('App\User');
     }
     public function barangs(){
-        return $this->hashMany('App\Barang');
+        return $this->belongsTo('App\Barang');
     }
     public function baskets(){
         return $this->hashMany('App\Basket');

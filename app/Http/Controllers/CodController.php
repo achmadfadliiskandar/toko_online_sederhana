@@ -84,6 +84,15 @@ class CodController extends Controller
         return view('cod.datacod',compact('cod','baskets'));
     }
 
+    public function historycod()
+    {
+        // $user = Auth::user();
+        // $cod = $user->cod;
+        $cod = Cod::all();
+        $baskets = Basket::all();
+        return view('cod.history',compact('cod','baskets'));
+    }
+
     /**
      * Display the specified resource.
      *

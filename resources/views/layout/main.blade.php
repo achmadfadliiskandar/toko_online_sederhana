@@ -25,7 +25,15 @@
     <a class="nav-link {{request()->is('/')? 'active' : ''}}" href="/">Home </a>
     <a class="nav-link {{request()->is('about')? 'active' : ''}}" href="/about">About</a>  
     <a class="nav-link {{request()->is('pelayanan')? 'active' : ''}}" href="/pelayanan">Service</a>  
-    <a class="nav-link {{request()->is('baskets')? 'active' : ''}}" href="/baskets">Basket</a>  
+    <a class="nav-link {{request()->is('baskets')? 'active' : ''}}" href="/baskets">Basket</a>
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Shopping history
+    </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">shopping history cod</a>
+        <a class="dropdown-item" href="#">shopping history transaksionline</a>
+    </li>  
     @guest
     <li class="nav-item">
         <a class="nav-link btn btn-primary text-light" href="{{ route('login') }}">{{ __('Login') }}</a>

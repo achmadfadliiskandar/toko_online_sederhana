@@ -40,6 +40,15 @@ class TransaksionlinesController extends Controller
     return view('transaksionline.datato',compact('transaksionlines','baskets'));
     }
 
+    public function historytransaksionline()
+    {
+        // $user = Auth::user();
+        // $cod = $user->cod;
+        $cod = Cod::all();
+        $baskets = Basket::all();
+        return view('transaksionline.history',compact('cod','baskets'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
