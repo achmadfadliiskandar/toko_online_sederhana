@@ -31,8 +31,8 @@
     Shopping history
     </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">shopping history cod</a>
-        <a class="dropdown-item" href="#">shopping history transaksionline</a>
+        <a class="dropdown-item" href="history">shopping history cod</a>
+        <a class="dropdown-item" href="historytransaksionline">shopping history transaksionline</a>
     </li>  
     @guest
     <li class="nav-item">
