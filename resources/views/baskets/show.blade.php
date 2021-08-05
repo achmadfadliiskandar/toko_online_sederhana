@@ -14,6 +14,7 @@
       @if ($basket->stok == 0)
         <div class="alert alert-danger">Maaf Stok Barang Habis</div>
       @else
+      @if (Auth::user()->role == "pembeli")
       <form method="post" action="/barangs" name="format">
         @csrf
         <div class="form-group">
@@ -51,6 +52,51 @@
     </div>
     <button type="submit" class="btn btn-primary w-100">Tambah</button>
       </form>
+      @endif
+      @if(Auth::user()->role === "penjual")
+      @if ($basket->user->name === Auth::user()->name)
+      <div class="alert alert-danger">Ini barang anda</div>
+      @else
+      {{-- <p class="text-primary">Bukan Barang anda</p> --}}
+            <form method="post" action="/barangs" name="format">
+        @csrf
+        <div class="form-group">
+          <label for="baskets_id" class="d-inline">Nama Barang</label>
+          <select class="form-control" id="baskets_id" onclick="munculkan()" name="baskets_id">
+            <option value="{{$basket->id}}">{{$basket->namabarang}}</option>          
+          </select>
+      </div>
+        <div class="form-group">
+          <label for="hargabarang" class="d-inline">Harga Barang</label>
+          <input type="number"  class="form-control @error('hargabarang') is-invalid @enderror" id="hargabarang" name="hargabarang" value="{{$basket->hargabarang}}" readonly>
+          <div class="invalid-feedback">
+          @error('hargabarang')
+          {{$message}}
+          @enderror
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="stok" class="d-inline">Jumlah Beli</label>
+          <input type="number" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{old('stok')}}" min="1" max="{{$basket->stok}}">
+          <div class="invalid-feedback">
+          @error('stok')
+          {{$message}}
+          @enderror
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="totalharga" class="d-inline">totalharga</label>
+        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}" readonly>
+        <div class="invalid-feedback">
+        @error('totalharga')
+        {{$message}}
+        @enderror
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Tambah</button>
+      </form>
+      @endif
+      @endif
       @endif
     </div>
   </div>

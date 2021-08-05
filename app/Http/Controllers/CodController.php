@@ -18,7 +18,7 @@ class CodController extends Controller
      */
     public function __construct()
     {
-    $this->middleware('auth')->only('index');
+    $this->middleware('auth');
     }
     public function index()
     {

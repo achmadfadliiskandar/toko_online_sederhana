@@ -36,7 +36,7 @@ Route::get('pelayanan','PelayananController@index');
 //Basket
 Route::get('/baskets','BasketsController@index')->middleware('checkRole:admin,penjual,pembeli');
 Route::get('/baskets/create','BasketsController@create')->middleware('checkRole:penjual');
-Route::get('/baskets/{basket}','BasketsController@show')->middleware('checkRole:pembeli');
+Route::get('/baskets/{basket}','BasketsController@show')->middleware('checkRole:penjual,pembeli');
 Route::post('/baskets','BasketsController@store')->middleware('checkRole:penjual');
 Route::delete('/baskets/{basket}','BasketsController@destroy')->middleware('checkRole:penjual');
 Route::get('/baskets/{basket}/edit','BasketsController@edit')->middleware('checkRole:penjual');
@@ -46,13 +46,13 @@ Route::get('penjual','BasketsController@penjual')->middleware('checkRole:penjual
 
 
 // barang
-Route::get('/barangs','BarangsController@index')->middleware('checkRole:pembeli');
+Route::get('/barangs','BarangsController@index')->middleware('checkRole:admin,penjual,pembeli');
 Route::get('/barangs/create','BarangsController@create')->middleware('checkRole:pembeli');
-Route::post('/barangs','BarangsController@store')->middleware('checkRole:pembeli');
+Route::post('/barangs','BarangsController@store')->middleware('checkRole:penjual,pembeli');
 // untuk hapus satu data
-Route::delete('/barangs/{basket}','BarangsController@destroy')->middleware('checkRole:pembeli');
+Route::delete('/barangs/{basket}','BarangsController@destroy')->middleware('checkRole:admin,penjual,pembeli');
 // untuk hapus semua data alias refresh
-Route::get('/barangs/hapus/{user_id}', 'BarangsController@delete')->middleware('checkRole:pembeli');
+// Route::get('/barangs/hapus/{user_id}', 'BarangsController@delete')->middleware('checkRole:pembeli');
 // Route::get('/trash','BarangsController@trash')->middleware('auth');
 
 // untuk pembayaran

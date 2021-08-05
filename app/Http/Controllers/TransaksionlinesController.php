@@ -18,7 +18,7 @@ class TransaksionlinesController extends Controller
      */
     public function __construct()
     {
-    $this->middleware('auth')->only('index');
+    $this->middleware('auth');
     }
     public function index()
     {
@@ -46,8 +46,8 @@ class TransaksionlinesController extends Controller
         // $cod = $user->cod;
         error_reporting(0);
         $transaksionlines = Transaksionline::all();
-        $baskets = Basket::all();
-        return view('transaksionline.historytransaksionline',compact('transaksionlines','baskets'));
+        $barangs = Basket::all();
+        return view('transaksionline.historytransaksionline',compact('transaksionlines','barangs'));
     }
 
     /**
