@@ -13,7 +13,7 @@
 @endif
 @section('grid')
 @foreach($baskets as $basket)
-  <div class="col-md-4 mt-4">
+  <div class="col-lg-4 col-md-6 mt-4">
     <div class="card">
       <img src="/images/{{$basket->gambar}}" class="card-img-top" alt="gambar">
       <div class="card-body">
@@ -31,7 +31,7 @@
       @endif
       @endif
         @if ($basket->stok == 0)
-        <a href="/baskets/{{ $basket->id }}" class="btn btn-info d-block disabled">Detail Barang</a>
+        <a href="/baskets/{{ $basket->id }}" class="btn btn-danger d-block disabled">Stok Habis</a>
         @else
         <a href="/baskets/{{ $basket->id }}" class="btn btn-info d-block">Detail Barang</a>
         @endif

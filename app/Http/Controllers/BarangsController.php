@@ -51,20 +51,23 @@ class BarangsController extends Controller
             'stok' => 'required|numeric',
             'totalharga' => 'required',
         ]);
-        $barang = Barang::create([
-        'baskets_id' => $request["baskets_id"],
-            // 'namabarang'=>$request['namabarang'],
-            'hargabarang'=>$request['hargabarang'],
-            'totalharga'=>$request['totalharga'],
-            'stok'=>$request['stok'],
-            // 'keteranganbrg'=>$request['keteranganbrg'],
-            'user_id'=>Auth::id()
-        ]);
-        $baskets = Basket::findorFail($request->baskets_id);
-        $baskets->stok -= $request->stok;
-        $baskets->save();
-        alert()->success('keranjang berhasil di tambah','sukses');
-        return redirect('/baskets');
+        $barang = new Barang;
+        $barang->baskets_id = $request->baskets_id;
+        $barang->totalharga = $request->totalharga;
+        $barang->stok = $request->stok;
+        $barang->user_id = $request->user_id;
+        if ($request->stok > $barang->baskets->stok) {
+            alert()->info('Stok Yang Anda Beli Terlalu Banyak','#informasi');
+            return redirect('/baskets');
+        }else {
+            $barang->stok = $request->stok;
+            $baskets = Basket::findorFail($request->baskets_id);
+            $baskets->stok -= $request->stok;
+            $baskets->save();
+            $barang->save();
+            alert()->success('keranjang berhasil di tambah','sukses');
+            return redirect('/baskets');
+        }
     }
 
     /**

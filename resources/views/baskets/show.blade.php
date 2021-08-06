@@ -34,7 +34,7 @@
       </div>
       <div class="form-group">
           <label for="stok" class="d-inline">Jumlah Beli</label>
-          <input type="number" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{old('stok')}}" min="1" max="{{$basket->stok}}">
+          <input type="number" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{old('stok')}}" min="1">
           <div class="invalid-feedback">
           @error('stok')
           {{$message}}
@@ -43,13 +43,22 @@
       </div>
       <div class="form-group">
         <label for="totalharga" class="d-inline">totalharga</label>
-        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}" readonly>
+        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}">
         <div class="invalid-feedback">
         @error('totalharga')
         {{$message}}
         @enderror
         </div>
     </div>
+    <div class="form-group" style="display: none;">
+      <label for="user" class="d-inline">user</label>
+      <input type="text" id="user" class="form-control @error('user') is-invalid @enderror" id="user" name="user_id" value="{{Auth::user()->id}}" readonly>
+      <div class="invalid-feedback">
+      @error('user')
+      {{$message}}
+      @enderror
+      </div>
+  </div>
     <button type="submit" class="btn btn-primary w-100">Tambah</button>
       </form>
       @endif

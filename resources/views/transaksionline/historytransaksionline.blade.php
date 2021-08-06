@@ -18,16 +18,20 @@
             <tr>
                 <th scope="col">No</th>
                 <th scope="col">Barang yang di belanjakan</th>
+                <th scope="col">Total Belanja</th>
                 <th scope="col">Nama</th>
             </tr>
             </thead>
             <tbody>
                 @forelse ($transaksionlines as $saksi)
                 <tr>
+                    @if ($saksi->status > 1)
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$saksi->barangs_id}}</td>
+                    <td>{{$saksi->totalbelanja}}</td>
                     <td>{{$saksi->user->name}}</td> 
                     </tr>
+                    @endif
                 @empty
                 <td colspan="9" class="text-center">Anda belum pernah Pembayaran Online</td>
                 <tr>
@@ -37,7 +41,7 @@
         @if ($saksi == NULL)
         <div class="alert alert-warning">Anda Belum Pernah Belanja</div>
     @else
-    <div class="alert alert-secondary">total belanja tertinggi anda : {{$transaksionlines->min("totalbelanja")}}</div>
+    <div class="alert alert-secondary">total belanja tertinggi anda : {{$saksi->min("totalbelanja")}}</div>
     <div class="alert alert-danger">total belanja terendah anda : {{$saksi->max("totalbelanja")}}</div>
     @endif
     </div>
