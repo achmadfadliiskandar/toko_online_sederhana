@@ -17,7 +17,6 @@
                 <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Barang yang di belanjakan</th>
                     <th scope="col">Kartu</th>
                     <th scope="col">Bukti</th>
                     <th scope="col">Tanggal</th>
@@ -35,7 +34,6 @@
                     @forelse ($transaksionlines as $saksi)
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
-                        <td>{{$saksi->barangs_id}}</td>
                         <td>{{$saksi->kartu}}</td>
                         <td><img src="/image/{{$saksi->bukti}}" width="150" alt="gambar"></td>
                         <td>{{$saksi->created_at}}</td> 

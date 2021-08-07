@@ -15,13 +15,9 @@
         <thead>
           <tr>
             <th scope="col">NO</th>
-            <th scope="col">No Telpon</th>
-            <th scope="col">Alamat Pengantaran</th>
             <th scope="col">Waktu</th>
             <th scope="col">Pengiriman</th>
-            <th scope="col">Barang yang di beli</th>
-            {{-- <th scope="col">Total Belanja Anda</th> --}}
-            <th scope="col">Nama Pembeli</th>
+            <th scope="col">Alamat Pengiriman</th>
             <th scope="col">Total Belanja</th>
             <th scope="col">Status Pembayaran</th>
             {{-- <th scope="col">Kode Unik</th> --}}
@@ -31,14 +27,9 @@
         <tbody>
           <tr>
             <th scope="row">{{$loop->iteration}}</th>
-            <td>{{$d->telpon}}</td>
-            <td>{{$d->alamat}}</td>
             <td>{{$d->created_at}}</td>
             <td>{{$d->pengiriman}}</td>
-            {{-- <td>{{$d->barang}}</td> --}}
-            <td>{{$d->barangs_id}}</td>
-            {{-- <td>{{ number_format($d->basket = Auth::user()->baskets->sum('totalharga')) }}</td> --}}
-            <td>{{$d->user->name}}</td>
+            <td>{{$d->alamat}}</td>
             <td>{{$d->totalbelanja}}</td>
             {{-- <td>{{$d->kode_unik}}</td> --}}
             <td>
