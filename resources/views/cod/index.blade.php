@@ -42,29 +42,25 @@
       @empty
       <td colspan="8" class="text-center text-danger">Anda Belum Pernah melakukan Pembayaran Cod</td>  
       @endforelse
-      <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+      <div class="modal" tabindex="-1">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Refresh</h5>
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
             <div class="modal-body">
-              @forelse ($barangs as $barang)
-                <h3>{{$barang->baskets->namabarang}}</h3>
-                {{-- <strong>pilih yang mana saja</strong> --}}
-                @empty
-                <div class="alert alert-danger">{{"barang kosong"}}</div>
-            @endforelse
+              <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-              @if ($barang >= 1)
-              <a href="/barangs/hapus/{{$barang->user_id}}" class="btn btn-primary w-100"> <i class="fa fa-refresh fa-spin"></i>Konfirmasi</a>
-              @else
-              <a href="/barangs" class="btn btn-primary w-100">Kembali</a>
-              @endif
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
+        </div>
+      </div>
         </div>
       </table>
       @php

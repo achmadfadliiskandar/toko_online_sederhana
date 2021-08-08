@@ -43,7 +43,7 @@
         <div class="form-group">
         <label for="status">isikan kembali no rekening</label>
         <input type="text" class="form-control @error('status') is-invalid @enderror" id="status" name="status" value="{{$transaksionline->status}}">
-        <small>copykan no rekening di atas yang 12345678</small>
+        <small>copykan no rekening di atas yang 12345678 untuk pelunasan</small>
         </div> 
         <div class="form-group">
         <label for="totalbelanja">Total Belanja</label>

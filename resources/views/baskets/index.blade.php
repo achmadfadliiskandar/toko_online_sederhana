@@ -11,6 +11,11 @@
         {{ session('status') }}
     </div>
 @endif
+@if (session('info'))
+    <div class="alert alert-info">
+        {{ session('info') }}
+    </div>
+@endif
 @section('grid')
 @foreach($baskets as $basket)
   <div class="col-lg-4 col-md-6 mt-4">

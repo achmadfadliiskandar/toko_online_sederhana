@@ -45,8 +45,9 @@ class TransaksionlinesController extends Controller
         // $user = Auth::user();
         // $cod = $user->cod;
         error_reporting(0);
-        $transaksionlines = Transaksionline::all();
-        $barangs = Basket::all();
+        $user = Auth::user();
+        $transaksionlines = $user->transaksionlines;
+        $barangs = Barang::all();
         return view('transaksionline.historytransaksionline',compact('transaksionlines','barangs'));
     }
 

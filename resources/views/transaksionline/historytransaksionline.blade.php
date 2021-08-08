@@ -41,8 +41,8 @@
         @if ($saksi == NULL)
         <div class="alert alert-warning">Anda Belum Pernah Belanja</div>
     @else
-    <div class="alert alert-secondary">total belanja tertinggi anda : {{$saksi->min("totalbelanja")}}</div>
-    <div class="alert alert-danger">total belanja terendah anda : {{$saksi->max("totalbelanja")}}</div>
+    <div class="alert alert-secondary">total belanja tertinggi anda : {{Auth::user()->transaksionlines->max("totalbelanja")}}</div>
+    <div class="alert alert-danger">total belanja terendah anda : {{Auth::user()->transaksionlines->min("totalbelanja")}}</div>
     @endif
     </div>
 @endsection
