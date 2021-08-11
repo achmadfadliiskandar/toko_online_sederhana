@@ -30,7 +30,7 @@
             <td>{{$d->created_at}}</td>
             <td>{{$d->pengiriman}}</td>
             <td>{{$d->alamat}}</td>
-            <td>{{$d->totalbelanja}}</td>
+            <td>{{number_format($d->totalbelanja)}}</td>
             {{-- <td>{{$d->kode_unik}}</td> --}}
             <td>
               <button class="btn btn-primary">{{$d->status}}</button>

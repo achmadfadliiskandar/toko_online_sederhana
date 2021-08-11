@@ -46,6 +46,17 @@
     </div>
   </div>
 @endforeach
+{{-- Halaman : 
+Jumlah Data : {{ $baskets->total() }}
+Data Per Halaman : {{ $baskets->perPage() }}
+{{ $baskets->links() }} --}}
+<div class="container mt-3">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {{ $baskets->links() }}
+    </ul>
+  </nav>
+</div>
         </div>
       </div>
     </div>

@@ -60,7 +60,8 @@ class TransaksionlinesController extends Controller
     {
         $user = Auth::user();
         $barangs = $user->barangs;
-        return view('transaksionline.create',compact('barangs'));
+        $baskets = Basket::all();
+        return view('transaksionline.create',compact('barangs','baskets'));
     }
 
     /**
@@ -76,6 +77,7 @@ class TransaksionlinesController extends Controller
         $request->validate([
             'bukti'=>'mimes:png,jpg,jpeg,gif,svg',
             'barangs_id'=>'required',
+            'baskets_id'=>'required',
             'kartu'=>'required',
             'pengiriman'=>'required',
             'alamatpengiriman' => 'required',
@@ -88,6 +90,7 @@ class TransaksionlinesController extends Controller
         Transaksionline::create([
             'kartu'=> $request["kartu"],
             'barangs_id'=> $request["barangs_id"],
+            'baskets_id'=> $request["baskets_id"],
             'alamatpengiriman'=> $request["alamatpengiriman"],
             'kode_unik'=> mt_rand(100,5000),
             'pengiriman'=> $request["pengiriman"],

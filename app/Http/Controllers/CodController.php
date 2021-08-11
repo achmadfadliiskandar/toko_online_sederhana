@@ -66,6 +66,7 @@ class CodController extends Controller
         $cod = Cod::create([
             'telpon'=> $request["telpon"],
             'barangs_id'=>$request["barangs_id"],
+            'baskets_id'=>$request["baskets_id"],
             'alamat'=> $request["alamat"],
             'kode_unik'=> mt_rand(100,5000),
             'pengiriman'=> $request["pengiriman"],
@@ -92,7 +93,8 @@ class CodController extends Controller
         $user = Auth::user();
         $cod = $user->cod;
         $barangs = Barang::all();
-        return view('cod.history',compact('cod','barangs'));
+        $baskets = Basket::all();
+        return view('cod.history',compact('cod','barangs','baskets'));
     }
 
     /**

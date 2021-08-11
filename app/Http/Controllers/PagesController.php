@@ -7,7 +7,7 @@ use App\Basket;
 class PagesController extends Controller
 {
     public function home(){
-        $baskets = Basket::all();
+        $baskets = Basket::paginate(3);
         error_reporting(0);
         return view('index',compact('baskets'));
     }

@@ -18,7 +18,7 @@ use SoftDeletes;
     return $this->hashMany('App\Barang');
     }
     public function cod(){
-    return $this->belongsTo('App\Cod');
+    return $this->hashMany('App\Cod');
     }
     // public function transaksionline(){
     //     return $this->hashOne('App\Transaksionline');

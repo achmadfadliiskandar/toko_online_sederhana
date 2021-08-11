@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksionline extends Model
 {
-    protected $fillable = ["kartu","bukti","alamatpengiriman","pengiriman","kode_unik","totalbelanja","barangs_id","user_id","status"];
+    protected $fillable = ["kartu","bukti","alamatpengiriman","pengiriman","kode_unik","totalbelanja","barangs_id","user_id","status","baskets_id"];
 
     public function user(){
     	return $this->belongsTo('App\User');

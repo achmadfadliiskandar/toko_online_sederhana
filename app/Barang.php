@@ -19,7 +19,7 @@ class Barang extends Model
     return $this->belongsTo('App\Basket');
     }
     public function cod(){
-    return $this->hashMany('App\Cod');
+    return $this->hasMany('App\Cod');
     }
     public function transaksionline(){
         return $this->hasMany('App\Transaksionline');

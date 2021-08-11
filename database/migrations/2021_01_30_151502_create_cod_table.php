@@ -23,7 +23,7 @@ class CreateCodTable extends Migration
             $table->string('totalbelanja');
             $table->string('status');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('baskets_id')->nullable();
+            $table->text('baskets_id')->nullable();
             $table->timestamps();
         });
 // CREATE TRIGGER `aftercreatecod` 

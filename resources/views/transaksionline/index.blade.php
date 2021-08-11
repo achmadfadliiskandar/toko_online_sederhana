@@ -41,7 +41,7 @@
                         <td>{{$saksi->pengiriman}}</td>
                         {{-- <td>{{$saksi->kode_unik}}</td> --}}
                         <td>{{$saksi->alamatpengiriman}}</td> 
-                        <td>{{$saksi->totalbelanja}}</td>
+                        <td>{{number_format($saksi->totalbelanja)}}</td>
                         <td>
                         @if ($saksi->status < 0)
                         <button class="btn btn-danger">Pending/Belum Lunas</button>

@@ -26,7 +26,7 @@
             <th scope="row">{{$loop->iteration}}</th>
             <td>{{$d->barangs_id}}</td>
             <td>{{$d->user->name}}</td>
-            <td>{{$d->totalbelanja}}</td>
+            <td>{{number_format($d->totalbelanja)}}</td>
         </tr>
         @endforeach
         @forelse ($cod as $d)
@@ -36,10 +36,10 @@
         @endforelse
     </table>
     @if ($d == NULL)
-        <div class="alert alert-warning">Anda Belum Pernah Belanja</div>
+        <div class="alert alert-warning mb-5">Anda Belum Pernah Belanja</div>
     @else
-    <div class="alert alert-secondary">total belanja tertinggi anda : {{Auth::user()->cod->max("totalbelanja")}}</div>
-    <div class="alert alert-danger">total belanja terendah anda : {{Auth::user()->cod->min("totalbelanja")}}</div>
+    <div class="alert alert-secondary">total belanja tertinggi anda : {{number_format(Auth::user()->cod->max("totalbelanja"))}}</div>
+    <div class="alert alert-danger">total belanja terendah anda : {{number_format(Auth::user()->cod->min("totalbelanja"))}}</div>
     @endif
     </div>
 </div>

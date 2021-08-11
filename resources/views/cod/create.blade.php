@@ -20,51 +20,24 @@
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">Your cart</span>
-        <span class="badge badge-secondary badge-pill">3</span>
+        <span class="badge badge-secondary badge-pill">{{number_format(Auth::user()->barangs->count("id"))}}</span>
       </h4>
       <ul class="list-group mb-3">
+        @foreach($barangs as $key => $barang)
         <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
-            <h6 class="my-0">Product name</h6>
-            <small class="text-muted">Brief description</small>
+            <h6 class="my-0 text-uppercase">{{$barang->baskets->namabarang}}</h6>
+            <small class="text-muted">Rp {{number_format($barang->baskets->hargabarang)}}</small>
+            <small class="text-muted"> x {{$barang->stok}}</small>
           </div>
-          <span class="text-muted">$12</span>
+          <span class="text-muted">Total : {{number_format($barang->totalharga)}}</span>
         </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Second product</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$8</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Third item</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$5</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between bg-light">
-          <div class="text-success">
-            <h6 class="my-0">Promo code</h6>
-            <small>EXAMPLECODE</small>
-          </div>
-          <span class="text-success">-$5</span>
-        </li>
+        @endforeach
         <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
-          <strong>$20</strong>
+          <span>Total Harga</span>
+          <strong>Rp {{number_format(Auth::user()->barangs->sum("totalharga"))}}</strong>
         </li>
       </ul>
-
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Promo code">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </div>
-      </form>
     </div>
     <div class="col-md-8 order-md-1">
         <div class="row">
@@ -100,14 +73,18 @@
                     <option>LOREM IPSUM EXPRESS</option>
                     </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
+                      <label for="baskets_id" class="d-inline">Pemilik barang</label>
+                      <input type="text" class="form-control" id="baskets_id" style="display: none;" name="baskets_id" value="@foreach ($barangs as $barang){{$barang->baskets->user->name}}  @endforeach" readonly>
+                      </div>
+                    <div class="form-group" style="display: none;">
                     <label for="totalbelanja" class="d-inline">total belanja</label>
-                    <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" value="{{ number_format($basket = Auth::user()->barangs->sum('totalharga'))}}" readonly>
+                    <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" style="display: none;" value="{{$basket = Auth::user()->barangs->sum('totalharga')}}" readonly>
                     </div>
-            </form>
+            {{-- </form> --}}
           </div>
         </div>
-        <button type="submit" class="btn btn-primary btn btn-block">Bayar Sekarang!!</button>
+        <button type="submit" class="btn btn-primary btn btn-block">Bayar Sekarang</button>
       </form>
     </div>
 </div>

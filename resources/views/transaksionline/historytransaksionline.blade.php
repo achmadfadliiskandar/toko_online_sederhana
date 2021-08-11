@@ -28,7 +28,7 @@
                     @if ($saksi->status > 1)
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$saksi->barangs_id}}</td>
-                    <td>{{$saksi->totalbelanja}}</td>
+                    <td>{{number_format($saksi->totalbelanja)}}</td>
                     <td>{{$saksi->user->name}}</td> 
                     </tr>
                     @endif
@@ -39,10 +39,10 @@
             </tbody>  
         </table>
         @if ($saksi == NULL)
-        <div class="alert alert-warning">Anda Belum Pernah Belanja</div>
+        <div class="alert alert-warning mb-5">Anda Belum Pernah Belanja</div>
     @else
-    <div class="alert alert-secondary">total belanja tertinggi anda : {{Auth::user()->transaksionlines->max("totalbelanja")}}</div>
-    <div class="alert alert-danger">total belanja terendah anda : {{Auth::user()->transaksionlines->min("totalbelanja")}}</div>
+    <div class="alert alert-secondary">total belanja tertinggi anda : {{number_format(Auth::user()->transaksionlines->max("totalbelanja"))}}</div>
+    <div class="alert alert-danger">total belanja terendah anda : {{number_format(Auth::user()->transaksionlines->min("totalbelanja"))}}</div>
     @endif
     </div>
 @endsection

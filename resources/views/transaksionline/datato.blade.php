@@ -6,7 +6,8 @@
 @section('container')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">DataTable with default features</h3>
+        <h3 class="card-title">Data Transaksi Online</h3>
+        <p class="mt-4">untuk pencarian barang bisa menggunakan search real time</p>
     </div>
     <!-- /.card-header -->
     <div class="container">
@@ -19,6 +20,7 @@
         <tr>
             <th scope="col">No</th>
             <th scope="col">Barang yang di belanjakan</th>
+            <th scope="col">Pemilik Barang</th>
             <th scope="col">Kartu</th>
             <th scope="col">Bukti</th>
             <th scope="col">Tanggal</th>
@@ -35,14 +37,15 @@
             <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$saksi->barangs_id}}</td>
+                <td>{{$saksi->baskets_id}}</td>
                 <td>{{$saksi->kartu}}</td>
-                <td><img src="/image/{{$saksi->bukti}}" alt="gambar" width="200"></td>
+                <td><img src="/image/{{$saksi->bukti}}" alt="gambar" width="100"></td>
                 <td>{{$saksi->created_at}}</td> 
                 <td>{{$saksi->user->name}}</td> 
                 <td>{{$saksi->pengiriman}}</td>
                 {{-- <td>{{$saksi->kode_unik}}</td> --}}
                 <td>{{$saksi->alamatpengiriman}}</td> 
-                <td>{{$saksi->totalbelanja}}</td>
+                <td>{{number_format($saksi->totalbelanja)}}</td>
                 {{-- <td>{{$saksi->barang}}</td> --}}
             </tr>
             @empty
@@ -60,11 +63,11 @@
                 @foreach ($baskets as $basket)
                     <p>{{$basket->user->name}} : {{$basket->namabarang}}</p>
                 @endforeach
-                @if (Auth::user()->name == "id")
+                {{-- @if (Auth::user()->name == true)
                 <p>{{$basket->user->name}}</p>
                 @else
                 <p class="text-danger">Pedagang Aktif : {{$basket->user->name}}</p>
-                @endif
+                @endif --}}
             </div>
         </div>
     <!-- /.card-body -->
