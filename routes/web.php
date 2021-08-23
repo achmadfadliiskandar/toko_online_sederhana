@@ -104,3 +104,8 @@ Route::get('user','UserController@index')->middleware('checkRole:admin');
 Route::get('user/edit/{id}','UserController@edit');
 Route::put('user/update/{id}','UserController@update');
 // end data user
+
+// edit password
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+// end edit password

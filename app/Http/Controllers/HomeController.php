@@ -24,16 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return view('home');
-        $role = Auth::user()->role;
-        if ($role == 'admin') {
-            return redirect('admin');
-        }elseif ($role == 'penjual') {
-            return redirect('penjual');
-        }elseif ($role == 'pembeli') {
-            return redirect('baskets');
-        }else {
-            return redirect('logout');
-        }
+        return view('home');
+        // untuk arah akses sesuai role
+        // $role = Auth::user()->role;
+        // if ($role == 'admin') {
+        //     return redirect('admin');
+        // }elseif ($role == 'penjual') {
+        //     return redirect('penjual');
+        // }elseif ($role == 'pembeli') {
+        //     return redirect('baskets');
+        // }else {
+        //     return redirect('logout');
+        // }
     }
 }

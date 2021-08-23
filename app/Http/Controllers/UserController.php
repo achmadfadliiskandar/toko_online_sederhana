@@ -24,7 +24,7 @@ class UserController extends Controller
             'name' => 'required',
             'address' => 'required',
             // 'gambar'=>'required',
-            'password' => 'required|min:8',
+            //'password' => 'required|min:8',
         ]);
         $user = User::find($id);
         $user->name = $request->name;
@@ -34,7 +34,7 @@ class UserController extends Controller
         }else {
             $user->gambar = $request->gambar;
         }
-        $user->password = Hash::make($request->password);
+        //$user->password = Hash::make($request->password);
         $user->save();
         return redirect('home')->with('status','berhasil di edit');
     }

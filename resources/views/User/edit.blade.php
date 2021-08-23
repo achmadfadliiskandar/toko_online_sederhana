@@ -12,10 +12,10 @@
         <label for="name">Nama</label>
         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{$user->name}}">
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{$user->password}}">
-        </div>
+        </div> --}}
         @if ($user->gambar)
         <img src="/gambaruser/{{$user->gambar}}" width="100" alt="">
         <input type="file" class="form-control-file mt-2" id="gambar" name="gambar">

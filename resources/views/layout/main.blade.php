@@ -60,6 +60,8 @@ echo "<a class='btn btn-dark' href='/barangs'><i class='fa fa-shopping-cart'></i
   <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
     <a class="text-dark" href="user/edit/{{Auth::user()->id}}">Edit Akun</a>
     <hr>
+    <a class="text-dark" href="change-password">Ubah Password</a>
+    <hr>
         <a class="btn-link text-dark" href="{{ route('logout') }}"
 onclick="event.preventDefault();
 document.getElementById('logout-form').submit();">
