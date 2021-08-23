@@ -13,10 +13,10 @@
                         @foreach ($errors->all() as $error)
                             <p class="text-danger">{{ $error }}</p>
                         @endforeach 
-                        <div class="form-group row">
+                        <div class="form-group row" style="display: none;">
                             <label for="password" class="col-md-4 col-form-label text-md-right">Password Lama</label>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="current_password" autocomplete="current-password">
+                                <input id="password" style="display:none;" type="password" class="form-control" name="current_password" autocomplete="current-password">
                             </div>
                         </div>
                         <div class="form-group row">
