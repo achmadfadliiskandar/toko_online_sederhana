@@ -8,6 +8,19 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<div class="jumbotron jumbotron-fluid mt-4 bg-dark text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>LOREM IPSUM</h1>
+        <p class="text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, minima nulla! Quidem rerum possimus corporis nostrum eveniet omnis reprehenderit. Odio nulla est nihil repudiandae deserunt veniam distinctio aperiam ducimus adipisci quisquam expedita voluptates nemo vitae officia omnis, aut soluta odit molestiae non cupiditate. Sed ipsa, quasi, dignissimos facilis cum impedit necessitatibus aliquam dolores consequatur mollitia quidem velit eveniet magnam debitis, soluta excepturi libero optio. Beatae architecto illo soluta ratione ut tempore veritatis! Aperiam, veritatis quia.</p>
+      </div>
+      <div class="col-sm-6">
+        <img src="{{asset('undraw_performance_overview_p9bm.svg')}}" class="w-100" alt="">
+      </div>
+    </div>
+  </div>
+</div>
 <h1 class="text-center mt-5 pt-5">Services</h1>
 <div class="container">
 <div class="row text-center">

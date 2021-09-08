@@ -22,6 +22,7 @@ class CreateBarangsTable extends Migration
             $table->integer('stok');
             // $table->longtext('keteranganbrg');
             $table->unsignedBigInteger('user_id');
+            $table->enum('status_pembelian', ['keranjang', 'beli']);
             $table->timestamps();
         });
     }

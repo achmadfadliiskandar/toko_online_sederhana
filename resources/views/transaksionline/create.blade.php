@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title',' Cash On Delivery (COD)')
+@section('title',' Transaksi Online')
     
 @section('container')
 <div class="container">
@@ -46,7 +46,10 @@
                 @csrf
                 <div class="form-group" style="display: none;">
                 <label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
-                <input type="text" class="form-control" name="barangs_id" style="display: none;" readonly  value="@foreach ($barangs as $barang){{$barang->baskets->namabarang}} {{number_format($barang->baskets->hargabarang)}} : {{$barang->stok}} = {{number_format($barang->totalharga)}}
+                <input type="text" class="form-control" name="barangs_id" style="display: none;" readonly  value="@foreach ($barangs as $barang)
+                @if ($barang->status_pembelian == 'beli')
+                {{$barang->baskets->namabarang}} {{number_format($barang->baskets->hargabarang)}} : {{$barang->stok}} = {{number_format($barang->totalharga)}}
+                @endif
                 @endforeach">
                 </div>
                 <div class="form-group">
@@ -77,11 +80,18 @@
                         </div>   --}}
                         <div class="form-group" style="display: none;">
                           <label for="baskets_id" class="d-inline">Pemilik barang</label>
-                          <input type="text" class="form-control" id="baskets_id" style="display: none;" name="baskets_id" value="@foreach ($barangs as $barang){{$barang->baskets->user->name}}  @endforeach" readonly>
+                          <input type="text" class="form-control" id="baskets_id" style="display: none;" name="baskets_id" value="@foreach ($barangs as $barang)
+                          @if ($barang->status_pembelian == 'beli')
+                          {{$barang->baskets->user->name}}
+                          @endif
+                          @endforeach" readonly>
                           </div>
                 <div class="form-group" style="display: none;">
                 <label for="totalbelanja">Total Belanja</label>
-                <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" value="{{$basket = Auth::user()->barangs->sum('totalharga')}}" style="display: none;" readonly>
+                <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" value="@if ($barang->status_pembelian == 'beli')
+                {{$basket = Auth::user()->barangs->sum('totalharga')}}
+                @endif
+                " style="display: none;" readonly>
                 </div>  
                 <button type="submit" class="btn btn-primary">Bayar Sekarang</button>
             </form>

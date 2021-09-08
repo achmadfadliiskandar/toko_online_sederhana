@@ -46,7 +46,10 @@
                 @csrf
                 <div class="form-group" style="display: none;">
                 <label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
-                <input type="text" class="form-control" style="display: none;" name="barangs_id" readonly  value="@foreach ($barangs as $barang){{$barang->baskets->namabarang}} : {{number_format($barang->baskets->hargabarang)}} * {{$barang->stok}} = {{number_format($barang->totalharga)}}
+                <input type="text" class="form-control" style="display: none;" name="barangs_id" readonly  value="@foreach ($barangs as $barang)
+                @if ($barang->status_pembelian == 'beli')
+                {{$barang->baskets->namabarang}} : {{number_format($barang->baskets->hargabarang)}} * {{$barang->stok}} = {{number_format($barang->totalharga)}}
+                @endif
                 @endforeach">
                 </div>
                 <div class="form-group">
