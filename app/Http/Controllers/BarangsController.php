@@ -56,32 +56,7 @@ class BarangsController extends Controller
         $barang->totalharga = $request->totalharga;
         $barang->stok = $request->stok;
         $barang->user_id = $request->user_id;
-        if ($request->status_pembelian == 'keranjang') {
-            // dd($request->status_pembelian);
-            // return 'wow';
-            // $barang->stok = $request->stok;
-            // $baskets = Basket::findorFail($request->baskets_id);
-            // $baskets->stok -= $request->stok;
-            // $baskets->save();
-            $barang->save();
-            $barang->status_pembelian = $request->status_pembelian;
-            $barang->save();
-            alert()->success('keranjang berhasil di tambah','berhasil')->autoclose(3000);
-            return redirect('/baskets');
-        } else {
-            // dd($request->status_pembelian);
-            // return 'wowsss';
-            $barang->stok = $request->stok;
-            $baskets = Basket::findorFail($request->baskets_id);
-            $baskets->stok -= $request->stok;
-            $baskets->save();
-            // $barang->save();
-            $barang->status_pembelian = $request->status_pembelian;
-            $barang->save();
-            alert()->success('barang berhasil di tambahkan','berhasil');
-            return redirect('/pembayaran');
-        }
-        
+        // 
         if ($request->stok > $barang->baskets->stok) {
             alert()->info('Stok Yang Anda Beli Terlalu Banyak','#informasi');
             return redirect('/baskets')->with('info','stok yang di beli terlalu banyak');
@@ -147,9 +122,9 @@ class BarangsController extends Controller
      */
     public function destroy($id)
     {
-        // $value = Barang::where('id',$id);
-        // $barang = Basket::where('id',$value->value('baskets_id'));
-        // $barang->update(["stok"=>(int) $barang->value('stok') + (int) $value->first()->stok]);
+        $value = Barang::where('id',$id);
+        $barang = Basket::where('id',$value->value('baskets_id'));
+        $barang->update(["stok"=>(int) $barang->value('stok') + (int) $value->first()->stok]);
         Barang::destroy($id);
         alert()->success('keranjang berhasil di Hapus','sukses');
         return redirect('/baskets');

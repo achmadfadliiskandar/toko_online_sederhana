@@ -41,7 +41,7 @@
           @enderror
           </div>
       </div>
-      <div class="form-group" style="display: none;">
+      <div class="form-group">
         <label for="totalharga" class="d-inline">totalharga</label>
         <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}">
         <div class="invalid-feedback">
@@ -50,13 +50,13 @@
         @enderror
         </div>
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
       <label for="status_pembelian">Jenis Pembelian</label>
       <select class="form-control" id="status_pembelian" name="status_pembelian">
         <option>keranjang</option>
         <option>beli</option>
       </select>
-    </div>
+    </div> --}}
     <div class="form-group" style="display: none;">
       <label for="user" class="d-inline">user</label>
       <input type="text" id="user" class="form-control @error('user') is-invalid @enderror" id="user" name="user_id" value="{{Auth::user()->id}}" readonly>
