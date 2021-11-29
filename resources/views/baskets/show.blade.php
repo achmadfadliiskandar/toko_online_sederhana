@@ -8,7 +8,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <img src="/images/{{$basket->gambar}}" class="shadow-lg p-3 mb-5 bg-white rounded" width="100%" alt="">
+      <img src="/gambar/{{$basket->gambar}}" class="shadow-lg p-3 mb-5 bg-white rounded" width="100%" alt="">
     </div>
     <div class="col-sm-6">
       @if ($basket->stok == 0)

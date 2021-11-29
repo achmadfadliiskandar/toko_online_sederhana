@@ -20,7 +20,7 @@
 @foreach($baskets as $basket)
   <div class="col-lg-4 col-md-6 mt-4">
     <div class="card">
-      <img src="/images/{{$basket->gambar}}" class="card-img-top" alt="gambar">
+      <img src="/gambar/{{$basket->gambar}}" class="card-img-top" alt="gambar">
       <div class="card-body">
         <h5 class="card-title text-uppercase">{{$basket->namabarang}}</h5>
         <p class="card-text"> Harga : {{ number_format($basket->hargabarang) }}</p>

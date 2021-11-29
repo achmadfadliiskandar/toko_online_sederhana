@@ -29,7 +29,7 @@
 <tr>
 <td>{{$loop->iteration}} </td>
 <td>{{$basket->namabarang}}</td>
-<td><img src="/images/{{$basket->gambar}}" class="card-img-top" style="width: 100px;" alt="gambar"></td>
+<td><img src="/gambar/{{$basket->gambar}}" class="card-img-top" style="width: 100px;" alt="gambar"></td>
 <td>{{ number_format($basket->hargabarang) }}</td>
 <td>{{$basket->stok}}</td>
 <td>

@@ -23,7 +23,7 @@
       @foreach($baskets as $basket)
   <div class="col-lg-4 col-md-6 mt-4">
     <div class="card">
-      <img src="/images/{{$basket->gambar}}" class="card-img-top h-100" alt="gambar">
+      <img src="/gambar/{{$basket->gambar}}" class="card-img-top h-100" alt="gambar">
       <div class="card-body">
         <h5 class="card-title text-uppercase">{{$basket->namabarang}}</h5>
         <p class="card-text"> Harga : {{ number_format($basket->hargabarang) }}</p>
@@ -50,13 +50,6 @@
 Jumlah Data : {{ $baskets->total() }}
 Data Per Halaman : {{ $baskets->perPage() }}
 {{ $baskets->links() }} --}}
-<div class="container mt-3">
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      {{ $baskets->links() }}
-    </ul>
-  </nav>
-</div>
         </div>
       </div>
     </div>

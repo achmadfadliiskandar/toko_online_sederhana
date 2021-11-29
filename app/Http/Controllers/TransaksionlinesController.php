@@ -8,6 +8,7 @@ use Auth;
 use App\User;
 use App\Barang;
 use App\Basket;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class TransaksionlinesController extends Controller
 {
@@ -22,7 +23,7 @@ class TransaksionlinesController extends Controller
     }
     public function index()
     {
-        $user = Auth::user();
+        $user = FacadesAuth::user();
         $transaksionlines = $user->transaksionlines;
         if ($barangs = $user->barangs) {
             // return redirect('barangs');
@@ -45,7 +46,7 @@ class TransaksionlinesController extends Controller
         // $user = Auth::user();
         // $cod = $user->cod;
         error_reporting(0);
-        $user = Auth::user();
+        $user = FacadesAuth::user();
         $transaksionlines = $user->transaksionlines;
         $barangs = Barang::all();
         return view('transaksionline.historytransaksionline',compact('transaksionlines','barangs'));
@@ -58,7 +59,7 @@ class TransaksionlinesController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
+        $user = FacadesAuth::user();
         $barangs = $user->barangs;
         $baskets = Basket::all();
         return view('transaksionline.create',compact('barangs','baskets'));
@@ -97,7 +98,7 @@ class TransaksionlinesController extends Controller
             'bukti'=>$imgName,
             'totalbelanja'=> $request["totalbelanja"],
             'status'=> "",
-            'user_id'=> Auth::id(),
+            'user_id'=> FacadesAuth::id(),
         ]);
         return redirect('/transaksionline')->with('status','data anda berhasil tersimpan di server dan akan segera di kirim');
     }

@@ -9,6 +9,8 @@ use App\User;
 use App\Basket;
 use Alert;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
+
 class BarangsController extends Controller
 {
     /**
@@ -23,7 +25,7 @@ class BarangsController extends Controller
     public function index()
     {
         //$barangs = Barang::with('baskets')->paginate(2);
-        $user = Auth::user();
+        $user = FacadesAuth::user();
         $barangs = $user->barangs;
         return view('barangs.index',compact('barangs'));
     }

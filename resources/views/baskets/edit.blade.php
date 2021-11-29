@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form method="post" action="/baskets/{{$basket->id}}" name="format">
+<form method="post" action="/baskets/{{$basket->id}}" name="format" enctype="multipart/form-data">
 @method('patch')
 @csrf
   <div class="form-group">
@@ -38,10 +38,28 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="stok" class="d-inline">harga barang</label>
+    <label for="stok" class="d-inline">stok</label>
     <input type="number" id="stok" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{$basket->stok}}">
     <div class="invalid-feedback">
     @error('stok')
+      {{$message}}
+      @enderror
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="keterangan" class="d-inline">keterangan</label>
+    <input type="text"  class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" value="{{$basket->keterangan}}">
+    <div class="invalid-feedback">
+    @error('keterangan')
+      {{$message}}
+      @enderror
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="gambar" class="d-inline">Gambar</label>
+    <input type="file" id="gambar" class="form-control @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="{{$basket->gambar}}">
+    <div class="invalid-feedback">
+    @error('gambar')
       {{$message}}
       @enderror
     </div>

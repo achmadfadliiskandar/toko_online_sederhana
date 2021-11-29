@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Basket;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class BasketsController extends Controller
 {
@@ -37,7 +40,7 @@ class BasketsController extends Controller
 
     public function penjual(){
         // khusus penjual
-        $user = Auth::user();
+        $user = FacadesAuth::user();
         $baskets = $user->baskets;
         return view('baskets.penjual',compact('baskets'));
     }
@@ -68,28 +71,30 @@ class BasketsController extends Controller
             // 'jumlah_beli' => 'required|numeric',
             'stok' => 'required|numeric',
             'keterangan' => 'required',
-            // 'gambar'=>'mimes:png,jpg,jpeg,svg',
-            'gambar'=>'required',
+            'gambar'=>'mimes:png,jpg,jpeg,svg',
+            // 'gambar'=>'required',
             // 'totalharga' => 'required'
         ]);
 
         // $imgName = $request->gambar->getClientOriginalName(). '.'. time(). '.' . $request->gambar->extension();
         // $request->gambar->move(public_path('images'),$imgName);
+        $basket = new Basket;
+        if ($request->hasfile("gambar")) {
+            $file = $request->file("gambar");
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('gambar',$filename);
+            $basket->gambar = $filename;
+        };
 
-        $basket = Basket::create([
-    		'namabarang' => $request["namabarang"],
-            'hargabarang' => $request["hargabarang"],
-            // 'jumlah_beli' => $request["jumlah_beli"],
-            'stok'=> $request["stok"],
-            'keterangan'=> $request["keterangan"],
-            // 'gambar' => $imgName,
-            'gambar' => $request["gambar"],
-            // 'totalharga' => $request["totalharga"],
-            'user_id'=>Auth::id()
-    	]);
-
-    
-        // Basket::create($request->all());
+        $basket->namabarang = $request->namabarang;
+        $basket->hargabarang = $request->hargabarang;
+        $basket->stok = $request->stok;
+        $basket->keterangan = $request->keterangan;
+        $basket->user_id = FacadesAuth::user()->id;
+        // $basket->user_id = $request->user_id;
+        $basket->save();
+          // Basket::create($request->all());
         return redirect('penjual')->with('status','Data berhasil di tambah');
     }
 
@@ -124,31 +129,36 @@ class BasketsController extends Controller
      * @param  \App\Basket  $basket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Basket $basket)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'namabarang' => 'required',
             'hargabarang' => 'required',
-            'stok'=> 'required'
-            // // 'jumlah_beli' => 'required|numeric',
+            'stok'=> 'required',
+            'gambar'=>'required'
             // 'totalharga' => 'required'
         ]);
-        
-        Basket::where('id', $basket->id)
-        ->update([
-            'namabarang' => $request->namabarang,
-            'hargabarang' => $request->hargabarang,
-            'stok' => $request->stok,
-            // 'jumlah_beli' => $request->jumlah_beli,
-            // 'totalharga' => $request->totalharga
-        ]);
-        // DB::table('baskets')->where('namabarang',$request->namabarang)->update([
-        //     'namabarang' => $request->namabarang,
-        //     'hargabarang' => $request->hargabarang,
-        //     'jumlah_beli' => $request->jumlah_beli,
-        //     'totalharga' => $request->totalharga
-        // ]);
-        return redirect('admin')->with('status','Keranjang berhasil di ubah');
+        $basket = Basket::find($id);
+        if ($request->hasfile('gambar')) {
+            $destination = 'gambar'. $basket->gambar;
+            if (File::exists($destination)) {
+            File::delete($destination);
+            }
+            $file = $request->file('gambar');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('gambar', $filename);
+            $basket->gambar = $filename;
+        }
+
+        $basket->namabarang = $request->namabarang;
+        $basket->hargabarang = $request->hargabarang;
+        $basket->stok = $request->stok;
+        $basket->keterangan = $request->keterangan;
+        $basket->user_id = FacadesAuth::user()->id;
+        // $basket->user_id = $request->user_id;
+        $basket->save();
+        return redirect('penjual')->with('status','Keranjang berhasil di ubah');
     }
 
     /**
@@ -160,6 +170,10 @@ class BasketsController extends Controller
     public function destroy(Basket $basket)
     {
         Basket::destroy($basket->id);
+        $destination = 'gambar/'.$basket->gambar;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         return redirect('penjual')->with('status','data berhasil ke hapus');
     }
 
