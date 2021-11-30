@@ -24,7 +24,7 @@
         <tbody>
         <tr>
             <th scope="row">{{$loop->iteration}}</th>
-            <td>{{$d->barangs_id}}</td>
+            <td>{{$d->baskets->namabarang}}</td>
             <td>{{$d->user->name}}</td>
             <td>{{number_format($d->totalbelanja)}}</td>
         </tr>

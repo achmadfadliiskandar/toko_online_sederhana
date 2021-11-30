@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pembayaran;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class PembayaranController extends Controller
 {
@@ -41,7 +42,7 @@ class PembayaranController extends Controller
                 'hargasemua' => $request["hargasemua"],
                 'bayar' => $request["bayar"],
                 'kembalian' => $request["kembalian"],
-                'user_id' => Auth::id()
+                'user_id' => FacadesAuth::id()
             ]);
         return redirect('/pembayaran/create')->with('status','Pembayaran Berhasil');
     }

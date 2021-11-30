@@ -26,16 +26,19 @@ class UserController extends Controller
             // 'gambar'=>'required',
             //'password' => 'required|min:8',
         ]);
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->address = $request->address;
-        if ($request->gambar == NULL) {
-        // echo "null";
-        }else {
-            $user->gambar = $request->gambar;
+
+        $imgName = null;
+
+        if ($request->gambar) {
+            $imgName = $request->gambar->getClientOriginalName().'-'. time().'.'. $request->gambar->extension();
+            $request->gambar->move(public_path('gambaruser'), $imgName);
         }
-        //$user->password = Hash::make($request->password);
-        $user->save();
+
+        User::find($id)->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            'gambar' => $imgName
+        ]);
         return redirect('home')->with('status','berhasil di edit');
     }
 }

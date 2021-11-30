@@ -42,13 +42,18 @@
     <div class="col-md-8 order-md-1">
         <div class="row">
           <div class="col-md-12 mb-3">
-            <form method="POST" action="/cod/store">
+            <form method="POST" action="/cod/store" id="form">
                 @csrf
-                <div class="form-group" style="display: none;">
+                <div class="form-group">
                 <label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
-                <input type="text" class="form-control" style="display: none;" name="barangs_id" readonly  value="@foreach ($barangs as $barang)
-                {{$barang->baskets->namabarang}} : {{number_format($barang->baskets->hargabarang)}} * {{$barang->stok}} = {{number_format($barang->totalharga)}}
-                @endforeach">
+                <select class="form-control" id="barangs_id" onclick="munculkan()" name="barangs_id">
+                      <option value="{{$barang->id}}">
+                        @foreach ($barangs as $barang)
+                      {{$barang->baskets->namabarang}}        
+                      @endforeach 
+                    </option> 
+                  </select>
+                  {{-- <input type="text" readonly name="barangs_id" id="barangs_id" class="form-control" value="@foreach ($barangs as $barang) {{$barang->baskets->namabarang}}, @endforeach"> --}}
                 </div>
                 <div class="form-group">
                 <label for="telpon" class="d-inline">No Telpon</label>
@@ -74,13 +79,19 @@
                     <option>LOREM IPSUM EXPRESS</option>
                     </select>
                     </div>
-                    <div class="form-group" style="display: none;">
+                    <div class="form-group">
                       <label for="baskets_id" class="d-inline">Pemilik barang</label>
-                      <input type="text" class="form-control" id="baskets_id" style="display: none;" name="baskets_id" value="@foreach ($barangs as $barang){{$barang->baskets->user->name}}  @endforeach" readonly>
+                      <select name="baskets_id" class="form-control" id="baskets_id">
+                        <option value="{{$barang->baskets_id}}">
+                          @foreach ($barangs as $barang)
+                          {{$barang->baskets->user->name}}
+                          @endforeach  
+                        </option>        
+                      </select>
                       </div>
-                    <div class="form-group" style="display: none;">
+                    <div class="form-group">
                     <label for="totalbelanja" class="d-inline">total belanja</label>
-                    <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" style="display: none;" value="{{$basket = Auth::user()->barangs->sum('totalharga')}}" readonly>
+                    <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" value="{{$basket = Auth::user()->barangs->sum('totalharga')}}" readonly>
                     </div>
             {{-- </form> --}}
           </div>

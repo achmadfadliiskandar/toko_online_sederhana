@@ -15,15 +15,12 @@ class CreateCodTable extends Migration
     {
         Schema::create('cod', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('barangs_id');
-            $table->longtext('telpon');
-            $table->string('alamat');
-            $table->integer('kode_unik');
-            $table->string('pengiriman');
+            $table->string('barangs');
+            $table->string('alamat_pengiriman');
             $table->string('totalbelanja');
-            $table->string('status');
+            $table->integer('stok')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->text('baskets_id')->nullable();
+            $table->integer('baskets_id')->nullable();
             $table->timestamps();
         });
 // CREATE TRIGGER `aftercreatecod` 

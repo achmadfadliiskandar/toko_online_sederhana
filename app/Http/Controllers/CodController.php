@@ -8,6 +8,7 @@ use Auth;
 use App\Basket;
 use App\Barang;
 use App\User;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class CodController extends Controller
 {
@@ -22,7 +23,7 @@ class CodController extends Controller
     }
     public function index()
     {
-        $user = Auth::user();
+        $user = FacadesAuth::user();
         $cod = $user->cod;
         if ($barangs = $user->barangs) {
         // return redirect('barangs');
@@ -41,7 +42,7 @@ class CodController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
+        $user = FacadesAuth::user();
         $barangs = $user->barangs;
         $baskets = Basket::all();
         return view('cod.create',compact('barangs','baskets'));
@@ -63,17 +64,60 @@ class CodController extends Controller
             'pengiriman'=>'required',
             'totalbelanja'=>'required'
         ]);
-        $cod = Cod::create([
-            'telpon'=> $request["telpon"],
-            'barangs_id'=>$request["barangs_id"],
-            'baskets_id'=>$request["baskets_id"],
-            'alamat'=> $request["alamat"],
-            'kode_unik'=> mt_rand(100,5000),
-            'pengiriman'=> $request["pengiriman"],
-            'status'=> "Lunas",
-            'totalbelanja'=> $request["totalbelanja"],
-            'user_id'=> Auth::id()
-        ]);
+        $cod = new Cod;
+        // $cod->telpon = $request->telpon;
+        // $cod->alamat = $request->alamat;
+        // $cod->barangs_id = $request->barangs_id;
+        // $cod->baskets_id = $request->baskets_id;
+        // $cod->kode_unik = mt_rand(100,5000);
+        // $cod->totalbelanja = $request->totalbelanja;
+        // $cod->pengiriman = $request->pengiriman;
+        // $cod->status = "Lunas";
+        // $cod->user_id = FacadesAuth::user()->id;
+        // $cod->save();
+
+        // foreach ($cod as $value) {
+        // $cod = new Cod;
+        // $cod->telpon = $request->telpon;
+        // $cod->alamat = $request->alamat;
+        // $cod->barangs_id = $request->barangs_id;
+        // $cod->baskets_id = $request->baskets_id;
+        // $cod->kode_unik = mt_rand(100,5000);
+        // $cod->totalbelanja = $request->totalbelanja;
+        // $cod->pengiriman = $request->pengiriman;
+        // $cod->status = "Lunas";
+        // $cod->user_id = FacadesAuth::user()->id;
+        // $cod->save();
+        // }
+
+        // foreach ($cod as $key => $value) {
+        //     $cod = new Cod;
+        //     $cod->telpon = $request->telpon;
+        //     $cod->alamat = $request->alamat;
+        //     $cod->barangs_id = $request->barangs_id;
+        //     $cod->baskets_id = $request->baskets_id;
+        //     // $cod->barangs_id = $request->barangs_id;
+        //     // $cod->baskets_id = mt_rand(1,3);
+        //     $cod->kode_unik = mt_rand(100,5000);
+        //     $cod->totalbelanja = $request->totalbelanja;
+        //     $cod->pengiriman = $request->pengiriman;
+        //     $cod->status = "Lunas";
+        //     $cod->user_id = FacadesAuth::user()->id;
+        //     $cod->save();
+        //     }
+        for ($x = 1; $x <= 1; $x++) {
+            $cod = new Cod;
+            $cod->telpon = $request->telpon;
+            $cod->alamat = $request->alamat;
+            $cod->barangs_id = $request->barangs_id;
+            $cod->baskets_id = $request->baskets_id;
+            $cod->kode_unik = mt_rand(100,5000);
+            $cod->totalbelanja = $request->totalbelanja;
+            $cod->pengiriman = $request->pengiriman;
+            $cod->status = "Lunas";
+            $cod->user_id = FacadesAuth::user()->id;
+            $cod->save();
+            }
         return redirect('cod')->with('status','pesanan anda segera di antar');
     }
     public function datacod()
@@ -90,7 +134,7 @@ class CodController extends Controller
         // $user = Auth::user();
         // $cod = $user->cod;
         error_reporting(0);
-        $user = Auth::user();
+        $user = FacadesAuth::user();
         $cod = $user->cod;
         $barangs = Barang::all();
         $baskets = Basket::all();
