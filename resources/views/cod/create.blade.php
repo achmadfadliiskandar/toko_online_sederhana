@@ -56,29 +56,14 @@
                   {{-- <input type="text" readonly name="barangs_id" id="barangs_id" class="form-control" value="@foreach ($barangs as $barang) {{$barang->baskets->namabarang}}, @endforeach"> --}}
                 </div>
                 <div class="form-group">
-                <label for="telpon" class="d-inline">No Telpon</label>
-                <input type="number" class="form-control" id="telpon" name="telpon">
+                <label for="stok" class="d-inline">Stok Belanja Anda</label>
+                <input type="text" class="form-control" id="stok" name="stok" readonly value="@foreach ($barangs as $barang){{$barang->stok}}@endforeach">
                 {{-- <small>untuk mengetahui alamat jika Pengantaran terhambat</small> --}}
                 </div>
                 <div class="form-group">
-                <label for="alamat" class="d-inline">Alamat Pengantaran</label>
-                <input type="text" class="form-control" id="alamat" name="alamat">
+                <label for="alamat_pengantaran" class="d-inline">Alamat Pengantaran</label>
+                <input type="text" class="form-control" id="alamat_pengantaran" name="alamat_pengantaran">
                 </div>
-                {{-- <div class="form-group">
-                    <label for="barangs_id">Barang</label>
-                    <select class="form-control" id="barangs_id" name="barangs_id">
-                    @foreach ($barangs as $barang)
-                    <option value="{{$barang->id}}">{{$barang->baskets->namabarang}}</option>
-                    @endforeach
-                    </select>
-                </div> --}}
-                <div class="form-group">
-                    <label for="pengiriman">Pengiriman</label>
-                    <select class="form-control" id="pengiriman" name="pengiriman">
-                    {{-- <option>Gojek</option> --}}
-                    <option>LOREM IPSUM EXPRESS</option>
-                    </select>
-                    </div>
                     <div class="form-group">
                       <label for="baskets_id" class="d-inline">Pemilik barang</label>
                       <select name="baskets_id" class="form-control" id="baskets_id">

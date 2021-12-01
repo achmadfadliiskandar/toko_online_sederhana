@@ -57,22 +57,23 @@ class CodController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'telpon'=>'required',
-            'barangs_id'=>'required',
-            'alamat'=>'required',
-            // 'kode_unik'=>'required',
-            'pengiriman'=>'required',
+            // 'telpon'=>'required',
+            'barangs'=>'required',
+            'alamat_pengiriman'=>'required',
+            'stok'=>'required|numeric',
+            // 'pengiriman'=>'required',
             'totalbelanja'=>'required'
         ]);
         $cod = new Cod;
         // $cod->telpon = $request->telpon;
-        // $cod->alamat = $request->alamat;
-        // $cod->barangs_id = $request->barangs_id;
+        // $cod->alamat_pengiriman = $request->alamat_pengiriman;
+        // $cod->stok = $request->stok;
+        // $cod->barangs = $request->barangs;
         // $cod->baskets_id = $request->baskets_id;
-        // $cod->kode_unik = mt_rand(100,5000);
+        // // $cod->kode_unik = mt_rand(100,5000);
         // $cod->totalbelanja = $request->totalbelanja;
-        // $cod->pengiriman = $request->pengiriman;
-        // $cod->status = "Lunas";
+        // // $cod->pengiriman = $request->pengiriman;
+        // // $cod->status = "Lunas";
         // $cod->user_id = FacadesAuth::user()->id;
         // $cod->save();
 
@@ -106,15 +107,14 @@ class CodController extends Controller
         //     $cod->save();
         //     }
         for ($x = 1; $x <= 1; $x++) {
-            $cod = new Cod;
-            $cod->telpon = $request->telpon;
-            $cod->alamat = $request->alamat;
-            $cod->barangs_id = $request->barangs_id;
+            $cod->alamat_pengiriman = $request->alamat_pengiriman;
+            $cod->stok = $request->stok;
+            $cod->barangs = $request->barangs;
             $cod->baskets_id = $request->baskets_id;
-            $cod->kode_unik = mt_rand(100,5000);
+            // $cod->kode_unik = mt_rand(100,5000);
             $cod->totalbelanja = $request->totalbelanja;
-            $cod->pengiriman = $request->pengiriman;
-            $cod->status = "Lunas";
+            // $cod->pengiriman = $request->pengiriman;
+            // $cod->status = "Lunas";
             $cod->user_id = FacadesAuth::user()->id;
             $cod->save();
             }

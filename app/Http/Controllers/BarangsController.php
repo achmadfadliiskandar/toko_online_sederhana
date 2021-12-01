@@ -64,9 +64,9 @@ class BarangsController extends Controller
             return redirect('/baskets')->with('info','stok yang di beli terlalu banyak');
         }else {
             $barang->stok = $request->stok;
-            $baskets = Basket::findorFail($request->baskets_id);
-            $baskets->stok -= $request->stok;
-            $baskets->save();
+            // $baskets = Basket::findorFail($request->baskets_id);
+            // $baskets->stok -= $request->stok;
+            // $baskets->save();
             $barang->save();
             alert()->success('keranjang berhasil di tambah','sukses');
             return redirect('/baskets');
@@ -124,9 +124,9 @@ class BarangsController extends Controller
      */
     public function destroy($id)
     {
-        $value = Barang::where('id',$id);
-        $barang = Basket::where('id',$value->value('baskets_id'));
-        $barang->update(["stok"=>(int) $barang->value('stok') + (int) $value->first()->stok]);
+        // $value = Barang::where('id',$id);
+        // $barang = Basket::where('id',$value->value('baskets_id'));
+        // $barang->update(["stok"=>(int) $barang->value('stok') + (int) $value->first()->stok]);
         Barang::destroy($id);
         alert()->success('keranjang berhasil di Hapus','sukses');
         return redirect('/baskets');

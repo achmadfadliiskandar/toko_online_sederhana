@@ -21,7 +21,7 @@ class CreateCodTriggersTable extends Migration
         FOR EACH ROW 
         BEGIN 
         DELETE FROM barangs 
-        WHERE barangs.user_id = user_id; 
+        WHERE barangs.id = id; 
         END');
     }
 
