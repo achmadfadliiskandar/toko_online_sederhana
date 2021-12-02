@@ -17,6 +17,8 @@
             <th scope="col">NO</th>
             <th scope="col">Barang yang di beli</th>
             <th scope="col">Nama Pembeli</th>
+            <th scope="col">Harga Barang</th>
+            <th scope="col">Jumlah Beli</th>
             <th scope="col">Total Belanja</th>
         </tr>
         @foreach ($cod as $d)
@@ -26,6 +28,8 @@
             <th scope="row">{{$loop->iteration}}</th>
             <td>{{$d->baskets->namabarang}}</td>
             <td>{{$d->user->name}}</td>
+            <td>{{number_format($d->baskets->hargabarang)}}</td>
+            <td>{{$d->stok}}</td>
             <td>{{number_format($d->totalbelanja)}}</td>
         </tr>
         @endforeach

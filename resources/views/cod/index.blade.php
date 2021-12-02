@@ -16,10 +16,9 @@
           <tr>
             <th scope="col">NO</th>
             <th scope="col">Waktu</th>
-            <th scope="col">Pengiriman</th>
-            <th scope="col">Alamat Pengiriman</th>
+            <th scope="col"> Alamat Pengiriman</th>
             <th scope="col">Total Belanja</th>
-            <th scope="col">Status Pembayaran</th>
+            {{-- <th scope="col">Total Belanja</th> --}}
             {{-- <th scope="col">Kode Unik</th> --}}
           </tr>
           @foreach ($cod as $d)
@@ -28,13 +27,10 @@
           <tr>
             <th scope="row">{{$loop->iteration}}</th>
             <td>{{$d->created_at}}</td>
-            <td>{{$d->pengiriman}}</td>
-            <td>{{$d->alamat}}</td>
+            <td>{{$d->alamat_pengiriman}}</td>
+            {{-- <td>{{$d->alamat}}</td> --}}
             <td>{{number_format($d->totalbelanja)}}</td>
             {{-- <td>{{$d->kode_unik}}</td> --}}
-            <td>
-              <button class="btn btn-primary">{{$d->status}}</button>
-            </td>
           </tr>
           @endforeach
           @forelse ($cod as $d)

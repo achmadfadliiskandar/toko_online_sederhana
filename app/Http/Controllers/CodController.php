@@ -106,7 +106,7 @@ class CodController extends Controller
         //     $cod->user_id = FacadesAuth::user()->id;
         //     $cod->save();
         //     }
-        for ($x = 1; $x <= 1; $x++) {
+        // for ($x = 1; $x <= 1; $x++) {
             $cod->alamat_pengiriman = $request->alamat_pengiriman;
             $cod->stok = $request->stok;
             $cod->barangs = $request->barangs;
@@ -115,9 +115,12 @@ class CodController extends Controller
             $cod->totalbelanja = $request->totalbelanja;
             // $cod->pengiriman = $request->pengiriman;
             // $cod->status = "Lunas";
+            $baskets = Basket::findorFail($request->baskets_id);
+            $baskets->stok -= $request->stok;
+            $baskets->save();
             $cod->user_id = FacadesAuth::user()->id;
             $cod->save();
-            }
+            // }
         return redirect('cod')->with('status','pesanan anda segera di antar');
     }
     public function datacod()

@@ -46,7 +46,7 @@
                 @csrf
                 <div class="form-group">
                 <label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
-                <select class="form-control" id="barangs_id" onclick="munculkan()" name="barangs_id">
+                <select class="form-control" id="barangs" onclick="munculkan()" name="barangs">
                       <option value="{{$barang->id}}">
                         @foreach ($barangs as $barang)
                       {{$barang->baskets->namabarang}}        
@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-group">
                 <label for="alamat_pengantaran" class="d-inline">Alamat Pengantaran</label>
-                <input type="text" class="form-control" id="alamat_pengantaran" name="alamat_pengantaran">
+                <input type="text" class="form-control" id="alamat_pengiriman" name="alamat_pengiriman">
                 </div>
                     <div class="form-group">
                       <label for="baskets_id" class="d-inline">Pemilik barang</label>
