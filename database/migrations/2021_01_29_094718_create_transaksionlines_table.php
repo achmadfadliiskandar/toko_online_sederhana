@@ -15,7 +15,7 @@ class CreateTransaksionlinesTable extends Migration
     {
         Schema::create('transaksionlines', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('barang');
+            $table->string('barangs_id');
             $table->string('kartu');
             $table->string('bukti');
             $table->string('alamatpengiriman');

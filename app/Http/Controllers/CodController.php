@@ -58,7 +58,7 @@ class CodController extends Controller
     {
         $request->validate([
             // 'telpon'=>'required',
-            'barangs'=>'required',
+            'barangs_id'=>'required',
             'alamat_pengiriman'=>'required',
             'stok'=>'required|numeric',
             // 'pengiriman'=>'required',
@@ -107,9 +107,10 @@ class CodController extends Controller
         //     $cod->save();
         //     }
         // for ($x = 1; $x <= 1; $x++) {
+            foreach ($cod as $key => $value) {
             $cod->alamat_pengiriman = $request->alamat_pengiriman;
             $cod->stok = $request->stok;
-            $cod->barangs = $request->barangs;
+            $cod->barangs_id = $request->barangs_id;
             $cod->baskets_id = $request->baskets_id;
             // $cod->kode_unik = mt_rand(100,5000);
             $cod->totalbelanja = $request->totalbelanja;
@@ -120,6 +121,7 @@ class CodController extends Controller
             $baskets->save();
             $cod->user_id = FacadesAuth::user()->id;
             $cod->save();
+            }
             // }
         return redirect('cod')->with('status','pesanan anda segera di antar');
     }
