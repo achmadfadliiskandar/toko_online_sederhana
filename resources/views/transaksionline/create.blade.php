@@ -42,14 +42,8 @@
     <div class="col-md-8 order-md-1">
         <div class="row">
         <div class="col-md-12 mb-3">
-            <form method="POST" action="/transaksionline" enctype="multipart/form-data">
+            <form method="POST" action="/transaksionline/store" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group" style="display: none;">
-                <label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
-                <input type="text" class="form-control" name="barangs_id" style="display: none;" readonly  value="@foreach ($barangs as $barang)
-                {{$barang->baskets->namabarang}} {{number_format($barang->baskets->hargabarang)}} : {{$barang->stok}} = {{number_format($barang->totalharga)}}
-                @endforeach">
-                </div>
                 <div class="form-group">
                 <label for="kartu">Kartu</label>
                 <input type="text" class="form-control" id="kartu" name="kartu">
@@ -59,35 +53,69 @@
                 <input type="file" class="form-control-file" id="bukti" name="bukti">
                 </div>
                 <div class="form-group">
-                    <label for="pengiriman">Pengiriman</label>
-                    <select class="form-control" id="pengiriman" name="pengiriman">
-                    {{-- <option>Gojek</option>
-                    <option>Grab</option> --}}
-                    <option>LOREM IPSUM EXPRESS</option>
-                    </select>
-                    </div>
+                <label for="alamatpengiriman">Alamat Pengiriman</label>
+                <input type="text" class="form-control" id="alamat_pengiriman" name="alamat_pengiriman">
+                </div>
                 <div class="form-group">
-                    <label for="alamatpengiriman">Alamat Pengiriman</label>
-                    <input type="text" class="form-control" id="alamatpengiriman" name="alamatpengiriman">
+                  @foreach ($barangs as $barang)
+                  <label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
+                  <select class="form-control" id="barangs" onclick="munculkan()" name="barangs_id[]">
+                  <option value="{{$barang->id}}">
+                  {{$barang->baskets->namabarang}}        
+                  </option> 
+                  </select>
+                  @endforeach 
+                  </div>
+                  <div class="form-group" style="display: none;">
+                    <label for="totalbelanja">Total Belanja</label>
+                    <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" value="
+                    {{$basket = Auth::user()->barangs->sum('totalharga')}}
+                    " style="display: none;" readonly>
                     </div>  
-                    {{-- {{number_format(Auth::user()->baskets->sum('totalharga'))}} --}}
-                    {{-- <div class="form-group">
-                        <label for="barang">Barang</label>
-                        <textarea class="form-control" id="barang" name="barang" rows="3">
-                        </textarea>
-                        </div>   --}}
-                        <div class="form-group" style="display: none;">
-                          <label for="baskets_id" class="d-inline">Pemilik barang</label>
-                          <input type="text" class="form-control" id="baskets_id" style="display: none;" name="baskets_id" value="@foreach ($barangs as $barang)
-                          {{$barang->baskets->user->name}}
-                          @endforeach" readonly>
-                          </div>
-                <div class="form-group" style="display: none;">
-                <label for="totalbelanja">Total Belanja</label>
-                <input type="text" class="form-control" id="totalbelanja" name="totalbelanja" value="
-                {{$basket = Auth::user()->barangs->sum('totalharga')}}
-                " style="display: none;" readonly>
-                </div>  
+                  <div class="form-group">
+                      @foreach ($barangs as $barang)
+                  <label for="hargabeli">harga barang yang dibeli</label>
+                  <select class="form-control" id="hargabeli" onclick="munculkan()" name="hargabeli[]">
+                  <option value="{{$barang->totalharga}}">
+                  {{$barang->totalharga}}        
+                  </option> 
+                  </select>
+                  @endforeach 
+                  </div>
+                  
+                  <div class="form-group">
+                      @foreach ($barangs as $barang)
+                  <label for="stok" class="d-inline">Stok Belanja Anda</label>
+                  <select class="form-control" id="barangs" onclick="munculkan()" name="stok[]">
+                  <option value="{{$barang->stok}}">
+                  {{$barang->stok}}        
+                  </option>
+                  </select>
+                  @endforeach 
+                  </div>
+                  
+                  <div class="form-group">
+                  @foreach ($barangs as $barang)
+                  <label for="baskets_id">Pemilik Barang</label>
+                  <select class="form-control" id="baskets" name="baskets_id[]">
+                  <option value="{{$barang->baskets_id}}">
+                  {{$barang->baskets->user->name}}        
+                  </option> 
+                  </select>
+                  @endforeach 
+                  </div>
+                  <div class="form-group">
+                    @foreach ($barangs as $barang)
+                    <label for="baskets_id">Kode Unik</label>
+                    <select class="form-control" id="baskets" name="kodeunik[]">
+                    <option>    
+                    <?php
+                    echo(mt_rand(19,200))
+                    ?>  
+                    </option> 
+                    </select>
+                    @endforeach 
+                    </div>
                 <button type="submit" class="btn btn-primary">Bayar Sekarang</button>
             </form>
     </div>

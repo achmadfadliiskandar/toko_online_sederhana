@@ -21,7 +21,7 @@ class CreateTransaksionlineTriggersTable extends Migration
         FOR EACH ROW 
         BEGIN 
         DELETE FROM barangs 
-        WHERE barangs_id.id = id; 
+        WHERE barangs.user_id = user_id; 
         END');
     }
 

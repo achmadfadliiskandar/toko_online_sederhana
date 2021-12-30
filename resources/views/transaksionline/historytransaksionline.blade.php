@@ -17,8 +17,10 @@
             <thead>
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Barang yang di belanjakan</th>
-                <th scope="col">Total Belanja</th>
+                <th scope="col">Barang</th>
+                <th scope="col">Harga Barang</th>
+                <th scope="col">Jumlah Barang</th>
+                <th scope="col">Total Belanja Barang</th>
                 <th scope="col">Nama</th>
             </tr>
             </thead>
@@ -27,7 +29,9 @@
                 <tr>
                     @if ($saksi->status > 1)
                     <th scope="row">{{$loop->iteration}}</th>
-                    <td>{{$saksi->barangs_id}}</td>
+                    <td>{{$saksi->baskets->namabarang}}</td>
+                    <td>{{number_format($saksi->baskets->hargabarang)}}</td>
+                    <td>{{$saksi->stok}}</td>
                     <td>{{number_format($saksi->totalbelanja)}}</td>
                     <td>{{$saksi->user->name}}</td> 
                     </tr>

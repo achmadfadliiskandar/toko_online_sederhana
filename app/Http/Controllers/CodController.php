@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cod;
 use Auth;
+use Illuminate\Support\Facades\File;
 use App\Basket;
 use App\Barang;
+use App\CodDetails;
 use App\User;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
@@ -57,72 +59,44 @@ class CodController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            // 'telpon'=>'required',
-            'barangs_id'=>'required',
             'alamat_pengiriman'=>'required',
-            'stok'=>'required|numeric',
-            // 'pengiriman'=>'required',
             'totalbelanja'=>'required'
         ]);
+        $data = $request->all();
+        // dd($data);
         $cod = new Cod;
-        // $cod->telpon = $request->telpon;
-        // $cod->alamat_pengiriman = $request->alamat_pengiriman;
-        // $cod->stok = $request->stok;
-        // $cod->barangs = $request->barangs;
-        // $cod->baskets_id = $request->baskets_id;
-        // // $cod->kode_unik = mt_rand(100,5000);
-        // $cod->totalbelanja = $request->totalbelanja;
-        // // $cod->pengiriman = $request->pengiriman;
-        // // $cod->status = "Lunas";
-        // $cod->user_id = FacadesAuth::user()->id;
-        // $cod->save();
+        $cod->alamat_pengiriman = $data['alamat_pengiriman'];
+        $cod->totalbelanja = $data['totalbelanja'];
+        $cod->user_id = FacadesAuth::user()->id;
+        $cod->save();
 
-        // foreach ($cod as $value) {
-        // $cod = new Cod;
-        // $cod->telpon = $request->telpon;
-        // $cod->alamat = $request->alamat;
-        // $cod->barangs_id = $request->barangs_id;
-        // $cod->baskets_id = $request->baskets_id;
-        // $cod->kode_unik = mt_rand(100,5000);
-        // $cod->totalbelanja = $request->totalbelanja;
-        // $cod->pengiriman = $request->pengiriman;
-        // $cod->status = "Lunas";
-        // $cod->user_id = FacadesAuth::user()->id;
-        // $cod->save();
-        // }
-
-        // foreach ($cod as $key => $value) {
-        //     $cod = new Cod;
-        //     $cod->telpon = $request->telpon;
-        //     $cod->alamat = $request->alamat;
-        //     $cod->barangs_id = $request->barangs_id;
-        //     $cod->baskets_id = $request->baskets_id;
-        //     // $cod->barangs_id = $request->barangs_id;
-        //     // $cod->baskets_id = mt_rand(1,3);
-        //     $cod->kode_unik = mt_rand(100,5000);
-        //     $cod->totalbelanja = $request->totalbelanja;
-        //     $cod->pengiriman = $request->pengiriman;
-        //     $cod->status = "Lunas";
-        //     $cod->user_id = FacadesAuth::user()->id;
-        //     $cod->save();
-        //     }
-        // for ($x = 1; $x <= 1; $x++) {
-            foreach ($cod as $key => $value) {
-            $cod->alamat_pengiriman = $request->alamat_pengiriman;
-            $cod->stok = $request->stok;
-            $cod->barangs_id = $request->barangs_id;
-            $cod->baskets_id = $request->baskets_id;
-            // $cod->kode_unik = mt_rand(100,5000);
-            $cod->totalbelanja = $request->totalbelanja;
-            // $cod->pengiriman = $request->pengiriman;
-            // $cod->status = "Lunas";
-            $baskets = Basket::findorFail($request->baskets_id);
-            $baskets->stok -= $request->stok;
-            $baskets->save();
-            $cod->user_id = FacadesAuth::user()->id;
-            $cod->save();
+        // $detailcod = new CodDetails;
+        // $detailcod->cod_id = $cod->id;
+        // $detailcod->barangs_id = $data['barangs_id'];
+        // $detailcod->baskets_id = $data['baskets_id'];
+        // $detailcod->stok = $data['stok'];
+        // $detailcod->hargabeli = $data['hargabeli'];
+        // $detailcod->totalharga = $cod->totalbelanja;
+        // $detailcod->user_id = FacadesAuth::user()->id;
+        // $baskets = Basket::findorFail($request->baskets_id);
+        // $baskets->stok -= $request->stok;
+        // $baskets->save();
+        // $detailcod->save();
+        if (count($data['status']) > 0) {
+            foreach ($data['status'] as $item => $value) {
+                $data2 = array(
+                    'cod_id' => $cod->id,
+                    'status' => $data['status'][$item],
+                    'barangs_id' => $data['barangs_id'][$item],
+                    'baskets_id' => $data['baskets_id'][$item],
+                    'stok' => $data['stok'][$item],
+                    'hargabeli' => $data['hargabeli'][$item],
+                    'totalharga' => $cod->totalbelanja,
+                    'user_id' => FacadesAuth::user()->id
+                );
+                CodDetails::create($data2);
             }
-            // }
+        }
         return redirect('cod')->with('status','pesanan anda segera di antar');
     }
     public function datacod()

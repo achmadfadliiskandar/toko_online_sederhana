@@ -43,7 +43,7 @@
       </div>
       <div class="form-group">
         <label for="totalharga" class="d-inline">totalharga</label>
-        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}">
+        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" readonly value="{{old('totalharga')}}">
         <div class="invalid-feedback">
         @error('totalharga')
         {{$message}}
@@ -102,7 +102,7 @@
       </div>
       <div class="form-group">
         <label for="totalharga" class="d-inline">totalharga</label>
-        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" value="{{old('totalharga')}}" readonly>
+        <input type="number" id="totalharga" class="form-control @error('totalharga') is-invalid @enderror" id="totalharga" name="totalharga" readonly value="{{old('totalharga')}}" readonly>
         <div class="invalid-feedback">
         @error('totalharga')
         {{$message}}

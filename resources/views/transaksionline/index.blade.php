@@ -21,13 +21,11 @@
                     <th scope="col">Bukti</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Pengiriman</th>
-                    {{-- <th scope="col">Kode Unik</th> --}}
                     <th scope="col">Alamat Pengiriman</th>
+                    {{-- <th scope="col">Kode Unik</th> --}}
                     <th scope="col">Total bayar</th>
                     {{-- <th scope="col">Barang</th> --}}
                     <th scope="col">Status Pembayaran</th>
-                    <th scope="col">Pelunasan</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,23 +36,15 @@
                         <td><img src="/image/{{$saksi->bukti}}" width="150" alt="gambar"></td>
                         <td>{{$saksi->created_at}}</td> 
                         <td>{{$saksi->user->name}}</td> 
-                        <td>{{$saksi->pengiriman}}</td>
+                        <td>{{$saksi->alamat_pengiriman}}</td>
                         {{-- <td>{{$saksi->kode_unik}}</td> --}}
-                        <td>{{$saksi->alamatpengiriman}}</td> 
                         <td>{{number_format($saksi->totalbelanja)}}</td>
                         <td>
                         @if ($saksi->status < 0)
-                        <button class="btn btn-danger">Pending/Belum Lunas</button>
+                        <a href="/transaksionline/edit/{{$saksi->id}}" class="btn btn-success">Lunaskan sekarang</a>
                         @else
-                        <button class="btn btn-primary">Sudah Lunas</button> 
+                        <button class="btn btn-success">sudah lunas</button>
                         @endif
-                    </td>
-                    <td>
-                    @if ($saksi->status < 0)
-                    <a href="/transaksionline/edit/{{$saksi->id}}" class="btn btn-success">Lunaskan sekarang</a>
-                    @else
-                    <p class="text-danger">Lunas</p>
-                    @endif
                     </td>
                     </tr>
                     @empty

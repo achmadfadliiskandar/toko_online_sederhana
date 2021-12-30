@@ -15,16 +15,16 @@ class CreateTransaksionlinesTable extends Migration
     {
         Schema::create('transaksionlines', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('barangs_id');
+            // $table->integer('barangs_id')->nullable();
             $table->string('kartu');
+            // $table->integer('stok');
+            $table->string('status')->nullable();
             $table->string('bukti');
-            $table->string('alamatpengiriman');
+            $table->string('alamat_pengiriman');
             $table->integer('kode_unik');
-            $table->string('pengiriman');
             $table->string('totalbelanja');
-            $table->string('status');
             $table->unsignedBigInteger('user_id');
-            $table->integer('baskets_id')->nullable();
+            // $table->integer('baskets_id')->nullable();
             $table->timestamps();
         });
     }

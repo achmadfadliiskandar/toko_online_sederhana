@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateCodTriggersTable extends Migration
+class CreateKurangstoksaatpembeliantransaksionlinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,8 @@ class CreateCodTriggersTable extends Migration
      */
     public function up()
     {
-        // untuk membuat trigger cod ketika di tambah semua yang di barangs terhapus
         DB::unprepared('
-        CREATE TRIGGER `aftercreatecod` 
-        AFTER INSERT ON `cod` 
-        FOR EACH ROW 
-        BEGIN 
-        DELETE FROM barangs 
-        WHERE barangs.user_id = user_id; 
-        END');
+        CREATE TRIGGER `kurangstoksaatpembeliantransaksionlines` AFTER INSERT ON `transaksionlinesdetails` FOR EACH ROW BEGIN UPDATE baskets SET stok=stok-NEW.stok WHERE id = NEW.baskets_id; END');
     }
 
     /**
@@ -32,6 +25,6 @@ class CreateCodTriggersTable extends Migration
      */
     public function down()
     {
-        // DB:unprepared('DROP TRIGGER "aftercreatecod"');
+        // Schema::dropIfExists('kurangstoksaatpembeliantransaksionlines');
     }
 }

@@ -14,6 +14,10 @@ class Cod extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function coddetails()
+    {
+        return $this->hasMany('App\CodDetails');
+    }
     public function barangs(){
         return $this->belongsTo('App\Barang');
     }

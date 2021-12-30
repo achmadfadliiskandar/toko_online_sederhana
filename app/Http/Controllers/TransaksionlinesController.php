@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksionline;
+use App\TransaksionlinesDetails;
 use Auth;
 use App\User;
 use App\Barang;
@@ -78,28 +79,45 @@ class TransaksionlinesController extends Controller
         $request->validate([
             'bukti'=>'mimes:png,jpg,jpeg,gif,svg',
             'barangs_id'=>'required',
+            'stok' => 'required',
             'baskets_id'=>'required',
             'kartu'=>'required',
-            'pengiriman'=>'required',
-            'alamatpengiriman' => 'required',
+            // 'pengiriman'=>'required',
+            'alamat_pengiriman' => 'required',
             'totalbelanja' => 'required',
         ]);
         $imgName = $request->bukti->getClientOriginalName().'-'. time().'.'. $request->bukti->extension();
 
         $request->bukti->move(public_path('image'), $imgName);
 
-        Transaksionline::create([
-            'kartu'=> $request["kartu"],
-            'barangs_id'=> $request["barangs_id"],
-            'baskets_id'=> $request["baskets_id"],
-            'alamatpengiriman'=> $request["alamatpengiriman"],
-            'kode_unik'=> mt_rand(100,5000),
-            'pengiriman'=> $request["pengiriman"],
-            'bukti'=>$imgName,
-            'totalbelanja'=> $request["totalbelanja"],
-            'status'=> "",
-            'user_id'=> FacadesAuth::id(),
-        ]);
+        $data = $request->all();
+        $transaksionline = new Transaksionline();
+        $transaksionline->kartu = $data['kartu'];
+        $transaksionline->status ="";
+        $transaksionline->bukti = $imgName;
+        $transaksionline->alamat_pengiriman = $data['alamat_pengiriman'];
+        $transaksionline->totalbelanja = $data['totalbelanja'];
+        $transaksionline->kode_unik = mt_rand(100,5000);
+        $transaksionline->user_id = FacadesAuth::user()->id;
+        $transaksionline->save();
+        if (count($data['kodeunik']) > 0) {
+            foreach ($data['kodeunik'] as $item => $value) {
+                $data2 = array(
+                    'transaksionlines_id' => $transaksionline->id,
+                    'kodeunik' => $data['kodeunik'][$item],
+                    'barangs_id' => $data['barangs_id'][$item],
+                    'baskets_id' => $data['baskets_id'][$item],
+                    'stok' => $data['stok'][$item],
+                    'hargabeli' => $data['hargabeli'][$item],
+                    'totalharga' => $transaksionline->totalbelanja,
+                    'user_id' => FacadesAuth::user()->id
+                );
+                TransaksionlinesDetails::create($data2);
+            }
+        }
+        // $baskets = Basket::findorFail($request->baskets_id);
+        // $baskets->stok -= $request->stok;
+        // $baskets->save();
         return redirect('/transaksionline')->with('status','data anda berhasil tersimpan di server dan akan segera di kirim');
     }
 

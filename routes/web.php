@@ -68,7 +68,7 @@ Route::get('pembayaran','PembayaranController@index')->middleware('auth')->middl
 Route::get('transaksionline','TransaksionlinesController@index')->middleware('checkRole:pembeli');
 Route::get('transaksionline/edit/{id}','TransaksionlinesController@edit')->middleware('checkRole:pembeli');
 Route::get('transaksionline/create','TransaksionlinesController@create')->middleware('checkRole:pembeli');
-Route::post('transaksionline','TransaksionlinesController@store');
+Route::post('transaksionline/store','TransaksionlinesController@store');
 Route::put('transaksionline/update/{id}','TransaksionlinesController@update');
 Route::get('datato','TransaksionlinesController@datato')->middleware('checkRole:admin,penjual');
 Route::get('historytransaksionline','TransaksionlinesController@historytransaksionline')->middleware('checkRole:pembeli');
