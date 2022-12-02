@@ -77,6 +77,7 @@ Route::get('cod','CodController@index')->middleware('checkRole:pembeli');
 Route::get('cod/create','CodController@create')->middleware('checkRole:pembeli');
 Route::post('cod/store','CodController@store');
 Route::get('datacod','CodController@datacod')->middleware('checkRole:admin,penjual');
+Route::get('cod/coddetails/{id}','CodController@coddetails');
 Route::get('history','CodController@historycod')->middleware('checkRole:pembeli');
 
 

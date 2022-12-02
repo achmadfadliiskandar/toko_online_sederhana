@@ -120,6 +120,11 @@ class CodController extends Controller
         return view('cod.history',compact('cod','barangs','baskets'));
     }
 
+    public function coddetails($id){
+        $cods = Cod::with('coddetails')->where('id',$id)->first();
+        return view('cod.coddetail',compact('cods'));
+    }
+
     /**
      * Display the specified resource.
      *

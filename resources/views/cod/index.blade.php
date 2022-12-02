@@ -15,7 +15,7 @@
             <thead>
             <tr>
                 <th scope="col">NO</th>
-                <th scope="col">Waktu</th>
+                <th scope="col">Kode ID</th>
                 <th scope="col">Alamat Pengiriman</th>
                 <th scope="col">Total Belanja</th>
                 {{-- <th scope="col">Total Belanja</th> --}}
@@ -26,7 +26,7 @@
             <tbody>
             <tr>
                 <th scope="row">{{$loop->iteration}}</th>
-                <td>{{$d->created_at}}</td>
+                <td>{{$d->id}}</td>
                 <td>{{$d->alamat_pengiriman}}</td>
                 {{-- <td>{{$d->alamat}}</td> --}}
                 <td>{{number_format($d->totalbelanja)}}</td>
