@@ -44,6 +44,14 @@
                         <a class="nav-link" href="{{url('/about')}}">About</a>
                         <a class="nav-link" href="{{url('/pelayanan')}}">Services</a>
                         <a class="nav-link" href="{{url('/baskets')}}">Basket</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Shopping history
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/history">shopping history cod</a>
+                                <a class="dropdown-item" href="/transaksionline">shopping history transaksionline</a>
+                        </li>  
                         @endif
                         @if (Auth::user()->role == 'admin')
                         <a class="btn btn-primary" href="http://127.0.0.1:8000/admin">Ruang Admin</a>

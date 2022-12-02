@@ -55,40 +55,63 @@
     Detail Pesanan
 </button>
 <div class="collapse" id="collapseExample">
-<div class="form-group">
-@foreach ($barangs as $barang)
-<label for="barangs_id">Barang<sup>2</sup> yang di belanjakan</label>
-<select class="form-control" id="barangs" onclick="munculkan()" name="barangs_id[]">
-<option value="{{$barang->id}}">
-{{$barang->baskets->namabarang}}        
-</option> 
-</select>
-@endforeach 
-</div>
-
-<div class="form-group">
+    <table class="table table-bordered table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">Nama Barang</th>
+        <th scope="col">Harga Barang</th>
+        <th scope="col">Stok</th>
+        <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
     @foreach ($barangs as $barang)
-<label for="hargabeli">harga barang yang dibeli</label>
-<select class="form-control" id="hargabeli" onclick="munculkan()" name="hargabeli[]">
-<option value="{{$barang->totalharga}}">
-{{$barang->totalharga}}        
-</option> 
-</select>
-@endforeach 
-</div>
-
-<div class="form-group">
-    @foreach ($barangs as $barang)
-<label for="stok" class="d-inline">Stok Belanja Anda</label>
-<select class="form-control" id="barangs" onclick="munculkan()" name="stok[]">
-<option value="{{$barang->stok}}">
-{{$barang->stok}}        
-</option>
-</select>
-@endforeach 
-</div>
-
-<div class="form-group">
+    <tr>
+        <td>
+            {{$barang->baskets->namabarang}}
+            <div class="form-group" style="display: none;">
+                <select class="form-control" id="barangs" onclick="munculkan()" name="barangs_id[]">
+                    <option value="{{$barang->id}}">
+                    {{$barang->baskets->namabarang}}        
+                    </option> 
+                    </select>
+            </div>
+        </td>
+        <td>
+            {{$barang->totalharga}}
+            <div class="form-group" style="display: none;">
+                <select class="form-control" id="hargabeli" onclick="munculkan()" name="hargabeli[]">
+                    <option value="{{$barang->totalharga}}">
+                    {{$barang->totalharga}}        
+                    </option> 
+                    </select>
+            </div>
+        </td>
+        <td>
+            {{$barang->stok}}
+            <div class="form-group" style="display: none;">
+                <select class="form-control" id="barangs" onclick="munculkan()" name="stok[]">
+                    <option value="{{$barang->stok}}">
+                    {{$barang->stok}}        
+                    </option>
+                </select>
+            </div>
+        </td>
+        <td>
+            Lunas  
+            <div class="form-group" style="display: none;">
+                <select class="form-control" id="status" name="status[]">
+                    <option value="Lunas">
+                    Lunas        
+                    </option> 
+                    </select>
+            </div>
+        </td>
+    </tr>
+    @endforeach 
+    </tbody>
+    </table>
+<div class="form-group" style="display: none;">
 @foreach ($barangs as $barang)
 <label for="baskets_id">Pemilik Barang</label>
 <select class="form-control" id="baskets" name="baskets_id[]">
@@ -98,17 +121,9 @@
 </select>
 @endforeach 
 </div>
-<div class="form-group">
-@foreach ($barangs as $barang)
-<label for="status">Status Pembelian</label>
-<select class="form-control" id="status" name="status[]">
-<option value="Lunas">
-Lunas        
-</option> 
-</select>
-@endforeach 
+
 </div>
-<button class="btn btn-primary btn btn-block">Submit</button>
+<button type="submit" class="btn btn-primary btn btn-block">Submit</button>
 </div> 
 </div>
 </div>
