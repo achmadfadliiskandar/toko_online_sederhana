@@ -42,15 +42,15 @@ class TransaksionlinesController extends Controller
     return view('transaksionline.datato',compact('transaksionlines','baskets'));
     }
 
-    public function historytransaksionline()
+    public function historytransaksionline($id)
     {
         // $user = Auth::user();
         // $cod = $user->cod;
-        error_reporting(0);
         $user = FacadesAuth::user();
-        $transaksionlines = $user->transaksionlines;
-        $barangs = Barang::all();
-        return view('transaksionline.historytransaksionline',compact('transaksionlines','barangs'));
+        // $transaksionlines = $user->transaksionlines;
+        // $barangs = Barang::all();
+        $transaksionlines = Transaksionline::with('transaksionlinesdetail')->first('id',$id);
+        return view('transaksionline.historytransaksionline',compact('transaksionlines'));
     }
 
     /**

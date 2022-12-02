@@ -44,6 +44,7 @@
                         <a href="/transaksionline/edit/{{$saksi->id}}" class="btn btn-success">Lunaskan sekarang</a>
                         @else
                         <button class="btn btn-success">sudah lunas</button>
+                        <a href="/historytransaksionline/{{$saksi->id}}" class="btn btn-secondary">Lihat Detail</a>
                         @endif
                     </td>
                     </tr>

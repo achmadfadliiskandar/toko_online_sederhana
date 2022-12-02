@@ -20,11 +20,11 @@ use SoftDeletes;
     public function coddetail(){
     return $this->hasMany('App\CodDetail');
     }
-    // public function transaksionline(){
-    //     return $this->hashOne('App\Transaksionline');
-    // }
+    public function transaksionlinedetails(){
+        return $this->hasMany('App\TransaksionlinesDetail');
+    }
     public function khususadmins(){
         return $this->hashMany('App\Khususadmin');
-        }
+    }
     
 }
