@@ -36,7 +36,7 @@
                 <select class="form-control" name="baskets_id" style="display: none;">
                     <option value="{{$barang->baskets->id}}">{{$barang->baskets->hargabarang}}</option>
                 </select>
-                <input type="number" class="form-control" name="stok" value="{{$barang->stok}}">
+                <input type="number" class="form-control" name="stok" value="{{$barang->stok}}" max="{{$barang->baskets->stok}}" min="1">
                 <div class="input-group-append">
                     <button class="btn btn-outline-success" type="submit" id="button-addon2">Update</button>
                 </div>

@@ -77,11 +77,19 @@ class BarangsController extends Controller
         $barangs = Barang::find($id);
         $satu = $barangs->baskets->hargabarang;
         $barangs->baskets_id = $request->baskets_id;
+        if ($request->stok > $barangs->baskets->stok) {
+        alert()->info('keranjang Gagal di Update','info');
+        return redirect('/barangs');
+        }elseif ($request->stok < 1) {
+        alert()->info('keranjang Gagal di Update','info');
+        return redirect('/barangs');
+        }else {
         $barangs->stok = $request->stok;
         $barangs->totalharga = $satu * $barangs->stok;
         $barangs->save();
         alert()->success('keranjang berhasil di Update','sukses');
         return redirect('/barangs');
+        }
     }
 
     /**
