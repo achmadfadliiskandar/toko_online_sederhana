@@ -49,6 +49,7 @@ Route::get('penjual','BasketsController@penjual')->middleware('checkRole:penjual
 Route::get('/barangs','BarangsController@index')->middleware('checkRole:admin,penjual,pembeli');
 Route::get('/barangs/create','BarangsController@create')->middleware('checkRole:pembeli');
 Route::post('/barangs','BarangsController@store')->middleware('checkRole:penjual,pembeli');
+Route::put('/barangs/updateqty/{id}','BarangsController@updateqty')->middleware('checkRole:penjual,pembeli');
 // untuk hapus satu data
 Route::delete('/barangs/{basket}','BarangsController@destroy')->middleware('checkRole:admin,penjual,pembeli');
 // untuk hapus semua data alias refresh

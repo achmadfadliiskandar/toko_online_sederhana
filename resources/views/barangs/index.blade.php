@@ -27,7 +27,22 @@
         <th scope="row">{{$loop->iteration}}</th>
         <td>{{$barang->baskets->namabarang}}</td>
         <td>{{number_format($barang->baskets->hargabarang)}}</td>
-        <td>{{$barang->stok}}</td>
+        <td>
+            <form action="/barangs/updateqty/{{$barang->id}}" method="post">
+            @csrf
+            @method('PUT')
+            <div class="input-group mb-3">
+                {{-- <input type="number" class="form-control" style="display: none;" value="{{$barang->baskets->hargabarang}}"> --}}
+                <select class="form-control" name="baskets_id" style="display: none;">
+                    <option value="{{$barang->baskets->id}}">{{$barang->baskets->hargabarang}}</option>
+                </select>
+                <input type="number" class="form-control" name="stok" value="{{$barang->stok}}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success" type="submit" id="button-addon2">Update</button>
+                </div>
+            </div>
+            </form>
+        </td>
         <td>{{number_format($barang->totalharga)}}</td>
         <td>
     <form action="/barangs/{{$barang->id}}" method="post" class="my-2" onsubmit="return confirm('yakin ingin di hapus')">

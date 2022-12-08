@@ -73,6 +73,17 @@ class BarangsController extends Controller
         }
     }
 
+    public function updateqty(Request $request, $id){
+        $barangs = Barang::find($id);
+        $satu = $barangs->baskets->hargabarang;
+        $barangs->baskets_id = $request->baskets_id;
+        $barangs->stok = $request->stok;
+        $barangs->totalharga = $satu * $barangs->stok;
+        $barangs->save();
+        alert()->success('keranjang berhasil di Update','sukses');
+        return redirect('/barangs');
+    }
+
     /**
      * Display the specified resource.
      *
