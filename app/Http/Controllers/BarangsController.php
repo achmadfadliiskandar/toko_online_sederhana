@@ -62,6 +62,9 @@ class BarangsController extends Controller
         if ($request->stok > $barang->baskets->stok) {
             alert()->info('Stok Yang Anda Beli Terlalu Banyak','#informasi');
             return redirect('/baskets')->with('info','stok yang di beli terlalu banyak');
+        }elseif ($request->stok < 1) {
+            alert()->info('Stok Yang Anda Beli Kurang Dari 1','info');
+            return redirect('/baskets');
         }else {
             $barang->stok = $request->stok;
             // $baskets = Basket::findorFail($request->baskets_id);
