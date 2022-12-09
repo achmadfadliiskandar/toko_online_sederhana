@@ -20,7 +20,7 @@ class Transaksionline extends Model
     	return $this->belongsTo('App\Barang');
     }
     public function transaksionlinesdetail(){
-    	return $this->hasMany('App\TransaksionlinesDetails');
+    	return $this->hasMany('App\TransaksionlinesDetails','transaksionlines_id');
     }
     // public function konfirmasi(){
     //     return $this->hasOne('App\Konfirmasi');

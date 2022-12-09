@@ -49,7 +49,7 @@ class TransaksionlinesController extends Controller
         $user = FacadesAuth::user();
         // $transaksionlines = $user->transaksionlines;
         // $barangs = Barang::all();
-        $transaksionlines = Transaksionline::with('transaksionlinesdetail')->first('id',$id);
+        $transaksionlines = Transaksionline::where('id', $id)->first();
         return view('transaksionline.historytransaksionline',compact('transaksionlines'));
     }
 
